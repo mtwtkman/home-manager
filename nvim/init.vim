@@ -126,7 +126,7 @@ let g:airine_left_sep='<'
 " }}}
 
 " lsp {{{
-" let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_log_file = expand('~/vim-lsp.log')
 function! s:on_lsp_buffer_enable() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
@@ -148,6 +148,19 @@ if executable('haskell-language-server')
         \ 'name': 'haskell-language-server',
         \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
         \ 'allowlist': ['haskell'],
+        \ })
+endif
+" }}}
+" rust {{{2
+if executable('rust-analyzer')
+  au user lsp_setup call lsp#register_server({
+        \ 'name': 'rust-language-server',
+        \ 'cmd': { server_info->['rust-analyzer']},
+        \ 'allowlist': ['rust'],
+        \ 'initialization_options': {
+        \    'cargo': { 'loadOutDirsFromCheck': v:true },
+        \    'procMacro': { 'enable': v:true },
+        \ }
         \ })
 endif
 " }}}
