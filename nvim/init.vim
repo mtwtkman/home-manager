@@ -27,6 +27,7 @@ Plug 'tpope/vim-fugitive'
 " }}}
 " explorer {{{
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 " }}}
@@ -39,10 +40,6 @@ call plug#end()
 " style {{{
 syntax enable
 colorscheme jellybeans
-highlight Normal ctermbg=NONE
-highlight NonText ctermbg=NONE
-highlight LineNr ctermbg=NONE
-highlight Visual ctermbg=8
 filetype plugin indent on
 " }}}
 
