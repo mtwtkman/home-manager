@@ -168,4 +168,5 @@ augroup END
 
 " fern {{{
 nmap <leader>n :Fern . -drawer<CR>
+let g:fern#default_hidden=1
 " }}}
