@@ -8,6 +8,7 @@
     fzf
     tmux
     docker
+    fd
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
