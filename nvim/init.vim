@@ -192,6 +192,13 @@ nnoremap <silent> <leader>h/ :History/<CR>
 " }}}
 
 " fern {{{
-nmap <leader>n :Fern . -drawer<CR>
+nmap <silent><leader>n :Fern . -drawer -toggle<CR>
 let g:fern#default_hidden=1
+function! s:init_fern() abort
+  nmap <buffer> v <Plug>(fern-action-open:side)
+endfunction
+augroup my-fern
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
 " }}}
