@@ -3,3 +3,28 @@ PS1="\u@\w\$ "
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--reverse --extended --multi --inline-info --prompt="fzf> "'
+
+fd_fzf() {
+  cmd=$1
+  type_=$2
+  ptn=$3
+  base=$4
+  hidden=$5
+  eval "$cmd $(fd --type $type_ $ptn $base $hidden | fzf)"
+}
+
+fd_fzf_all() {
+  fd_fzf $1 $2 $3 $4 "-H"
+}
+
+fd_fzf_visible() {
+  fd_fzf $1 $2 $3 $4 ""
+}
+
+vif(){
+  fd_fzf_all "vim" "file" "." $2
+}
+
+pushf() {
+  fd_fzf_all "pushd" "directory" $1 "" $2
+}
