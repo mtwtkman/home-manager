@@ -22,9 +22,9 @@ fd_fzf_visible() {
 }
 
 vif(){
-  fd_fzf_all "vim" "file" "." $2
+  fd_fzf_all "vim" "file" $1 $2
 }
 
 pushf() {
-  fd_fzf_all "pushd" "directory" $1 "" $2
+  fd_fzf_all "pushd" "directory" $1 $2
 }
