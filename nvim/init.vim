@@ -136,8 +136,10 @@ function! s:on_lsp_buffer_enable() abort
   nmap <buffer><silent> ep <plug>(lsp-previous-error)
   nmap <buffer><silent> gh <plug>(lsp-hover)
   nmap <buffer><silent> gr <plug>(lsp-references)
+  nmap <buffer><silent> gq <plug>(lsp-document-diagnostics)
 endfunction
 let g:lsp_preview_keep_focus = 1
+let g:lsp_diagnostics_float_cursor = 1
 augroup lsp_install
   au!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enable()
