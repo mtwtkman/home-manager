@@ -9,6 +9,7 @@
     tmux
     docker
     fd
+    trash-cli
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
