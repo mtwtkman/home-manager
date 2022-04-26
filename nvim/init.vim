@@ -196,6 +196,7 @@ nmap <silent><leader>n :Fern . -drawer -toggle<CR>
 let g:fern#default_hidden=1
 function! s:init_fern() abort
   nmap <buffer> v <Plug>(fern-action-open:side)
+  nmap <buffer> l <Plug>(fern-action-lcd:cursor)
 endfunction
 augroup my-fern
   autocmd! *
