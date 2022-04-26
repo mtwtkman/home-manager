@@ -7,7 +7,6 @@
     ripgrep
     fzf
     tmux
-    docker
     fd
     trash-cli
   ];
