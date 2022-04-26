@@ -32,7 +32,9 @@ Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 " }}}
 " language {{{2
+" haskell {{{3
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+" }}}
 " }}}
 call plug#end()
 " }}}
