@@ -3,6 +3,9 @@
   home.username = "mtwtkman";
   home.homeDirectory = "/home/mtwtkman";
   home.stateVersion = "22.05";
+  home.sessionVariables = {
+    NIX_CONF_DIR = "$HOME/.config/nixpkgs";
+  };
   home.packages = with pkgs; [
     ripgrep
     fzf
