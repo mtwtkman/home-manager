@@ -5,4 +5,5 @@
   rm = "trash-put";
   hm = "home-manager";
   update = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove";
+  hf = "history | fzf";
 }
