@@ -7,7 +7,7 @@ mkdir ${config_path}
 
 echo 'install nix'
 # ref: https://nixos.org/download.html
-sh <(curl -L https://nixos.org/nix/install) --daemon
+curl -L https://nixos.org/nix/install | sh
 
 echo 'install home-manager'
 # ref: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
