@@ -82,10 +82,6 @@ set backspace=indent,eol,start
 let mapleader = ','
 nmap <ESC><ESC> :<C-u>nohlsearch<CR>
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-nnoremap <silent><C-w><S-j> :resize -5<CR>
-nnoremap <silent><C-w><S-k> :resize +5<CR>
-nnoremap <silent><C-w><S-h> :vertical resize -5<CR>
-nnoremap <silent><C-w><S-l> :vertical resize +5<CR>
 " }}}
 
 " move {{{
