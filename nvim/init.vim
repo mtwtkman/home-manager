@@ -35,6 +35,9 @@ Plug 'lambdalisue/fern-hijack.vim'
 " haskell {{{3
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " }}}
+" nix {{{
+Plug 'LnL7/vim-nix', { 'for': 'nix' }
+" }}}
 " }}}
 call plug#end()
 " }}}
