@@ -12,6 +12,7 @@
     tmux
     fd
     trash-cli
+    rnix-lsp
   ];
   xdg.configFile = {
     nvim.source = ./nvim;

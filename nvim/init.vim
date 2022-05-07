@@ -168,6 +168,15 @@ if executable('rust-analyzer')
         \ })
 endif
 " }}}
+" nix {{{
+if executable('rnix-lsp')
+  au user lsp_setup call lsp#register_server({
+        \ 'name': 'rnix-lsp',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'rnix-lsp']},
+        \ 'allowlist': ['nix'],
+        \ })
+endif
+" }}}
 " }}}
 
 " snippets {{{
