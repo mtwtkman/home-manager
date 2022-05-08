@@ -13,6 +13,7 @@
     fd
     trash-cli
     rnix-lsp
+    neovim-remote
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
@@ -29,16 +30,13 @@
   };
   programs.git = {
     enable = true;
-    userEmail = "924277+mtwtkman@users.noreply.github.com";
-    userName = "mtwtkman";
-    extraConfig = {
-      core.editor = "vim";
-    };
+    iniContent = import ./git/gitconfig;
   };
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;
     vimAlias = true;
+    vimdiffAlias = true;
     withPython3 = true;
     withRuby = false;
     extraPython3Packages = (ps: with ps; [

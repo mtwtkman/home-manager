@@ -85,6 +85,10 @@ set backspace=indent,eol,start
 let mapleader = ','
 nmap <ESC><ESC> :<C-u>nohlsearch<CR>
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+if executable('nvr')
+  let $GIT_EDITOR='nvr -cc split --remote-wait'
+  autocmd FileType git commit,gitrebase,gitconfig set bufhidden=delete
+endif
 " }}}
 
 " move {{{
