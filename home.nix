@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
-{
-  home.username = "mtwtkman";
-  home.homeDirectory = "/home/mtwtkman";
-  home.stateVersion = "22.05";
+let
+  meta = import ./meta.nix;
+in {
+  home.username = meta.username;
+  home.homeDirectory = meta.home;
+  home.stateVersion = meta.homeManagerStateVersion;
   home.sessionVariables = {
     NIX_CONF_DIR = "$HOME/.config/nixpkgs";
   };
