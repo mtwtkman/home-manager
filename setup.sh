@@ -20,6 +20,6 @@ echo 'install repo'
 nix-shell -p git --run "git clone git@github.com:mtwtkman/home-manager ${config_path}/nixpkgs"
 
 echo 'activate home-manager'
-home-manager switch
+NIX_CONF_DIR=~/.config/nixpkgs home-manager --impure switch
 
 echo 'done'
