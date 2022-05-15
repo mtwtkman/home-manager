@@ -7,6 +7,9 @@
   update = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove";
   hf = "history | fzf";
   dev = "nix develop";
-  nvim = "nvim --listen /tmp/nvimsocket";
-  vim = "nvim";
+  vim = "nvim --listen /tmp/nvimsocket";
+  v = "vim";
+  vr = "nvr -c 'set number'";
+  vrv = "vr -cc vsplit --remote-wait";
+  vrh = "vr -cc split --remote-wait";
 }

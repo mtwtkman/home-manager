@@ -124,9 +124,13 @@ tnoremap <silent> <C-w>k <C-\><C-n><C-w>k
 tnoremap <silent> <C-w>l <C-\><C-n><C-w>l
 tnoremap <silent> <C-w>gt <C-\><C-n>gt
 tnoremap <silent> <C-w>gT <C-\><C-n>gT
-nnoremap <silent><leader>ssh :sp<CR>:terminal<CR>:set nonumber<CR>a
-nnoremap <silent><leader>vsh :vsp<CR>:terminal<CR>:set nonumber<CR>a
-nnoremap <silent><leader>tsh :tabe<CR>:terminal<CR>:set nonumber<CR>a
+nnoremap <silent><leader>ssh :sp<CR>:terminal<CR>a
+nnoremap <silent><leader>vsh :vsp<CR>:terminal<CR>a
+nnoremap <silent><leader>tsh :tabe<CR>:terminal<CR>a
+augroup terminal_buffer
+  au!
+  autocmd TermEnter * set nonumber
+augroup END
 " }}}
 
 " airline {{{
@@ -184,13 +188,13 @@ if executable('rnix-lsp')
         \ })
 endif
 " }}}
-" typescript {{{
+" javascript/typescript {{{
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'typescript-language-server',
         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-        \ 'allowlist': ['typescript', 'typescript.tsx', 'typescriptreact'],
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['tsconfig.json', 'package.json']))},
+        \ 'allowlist': ['typescript', 'typescript.tsx', 'typescriptreact', 'javascript', 'javascriptreact'],
         \ })
 endif
 " }}}
