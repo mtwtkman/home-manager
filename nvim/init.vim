@@ -133,11 +133,6 @@ augroup terminal_buffer
 augroup END
 " }}}
 
-" airline {{{
-let g:airine_left_sep='>'
-let g:airine_left_sep='<'
-" }}}
-
 " lsp {{{
 " let g:lsp_log_file = expand('~/vim-lsp.log')
 function! s:on_lsp_buffer_enable() abort
