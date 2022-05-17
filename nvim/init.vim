@@ -116,6 +116,11 @@ vmap gx <Plug>(openbrowser-smart-search)
 nmap gxs <Plug>(openbrowser-search)
 " }}}
 
+" location {{{
+nnoremap <silent> <leader>x :lcd %:p:h<CR>
+nnoremap <silent> <leader>z :lch<CR>
+" }}}
+
 " terminal {{{
 tnoremap <silent> <ESC> <C-\><C-n>
 tnoremap <silent> <C-w>h <C-\><C-n><C-w>h
@@ -239,3 +244,4 @@ augroup my-fern
   autocmd FileType fern call s:init_fern()
 augroup END
 " }}}
+
