@@ -129,6 +129,23 @@ endfunction
 nnoremap <silent> <leader>z :call <SID>back_to_workspace_root()<CR>
 " }}}
 
+" terminal {{{
+tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> <C-w>h <C-\><C-n><C-w>h
+tnoremap <silent> <C-w>j <C-\><C-n><C-w>j
+tnoremap <silent> <C-w>k <C-\><C-n><C-w>k
+tnoremap <silent> <C-w>l <C-\><C-n><C-w>l
+tnoremap <silent> <C-w>gt <C-\><C-n>gt
+tnoremap <silent> <C-w>gT <C-\><C-n>gT
+nnoremap <silent><leader>ssh :sp<CR>:terminal<CR>a
+nnoremap <silent><leader>vsh :vsp<CR>:terminal<CR>a
+nnoremap <silent><leader>tsh :tabe<CR>:terminal<CR>a
+augroup terminal_buffer
+  au!
+  autocmd TermEnter * set nonumber
+augroup END
+" }}}
+
 " lsp {{{
 " let g:lsp_log_file = expand('~/vim-lsp.log')
 function! s:on_lsp_buffer_enable() abort
