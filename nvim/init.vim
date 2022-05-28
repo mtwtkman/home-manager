@@ -242,6 +242,7 @@ nnoremap <silent> <leader>h/ :History/<CR>
 
 " fern {{{
 nmap <silent><leader>n :Fern . -drawer -toggle<CR>
+nmap <silent><leader>m :Fern %:h -drawer -toggle<CR>
 let g:fern#default_hidden=1
 function! s:init_fern() abort
   nmap <buffer> v <Plug>(fern-action-open:side)
