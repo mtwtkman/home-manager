@@ -107,6 +107,7 @@ augroup AutoRemoveEdgeBlanks
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
+nnoremap <C-l> :e! %<CR>
 " }}}
 
 " openbrowser {{{
