@@ -16,6 +16,7 @@ in {
     trash-cli
     rnix-lsp
     neovim-remote
+    vimPlugins.vim-plug
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
@@ -24,6 +25,10 @@ in {
     ".tmux.conf".source = ./tmux/tmux.conf;
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   programs.home-manager.enable = true;
   programs.bash = {
     enable = true;
@@ -44,5 +49,8 @@ in {
     extraPython3Packages = (ps: with ps; [
       pynvim
     ]);
+    extraConfig = ''
+      source ${pkgs.vimPlugins.vim-plug}/plug.vim
+    '';
   };
 }
