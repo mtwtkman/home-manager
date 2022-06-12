@@ -4,6 +4,10 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--reverse --extended --multi --inline-info --prompt="fzf> "'
 
+export EDITOR=`which vim`
+
+eval "$(direnv hook bash)"
+
 fd_fzf() {
   cmd=$1
   type_=$2
