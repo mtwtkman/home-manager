@@ -16,7 +16,6 @@ in {
     trash-cli
     rnix-lsp
     neovim-remote
-    vimPlugins.vim-plug
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
@@ -49,8 +48,5 @@ in {
     extraPython3Packages = (ps: with ps; [
       pynvim
     ]);
-    extraConfig = ''
-      source ${pkgs.vimPlugins.vim-plug}/plug.vim
-    '';
   };
 }
