@@ -18,6 +18,8 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " visual {{{2
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter-context'
 " }}}
 " browse {{{2
 Plug 'tyru/open-browser.vim'
@@ -38,6 +40,9 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " }}}
 " nix {{{
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
+" }}}
+" html {{{
+Plug 'mattn/emmet-vim', { 'for': 'html' }
 " }}}
 " }}}
 call plug#end()
@@ -214,6 +219,16 @@ if executable('pyls')
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'allowlist': ['python'],
+        \ })
+endif
+" }}}
+" elm {{{
+if executable('elm-language-server')
+  au user lsp_setup call lsp#register_server({
+        \ 'name': 'elm-language-server',
+        \ 'cmd': {server_info->['elm-language-server']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['elm.json']))},
+        \ 'allowlist': ['elm'],
         \ })
 endif
 " }}}
