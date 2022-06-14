@@ -18,7 +18,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " visual {{{2
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 " }}}
 " browse {{{2
@@ -35,12 +35,6 @@ Plug 'lambdalisue/fern-hijack.vim'
 Plug 'LumaKernel/fern-mapping-fzf.vim'
 " }}}
 " language {{{2
-" haskell {{{3
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-" }}}
-" nix {{{
-Plug 'LnL7/vim-nix', { 'for': 'nix' }
-" }}}
 " html {{{
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 " }}}
@@ -294,4 +288,13 @@ endfunction
 let g:Fern_mapping_fzf_file_sink = function('s:reveal')
 let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
 " }}}
+
+" treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = { enable = true },
+  indent = { enable = true },
+  incremental_selection = { enable = true },
+}
+EOF
 
