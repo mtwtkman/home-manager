@@ -16,6 +16,7 @@ in {
     trash-cli
     rnix-lsp
     neovim-remote
+    gcc
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
@@ -45,6 +46,7 @@ in {
     vimdiffAlias = true;
     withPython3 = true;
     withRuby = false;
+    withNodeJs = true;
     extraPython3Packages = (ps: with ps; [
       pynvim
     ]);
