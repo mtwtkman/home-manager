@@ -137,12 +137,12 @@ tnoremap <silent> <C-w>k <C-\><C-n><C-w>k
 tnoremap <silent> <C-w>l <C-\><C-n><C-w>l
 tnoremap <silent> <C-w>gt <C-\><C-n>gt
 tnoremap <silent> <C-w>gT <C-\><C-n>gT
-nnoremap <silent><leader>ssh :sp<ESC>:terminal<CR>
-nnoremap <silent><leader>vsh :vsp<CR>:terminal<CR>
-nnoremap <silent><leader>tsh :tabe<CR>:terminal<CR>
+nnoremap <silent><leader>st :sp<ESC>:terminal<CR>
+nnoremap <silent><leader>vt :vsp<CR>:terminal<CR>
+nnoremap <silent><leader>tt :tabe<CR>:terminal<CR>
 augroup terminal_buffer
   au!
-  autocmd TermEnter * set nonumber
+  autocmd TermEnter * setlocal nonumber
   autocmd TermOpen * startinsert
 augroup END
 " }}}
