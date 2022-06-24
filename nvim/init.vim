@@ -299,7 +299,7 @@ let g:Fern_mapping_fzf_file_sink = function('s:reveal')
 let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
 " }}}
 
-" treesitter
+" treesitter {{{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = { enable = true },
@@ -307,4 +307,4 @@ require'nvim-treesitter.configs'.setup {
   incremental_selection = { enable = true },
 }
 EOF
-
+" }}}
