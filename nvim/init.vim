@@ -226,16 +226,6 @@ if executable('elm-language-server')
         \ })
 endif
 " }}}
-" svelte {{{
-if executable('svelteserver')
-  au user lsp_setup call lsp#register_server({
-        \ 'name': 'svelteserver',
-        \ 'cmd': {server_info->['svelteserver']},
-        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['svelte.config.js']))},
-        \ 'allowlist': ['svelte'],
-        \ })
-endif
-" }}}
 " }}}
 
 " snippets {{{
