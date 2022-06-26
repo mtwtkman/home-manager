@@ -12,4 +12,5 @@
   vr = "nvr -c 'set number'";
   vrv = "vr -cc vsplit --remote-wait";
   vrh = "vr -cc split --remote-wait";
+  nixsearch = "nix-env -f '<nixpkgs>' -qaP";
 }

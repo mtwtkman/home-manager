@@ -148,7 +148,15 @@ augroup END
 " }}}
 
 " lsp {{{
-" let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_log_file = ''
+function! s:enable_lsp_log() abort
+  let g:lsp_log_file = expand('~/vim-lsp.log')
+endfunction
+function! s:disable_lsp_log() abort
+  let g:lsp_log_file = ''
+endfunction
+command EnableLspLog call <SID>enable_lsp_log()
+command DisableLspLog call <SID>disable_lsp_log()
 function! s:on_lsp_buffer_enable() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
@@ -224,6 +232,15 @@ if executable('elm-language-server')
         \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['elm.json']))},
         \ 'allowlist': ['elm'],
         \ })
+endif
+" }}}
+" html {{{
+if executable('html-languageserver')
+  au User lsp_setup call lsp#register_server({
+    	\ 'name': 'html-languageserver',
+    	\ 'cmd': {server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+    	\ 'whitelist': ['html'],
+  		\ })
 endif
 " }}}
 " }}}
