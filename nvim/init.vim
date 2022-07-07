@@ -106,7 +106,7 @@ augroup AutoRemoveEdgeBlanks
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
-nnoremap <C-l> :e! %<CR>
+nnoremap <silent> <C-l> :e! %<CR>
 " }}}
 
 " openbrowser {{{
@@ -155,8 +155,8 @@ endfunction
 function! s:disable_lsp_log() abort
   let g:lsp_log_file = ''
 endfunction
-command EnableLspLog call <SID>enable_lsp_log()
-command DisableLspLog call <SID>disable_lsp_log()
+command! EnableLspLog call <SID>enable_lsp_log()
+command! DisableLspLog call <SID>disable_lsp_log()
 function! s:on_lsp_buffer_enable() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
