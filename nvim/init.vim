@@ -216,10 +216,10 @@ if executable('typescript-language-server')
 endif
 " }}}
 " python {{{
-if executable('pyls')
+if executable('pylsp')
   au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
         \ 'allowlist': ['python'],
         \ })
 endif
