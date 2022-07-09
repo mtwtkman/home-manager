@@ -76,6 +76,12 @@ set smartcase
 set foldmethod=marker
 set mouse=
 set clipboard=unnamed
+if has('wsl')
+  augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe', @")
+  augroup END
+endif
 set splitbelow
 set splitright
 set updatetime=300
