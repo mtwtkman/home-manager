@@ -32,3 +32,13 @@ vif(){
 pushf() {
   fd_fzf_all "pushd" "directory" $1 $2
 }
+
+shellnix() {
+  echo 'with import <nixpkgs> {};
+mkShell {
+  packages =
+    [
+    ];
+}
+  ' > shell.nix
+}
