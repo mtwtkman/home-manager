@@ -36,9 +36,8 @@ pushf() {
 shellnix() {
   echo 'with import <nixpkgs> {};
 mkShell {
-  packages =
-    [
-    ];
+  packages = [
+  ];
 }
   ' > shell.nix
 }
