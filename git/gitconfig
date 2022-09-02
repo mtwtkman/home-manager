@@ -4,6 +4,10 @@
     name = "mtwtkman";
   };
 
+  init = {
+    defaultBranch = "main";
+  };
+
   core = {
     edtor = "nvr --remote-wait-silent";
   };
