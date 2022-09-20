@@ -9,7 +9,7 @@
   };
 
   core = {
-    edtor = "nvr --remote-wait-silent";
+    editor = "vim";
   };
 
   diff = {
