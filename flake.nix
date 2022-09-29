@@ -15,11 +15,11 @@
       system = meta.system;
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      homeConfigurations.${meta.username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-        ./home.nix
-        ];
-      };
+      homeConfigurations.${meta.username} =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home.nix ];
+        };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     };
 }

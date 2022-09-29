@@ -1,13 +1,10 @@
 { config, pkgs, ... }:
-let
-  meta = import ./meta.nix;
+let meta = import ./meta.nix;
 in {
   home.username = meta.username;
   home.homeDirectory = meta.home;
   home.stateVersion = meta.homeManagerStateVersion;
-  home.sessionVariables = {
-    NIX_CONF_DIR = "$HOME/.config/nixpkgs";
-  };
+  home.sessionVariables = { NIX_CONF_DIR = "$HOME/.config/nixpkgs"; };
   home.packages = with pkgs; [
     ripgrep
     fzf
@@ -18,12 +15,8 @@ in {
     neovim-remote
     gcc
   ];
-  xdg.configFile = {
-    nvim.source = ./nvim;
-  };
-  home.file = {
-    ".tmux.conf".source = ./tmux/tmux.conf;
-  };
+  xdg.configFile = { nvim.source = ./nvim; };
+  home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
 
   programs.direnv = {
     enable = true;
@@ -47,8 +40,6 @@ in {
     withPython3 = true;
     withRuby = false;
     withNodeJs = true;
-    extraPython3Packages = (ps: with ps; [
-      pynvim
-    ]);
+    extraPython3Packages = (ps: with ps; [ pynvim ]);
   };
 }
