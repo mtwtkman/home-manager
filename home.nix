@@ -14,6 +14,7 @@ in {
     rnix-lsp
     neovim-remote
     gcc
+    gnupg
   ];
   xdg.configFile = { nvim.source = ./nvim; };
   home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
