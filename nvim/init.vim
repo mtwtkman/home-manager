@@ -95,6 +95,7 @@ if executable('nvr')
   let $GIT_EDITOR='nvr -cc split --remote-wait'
   autocmd FileType git commit,gitrebase,gitconfig set bufhidden=delete
 endif
+set ambiwidth=double
 " }}}
 
 " move {{{
