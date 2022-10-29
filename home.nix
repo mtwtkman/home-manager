@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let meta = import ./meta.nix;
-in {
+in
+{
   home.username = meta.username;
   home.homeDirectory = meta.home;
   home.stateVersion = meta.homeManagerStateVersion;
