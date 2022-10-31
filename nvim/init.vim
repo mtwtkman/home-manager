@@ -95,6 +95,12 @@ if executable('nvr')
   let $GIT_EDITOR='nvr -cc split --remote-wait'
   autocmd FileType git commit,gitrebase,gitconfig set bufhidden=delete
 endif
+function! Fixsize(height) abort
+  execute 'resize' a:height
+  set wfh
+  set wfw
+endfunction
+command! -nargs=1 FW call Fixsize(<args>)
 " }}}
 
 " move {{{
@@ -283,6 +289,7 @@ let g:fern#default_hidden=1
 function! s:init_fern() abort
   nmap <buffer> v <Plug>(fern-action-open:side)
   nmap <buffer> x <Plug>(fern-action-lcd:cursor)
+  nmap <buffer> r <Plug>(fern-action-reload)
 endfunction
 augroup my-fern
   autocmd! *
@@ -290,7 +297,6 @@ augroup my-fern
 augroup END
 function! Fern_mapping_fzf_customize_option(spec)
     let a:spec.options .= ' --multi'
-    " Note that fzf#vim#with_preview comes from fzf.vim
     if exists('*fzf#vim#with_preview')
         return fzf#vim#with_preview(a:spec)
     else
