@@ -257,6 +257,15 @@ if executable('html-languageserver')
   		\ })
 endif
 " }}}
+" java {{{
+if executable('java-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'java-language-server',
+        \ 'cmd': {server_info->['java-language-server']},
+        \ 'whitelist': ['java'],
+        \ })
+endif
+" }}}
 " }}}
 
 " snippets {{{
