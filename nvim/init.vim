@@ -101,6 +101,7 @@ function! Fixsize(height) abort
   set wfw
 endfunction
 command! -nargs=1 FW call Fixsize(<args>)
+nmap <silent> fw :FW<space>
 " }}}
 
 " move {{{
