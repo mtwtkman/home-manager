@@ -1,0 +1,13 @@
+packages:
+  - ghc
+  - cabal-install
+  - haskell-language-server
+  - haskellPackages.ormolu
+shellAliases:
+  b: "cabal build"
+  c: "cabal clean"
+  run: "cabal run --"
+  t: "cabal test"
+  repl: "cabal repl"
+  fmt: "ormolu -i ./**/*.hs"
+shellHook: ""

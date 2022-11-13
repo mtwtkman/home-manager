@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-let meta = import ./meta.nix;
+let
+  meta = import ./meta.nix;
+  pura = import ./packages/pura.nix { nixpkgs = pkgs; };
 in
 {
   home.username = meta.username;
@@ -16,6 +18,7 @@ in
     neovim-remote
     gcc
     gnupg
+    pura
   ];
   xdg.configFile = { nvim.source = ./nvim; };
   home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };

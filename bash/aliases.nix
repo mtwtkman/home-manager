@@ -14,4 +14,5 @@
   vrh = "vr -cc split --remote-wait";
   nixsearch = "nix-env -f '<nixpkgs>' -qaP";
   ns = "nix-shell";
+  pura = "pura -r ~/.config/nixpkgs/pura";
 }
