@@ -3,6 +3,7 @@ packages:
   - cabal-install
   - haskell-language-server
   - haskellPackages.ormolu
+  - haskellPackages.cabal2nix
 shellAliases:
   b: "cabal build"
   c: "cabal clean"
