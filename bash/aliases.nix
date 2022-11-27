@@ -3,7 +3,7 @@
   la = "ls -A";
   l = "ls -CF";
   rm = "trash-put";
-  hm = "home-manager --impure";
+  hm = "NIXPKGS_ALLOW_UNFREE=1 home-manager --impure";
   update = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove";
   hf = "history | fzf";
   dev = "nix develop";

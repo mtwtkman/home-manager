@@ -19,6 +19,7 @@ in
     gcc
     gnupg
     pura
+    _1password
   ];
   xdg.configFile = { nvim.source = ./nvim; };
   home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
