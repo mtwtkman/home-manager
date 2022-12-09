@@ -13,7 +13,7 @@
     let
       meta = import ./meta.nix;
       system = meta.system;
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs { config = { allowUnfree = true; }; };
     in {
       homeConfigurations.${meta.username} =
         home-manager.lib.homeManagerConfiguration {
