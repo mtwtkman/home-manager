@@ -9,6 +9,8 @@ echo 'install nix'
 # ref: https://nixos.org/download.html
 curl -L https://nixos.org/nix/install | sh
 
+. $HOME/.nix-profile/etc/profile.d/nix.sh
+
 echo 'install home-manager'
 # ref: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
 export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
