@@ -1,9 +1,9 @@
 #!/bin/sh
 
-config_path="~/.config"
+config_path="${HOME}/.config"
 
 echo "arrange the config directory"
-mkdir ${config_path}
+[ ! -d "${config_path}" ] && mkdir ${config_path}
 
 echo 'install nix'
 # ref: https://nixos.org/download.html
