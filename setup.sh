@@ -1,6 +1,7 @@
 #!/bin/sh
 
 config_path="${HOME}/.config"
+my_home_manager_path="${config_path}/nixpkgs"
 
 echo "arrange the config directory"
 [ ! -d "${config_path}" ] && mkdir ${config_path}
@@ -19,10 +20,10 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 echo 'install repo'
-rm -rf ${config_path}/nixpkgs
-nix-shell -p git --run "git clone git@github.com:mtwtkman/home-manager ${config_path}/nixpkgs"
+rm -rf ${my_home_manager_path}
+nix-shell -p git --run "git clone git@github.com:mtwtkman/home-manager ${my_home_manager_path}"
 
 echo 'activate home-manager'
-NIX_CONF_DIR=~/.config/nixpkgs home-manager --impure switch
+nix-shell -p git --run "NIX_CONF_DIR=${my_home_manager_path} home-manager --impure switch"
 
 echo 'done'
