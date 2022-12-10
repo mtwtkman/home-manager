@@ -19,6 +19,7 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 echo 'install repo'
+rm -rf ${config_path}/nixpkgs
 nix-shell -p git --run "git clone git@github.com:mtwtkman/home-manager ${config_path}/nixpkgs"
 
 echo 'activate home-manager'
