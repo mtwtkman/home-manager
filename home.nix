@@ -47,5 +47,8 @@ in
     withRuby = false;
     withNodeJs = true;
     extraPython3Packages = (ps: with ps; [ pynvim ]);
+    plugins = [
+      pkgs.vimPlugins.vim-plug
+    ];
   };
 }
