@@ -267,6 +267,15 @@ if executable('java-language-server')
         \ })
 endif
 " }}}
+" scala {{{
+if executable('metals')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'metals',
+        \ 'cmd': {server_info->['metals']},
+        \ 'whitelist': ['scala', 'sbt'],
+        \ })
+endif
+" }}}
 " }}}
 
 " snippets {{{

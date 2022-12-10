@@ -1,0 +1,8 @@
+packages:
+  - dotty
+  - sbt
+  - ammonite
+  - scalafmt
+  - metals
+shellAliases: {}
+shellHook: ""
