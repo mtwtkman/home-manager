@@ -2,6 +2,7 @@
 let
   meta = import ./meta.nix;
   pura = import ./packages/pura.nix { nixpkgs = pkgs; };
+  inherit (config.lib.file) mkOutOfStoreSymlink;
 in
 {
   home.username = meta.username;
@@ -21,7 +22,10 @@ in
     pura
     _1password
   ];
-  xdg.configFile = { nvim.source = ./nvim; };
+  xdg.configFile = {
+    nvim.source = ./nvim;
+    "nvim/lua".source = ./nvim/lua;
+  };
   home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
 
   programs.direnv = {
