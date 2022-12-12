@@ -161,6 +161,7 @@ augroup END
 " }}}
 
 " lsp {{{
+" lua require("lsp_setting")
 let g:lsp_log_file = ''
 function! s:enable_lsp_log() abort
   let g:lsp_log_file = expand('~/vim-lsp.log')

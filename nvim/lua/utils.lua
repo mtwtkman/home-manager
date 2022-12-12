@@ -12,10 +12,6 @@ function M.concat_array(a, b)
   return {unpack(a), unpack(b)}
 end
 
-function M.attach_array(x, xs)
-  return M.concat_array({x}, xs)
-end
-
 function M.optional_value(x, default)
   if (x == nil) then
     return default
@@ -24,7 +20,7 @@ function M.optional_value(x, default)
 end
 
 function M.nmap(key, callback, option)
-  vim.keymap.set("n", key, callback, optional_value(option, {}))
+  vim.keymap.set("n", key, callback, M.optional_value(option, {}))
 end
 
 return M
