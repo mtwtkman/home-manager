@@ -15,6 +15,9 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " }}}
+" dap {{{
+Plug 'mfussenegger/nvim-dap'
+" }}}
 " visual {{{2
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
