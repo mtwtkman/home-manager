@@ -287,7 +287,7 @@ augroup END
 " }}}
 
 " fzf {{{
-let g:fzf_layout = { 'down': '30%' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 function! s:fzf_grep_only_buffer_file() abort
   command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang> 0)
 endfunction
