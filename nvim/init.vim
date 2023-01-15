@@ -1,5 +1,0 @@
-lua require("style")
-lua require("basic")
-lua require("move")
-lua require("terminal")
-lua require("plugins")
