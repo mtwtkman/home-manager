@@ -13,7 +13,7 @@
   vr = "nvr -c 'set number'";
   vrv = "vr -cc vsplit --remote-wait";
   vrh = "vr -cc split --remote-wait";
-  nixsearch = "nix-env -f '<nixpkgs>' -qaP";
+  nixsearch = "nix-env -f '<nixpkgs>' -qaPA";
   ns = "nix-shell";
   pura = "pura -r ~/.config/nixpkgs/pura";
   devshell = "nix flake new -t \"github:numtide/devshell\"";
