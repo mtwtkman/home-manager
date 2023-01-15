@@ -42,31 +42,17 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 call plug#end()
 " }}}
 
-" style {{{
 lua require("styles")
-" syntax enable
-" colorscheme jellybeans
-" filetype plugin indent on
-" }}}
 
 " basic {{{1
 set hidden
 set undofile
 set encoding=UTF-8
-set number
-set ruler
-set title
-set showtabline=2
-set scrolloff=5
-set tabstop=2
-set expandtab
 set shiftwidth=2
 set smartindent
 set smarttab
-set cmdheight=2
 set showmatch
 set whichwrap=b,s,h,l,<,>,[,]
-set nowrap
 set nobackup
 set nowritebackup
 set noswapfile
@@ -87,22 +73,20 @@ set splitbelow
 set splitright
 set updatetime=300
 set shortmess+=c
-set signcolumn=yes
 set backspace=indent,eol,start
 let mapleader = ','
 nmap <ESC><ESC> :<C-u>nohlsearch<CR>
-set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 if executable('nvr')
   let $GIT_EDITOR='nvr -cc split --remote-wait'
   autocmd FileType git commit,gitrebase,gitconfig set bufhidden=delete
 endif
-function! Fixsize(height) abort
-  execute 'resize' a:height
-  set wfh
-  set wfw
-endfunction
-command! -nargs=1 FW call Fixsize(<args>)
-nmap <silent> fw :FW<space>
+" function! Fixsize(height) abort
+"   execute 'resize' a:height
+"   set wfh
+"   set wfw
+" endfunction
+" command! -nargs=1 FW call Fixsize(<args>)
+" nmap <silent> fw :FW<space>
 " }}}
 
 " move {{{

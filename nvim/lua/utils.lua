@@ -19,8 +19,12 @@ function M.optional_value(x, default)
   return x
 end
 
-function M.nmap(key, callback, option)
-  vim.keymap.set("n", key, callback, M.optional_value(option, {}))
+function M.create_map(mode, lhs, rhs, value, options)
+  vim.keymap.set(mode, lhs, rhs, value, M.optional_value(options, { nargs = 1 }))
+end
+
+function M.nmap(lhs, rhs, value, options)
+  M.create_map("n", lhs, rhs, value, options)
 end
 
 return M
