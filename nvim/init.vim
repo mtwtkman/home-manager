@@ -43,50 +43,8 @@ call plug#end()
 " }}}
 
 lua require("styles")
-
+lua require("basics")
 " basic {{{1
-set hidden
-set undofile
-set encoding=UTF-8
-set shiftwidth=2
-set smartindent
-set smarttab
-set showmatch
-set whichwrap=b,s,h,l,<,>,[,]
-set nobackup
-set nowritebackup
-set noswapfile
-set history=1000
-set incsearch
-set ignorecase
-set smartcase
-set foldmethod=marker
-set mouse=
-set clipboard=unnamed
-if has('wsl')
-  augroup Yank
-    autocmd!
-    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe', @")
-  augroup END
-endif
-set splitbelow
-set splitright
-set updatetime=300
-set shortmess+=c
-set backspace=indent,eol,start
-let mapleader = ','
-nmap <ESC><ESC> :<C-u>nohlsearch<CR>
-if executable('nvr')
-  let $GIT_EDITOR='nvr -cc split --remote-wait'
-  autocmd FileType git commit,gitrebase,gitconfig set bufhidden=delete
-endif
-" function! Fixsize(height) abort
-"   execute 'resize' a:height
-"   set wfh
-"   set wfw
-" endfunction
-" command! -nargs=1 FW call Fixsize(<args>)
-" nmap <silent> fw :FW<space>
 " }}}
 
 " move {{{
@@ -291,41 +249,41 @@ nnoremap <silent> <leader>h/ :History/<CR>
 " }}}
 
 " fern {{{
-nmap <silent><leader>n :Fern . -drawer -toggle<CR>
-nmap <silent><leader>m :Fern %:h -drawer -toggle<CR>
-let g:fern#default_hidden=1
-function! s:init_fern() abort
-  nmap <buffer> v <Plug>(fern-action-open:side)
-  nmap <buffer> x <Plug>(fern-action-lcd:cursor)
-  nmap <buffer> r <Plug>(fern-action-reload)
-endfunction
-augroup my-fern
-  autocmd! *
-  autocmd FileType fern call s:init_fern()
-augroup END
-function! Fern_mapping_fzf_customize_option(spec)
-    let a:spec.options .= ' --multi'
-    if exists('*fzf#vim#with_preview')
-        return fzf#vim#with_preview(a:spec)
-    else
-        return a:spec
-    endif
-endfunction
-
-function! Fern_mapping_fzf_before_all(dict)
-    if !len(a:dict.lines)
-        return
-    endif
-    return a:dict.fern_helper.async.update_marks([])
-endfunction
-
-function! s:reveal(dict)
-    execute "FernReveal -wait" a:dict.relative_path
-    execute "normal \<Plug>(fern-action-mark:set)"
-endfunction
-
-let g:Fern_mapping_fzf_file_sink = function('s:reveal')
-let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
+" nmap <silent><leader>n :Fern . -drawer -toggle<CR>
+" nmap <silent><leader>m :Fern %:h -drawer -toggle<CR>
+" let g:fern#default_hidden=1
+" function! s:init_fern() abort
+"   nmap <buffer> v <Plug>(fern-action-open:side)
+"   nmap <buffer> x <Plug>(fern-action-lcd:cursor)
+"   nmap <buffer> r <Plug>(fern-action-reload)
+" endfunction
+" augroup my-fern
+"   autocmd! *
+"   autocmd FileType fern call s:init_fern()
+" augroup END
+" function! Fern_mapping_fzf_customize_option(spec)
+"     let a:spec.options .= ' --multi'
+"     if exists('*fzf#vim#with_preview')
+"         return fzf#vim#with_preview(a:spec)
+"     else
+"         return a:spec
+"     endif
+" endfunction
+"
+" function! Fern_mapping_fzf_before_all(dict)
+"     if !len(a:dict.lines)
+"         return
+"     endif
+"     return a:dict.fern_helper.async.update_marks([])
+" endfunction
+"
+" function! s:reveal(dict)
+"     execute "FernReveal -wait" a:dict.relative_path
+"     execute "normal \<Plug>(fern-action-mark:set)"
+" endfunction
+"
+" let g:Fern_mapping_fzf_file_sink = function('s:reveal')
+" let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
 " }}}
 
 lua require("plugins")

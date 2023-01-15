@@ -21,5 +21,5 @@ local fixsize = function(params)
   set.wfh = true
   set.wfw = true
 end
-vim.api.nvim_create_user_command("FW", fixsize, {})
+vim.api.nvim_create_user_command("FW", fixsize, { nargs = 1 })
 nmap("fw", ":FW<space>", { silent = true })

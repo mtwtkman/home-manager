@@ -1,6 +1,13 @@
 local M = {}
 
-function M.map_array(ary, f)
+function M.fold(f, acc, ary)
+  for i=1,#ary,1 do
+    acc = f(acc, ary[i])
+  end
+  return acc
+end
+
+function M.map_array(f, ary)
   local xs = {}
   for i=1,#ary,1 do
     xs[i] = f(ary[i])
@@ -20,7 +27,7 @@ function M.optional_value(x, default)
 end
 
 function M.create_map(mode, lhs, rhs, value, options)
-  vim.keymap.set(mode, lhs, rhs, value, M.optional_value(options, { nargs = 1 }))
+  vim.keymap.set(mode, lhs, rhs, value, M.optional_value(options, {}))
 end
 
 function M.nmap(lhs, rhs, value, options)
