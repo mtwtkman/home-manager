@@ -140,6 +140,8 @@ function! s:back_to_workspace_root() abort
   execute 'cd' g:workspace_root_path
 endfunction
 nnoremap <silent> <leader>z :call <SID>back_to_workspace_root()<CR>
+
+command! CopyRelativePath call setreg(v:register, expand("%:~:."))
 " }}}
 
 " terminal {{{
