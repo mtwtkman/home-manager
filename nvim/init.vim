@@ -343,12 +343,12 @@ let g:Fern_mapping_fzf_file_sink = function('s:reveal')
 let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
 " }}}
 
-" treesitter {{{
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = { enable = true },
-  indent = { enable = true },
-  incremental_selection = { enable = true },
-}
-EOF
+lua require("plugins")
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   highlight = { enable = true },
+"   indent = { enable = true },
+"   incremental_selection = { enable = true },
+" }
+" EOF
 " }}}

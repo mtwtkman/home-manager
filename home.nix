@@ -24,7 +24,7 @@ in
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
-    # "nvim/lua".source = ./nvim/lua;
+    "nvim/lua".source = ./nvim/lua;
   };
   home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
 
@@ -53,6 +53,7 @@ in
     extraPython3Packages = (ps: with ps; [ pynvim ]);
     plugins = [
       pkgs.vimPlugins.vim-plug
+      pkgs.vimPlugins.packer-nvim
     ];
   };
 }
