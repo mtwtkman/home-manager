@@ -43,9 +43,10 @@ call plug#end()
 " }}}
 
 " style {{{
-syntax enable
-colorscheme jellybeans
-filetype plugin indent on
+lua require("styles")
+" syntax enable
+" colorscheme jellybeans
+" filetype plugin indent on
 " }}}
 
 " basic {{{1
@@ -344,11 +345,4 @@ let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
 " }}}
 
 lua require("plugins")
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   highlight = { enable = true },
-"   indent = { enable = true },
-"   incremental_selection = { enable = true },
-" }
-" EOF
 " }}}
