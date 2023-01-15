@@ -34,4 +34,12 @@ function M.nmap(lhs, rhs, value, options)
   M.create_map("n", lhs, rhs, value, options)
 end
 
+function M.vmap(lhs, rhs, value, options)
+  M.create_map("v", lhs, rhs, value, options)
+end
+
+function M.tmap(lhs, rhs, value, options)
+  M.create_map("t", lhs, rhs, value, options)
+end
+
 return M

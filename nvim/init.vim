@@ -1,61 +1,7 @@
-" initialize {{{
-if &compatible
-  set nocompatible
-endif
-" }}}
-
-" plugins {{{1
-" if vim-plug is not yet, run: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-call plug#begin()
-" async {{{2
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-" }}}
-" lsp {{{2
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" }}}
-" visual {{{2
-Plug 'nanotech/jellybeans.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-context'
-" }}}
-" browse {{{2
-Plug 'tyru/open-browser.vim'
-" }}}
-" vcs {{{
-Plug 'tpope/vim-fugitive'
-" }}}
-" explorer {{{
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-hijack.vim'
-Plug 'LumaKernel/fern-mapping-fzf.vim'
-" }}}
-" language {{{2
-" html {{{
-Plug 'mattn/emmet-vim', { 'for': 'html' }
-" }}}
-" }}}
-call plug#end()
-" }}}
-
-lua require("styles")
-lua require("basics")
-" basic {{{1
-" }}}
-
-" move {{{
-nnoremap j gj
-nnoremap k gk
-vnoremap v $h
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-l> <C-w><C-l>
-" }}}
+lua require("plugins")
+lua require("style")
+lua require("basic")
+lua require("move")
 
 " cleanup {{{
 augroup AutoRemoveEdgeBlanks
@@ -63,14 +9,6 @@ augroup AutoRemoveEdgeBlanks
   autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
 nnoremap <silent> <C-l> :e! %<CR>
-" }}}
-
-" openbrowser {{{
-let g:netrw_nogx = 1
-nmap gx <Plug>(openbrowser-smart-search)
-tmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-nmap gxs <Plug>(openbrowser-search)
 " }}}
 
 " location {{{
@@ -246,45 +184,4 @@ nnoremap <silent> <c-p> :Commands<CR>
 nnoremap <silent> <leader>hh :History<CR>
 nnoremap <silent> <leader>h: :History:<CR>
 nnoremap <silent> <leader>h/ :History/<CR>
-" }}}
-
-" fern {{{
-" nmap <silent><leader>n :Fern . -drawer -toggle<CR>
-" nmap <silent><leader>m :Fern %:h -drawer -toggle<CR>
-" let g:fern#default_hidden=1
-" function! s:init_fern() abort
-"   nmap <buffer> v <Plug>(fern-action-open:side)
-"   nmap <buffer> x <Plug>(fern-action-lcd:cursor)
-"   nmap <buffer> r <Plug>(fern-action-reload)
-" endfunction
-" augroup my-fern
-"   autocmd! *
-"   autocmd FileType fern call s:init_fern()
-" augroup END
-" function! Fern_mapping_fzf_customize_option(spec)
-"     let a:spec.options .= ' --multi'
-"     if exists('*fzf#vim#with_preview')
-"         return fzf#vim#with_preview(a:spec)
-"     else
-"         return a:spec
-"     endif
-" endfunction
-"
-" function! Fern_mapping_fzf_before_all(dict)
-"     if !len(a:dict.lines)
-"         return
-"     endif
-"     return a:dict.fern_helper.async.update_marks([])
-" endfunction
-"
-" function! s:reveal(dict)
-"     execute "FernReveal -wait" a:dict.relative_path
-"     execute "normal \<Plug>(fern-action-mark:set)"
-" endfunction
-"
-" let g:Fern_mapping_fzf_file_sink = function('s:reveal')
-" let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
-" }}}
-
-lua require("plugins")
 " }}}
