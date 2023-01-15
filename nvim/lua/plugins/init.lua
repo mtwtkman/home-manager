@@ -17,3 +17,4 @@ end)
 
 require("plugins.nvim-treesitter")
 require("plugins.open-browser")
+require("plugins.fzf")

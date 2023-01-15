@@ -144,27 +144,3 @@ if executable('metals')
 endif
 " }}}
 " }}}
-
-" snippets {{{
-augroup SnipPython
-  autocmd!
-  autocmd FileType python noremap <leader>pdb o<CR>import pdb;pdb.set_trace()<CR><ESC>
-augroup END
-" }}}
-
-" fzf {{{
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-function! s:fzf_grep_only_buffer_file() abort
-  command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang> 0)
-endfunction
-nnoremap <silent> <leader>o :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>f :Rg<CR>
-nnoremap <silent> <leader>/ :BLines<CR>
-nnoremap <silent> <leader>' :Marks<CR>
-nnoremap <silent> <leader>g :Commits<CR>
-nnoremap <silent> <c-p> :Commands<CR>
-nnoremap <silent> <leader>hh :History<CR>
-nnoremap <silent> <leader>h: :History:<CR>
-nnoremap <silent> <leader>h/ :History/<CR>
-" }}}
