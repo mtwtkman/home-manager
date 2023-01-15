@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nanotech/jellybeans.vim"
@@ -12,7 +14,14 @@ require("packer").startup(function(use)
   use "neovim/nvim-lspconfig"
 end)
 
-require("plugins.nvim-treesitter")
-require("plugins.open-browser")
-require("plugins.fzf")
-require("plugins.nvim-lspconfig")
+local load_plugin = function(name)
+  require("plugins." .. name)
+end
+
+utils.each(load_plugin, {
+  "nvim-treesitter",
+  "open-browser",
+  "fzf",
+  "nvim-lspconfig",
+  "nvim-tree",
+})

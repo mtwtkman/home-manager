@@ -1,5 +1,11 @@
 local M = {}
 
+function M.each(f, ary)
+  for i=1,#ary,1 do
+    f(ary[i])
+  end
+end
+
 function M.fold(f, acc, ary)
   for i=1,#ary,1 do
     acc = f(acc, ary[i])
