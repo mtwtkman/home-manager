@@ -2,7 +2,7 @@ local set = vim.opt
 local utils = require("utils")
 local nmap = utils.nmap
 
-nmap("<leader>n", ":NvimTreeToggle<CR>", { silent = true })
+nmap("<leader>n", ":NvimTreeFindFileToggle<CR>", { silent = true })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -12,7 +12,7 @@ require("nvim-tree").setup({
   view = {
     mappings = {
       list = {
-        { key = "r", action= "trash" }
+        { key = "r", action = "trash" },
       },
     },
   },
