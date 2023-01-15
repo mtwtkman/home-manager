@@ -9,7 +9,7 @@ vim.g.loaded_netrwPlugin = 1
 set.termguicolors = true
 
 require("nvim-tree").setup({
-  remove_keymaps = { "<C-v>", "<C-t>", "<2-RightMouse>", "<C-x>", "r", "bmv" },
+  remove_keymaps = { "<C-v>", "<C-t>", "<2-RightMouse>", "<C-x>", "bmv", "d", "-", "<BS>", "o" },
   view = {
     mappings = {
       list = {
@@ -17,6 +17,9 @@ require("nvim-tree").setup({
         { key = "t", action = "tabnew" },
         { key = "s", action = "split" },
         { key = "M", action = "bulk_move" },
+        { key = "u", action = "dir_up" },
+        { key = "h", action = "close_node" },
+        { key = "l", action = "edit" },
       },
     },
   },
