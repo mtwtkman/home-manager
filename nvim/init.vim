@@ -1,7 +1,8 @@
-lua require("plugins")
 lua require("style")
 lua require("basic")
 lua require("move")
+lua require("terminal")
+lua require("plugins")
 
 " cleanup {{{
 augroup AutoRemoveEdgeBlanks
@@ -23,24 +24,6 @@ endfunction
 nnoremap <silent> <leader>z :call <SID>back_to_workspace_root()<CR>
 
 command! CopyRelativePath call setreg(v:register, expand("%:~:."))
-" }}}
-
-" terminal {{{
-tnoremap <silent> <ESC> <C-\><C-n>
-tnoremap <silent> <C-w>h <C-\><C-n><C-w>h
-tnoremap <silent> <C-w>j <C-\><C-n><C-w>j
-tnoremap <silent> <C-w>k <C-\><C-n><C-w>k
-tnoremap <silent> <C-w>l <C-\><C-n><C-w>l
-tnoremap <silent> <C-w>gt <C-\><C-n>gt
-tnoremap <silent> <C-w>gT <C-\><C-n>gT
-nnoremap <silent><leader>st :sp<CR>:terminal<CR>
-nnoremap <silent><leader>vt :vsp<CR>:terminal<CR>
-nnoremap <silent><leader>tt :tabe<CR>:terminal<CR>
-augroup terminal_buffer
-  au!
-  autocmd TermEnter * setlocal nonumber
-  autocmd TermOpen * startinsert
-augroup END
 " }}}
 
 " lsp {{{
