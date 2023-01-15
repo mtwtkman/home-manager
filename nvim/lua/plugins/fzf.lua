@@ -1,7 +1,7 @@
 local utils = require("utils")
 local nmap = utils.nmap
 
-vim.g.fzf_layout = { "window": { "width": 0.9, "height": 0.6 } }
+vim.g.fzf_layout = { window = { width = 0.9, height = 0.6 } }
 nmap("<leader>o", ":Files<CR>", { silent = true })
 nmap("<leader>b", ":Buffers<CR>", { silent = true })
 nmap("<leader>f", ":Rg<CR>", { silent = true })
@@ -17,7 +17,7 @@ local ripgrep_fzf = function(params)
   local command_fmt = "rg --column --line-number --no-heading --color=always --smart-case -- %s || true"
   local initial_command = vim.fn.printf(command_fmt, vim.fn.shellescape(query))
   local reload_command = vim.fn.printf(command_fmt, "{q}")
-  local spec = { "options": {"--disabled", "--query", query, "--bind", "change:reload:".reload_command } }
+  local spec = { options = {"--disabled", "--query", query, "--bind", "change:reload:" .. reload_command } }
   local spec = vim.fn["fzf#vim#with_preview"](spec, "right", "ctrl-/")
   vim.fn["fzf#vim#grep"](initial_command, 1, spec, params.bang == 1)
 end
