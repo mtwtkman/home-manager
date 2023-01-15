@@ -4,14 +4,6 @@ lua require("move")
 lua require("terminal")
 lua require("plugins")
 
-" cleanup {{{
-augroup AutoRemoveEdgeBlanks
-  autocmd!
-  autocmd BufWritePre * :%s/\s\+$//ge
-augroup END
-nnoremap <silent> <C-l> :e! %<CR>
-" }}}
-
 " location {{{
 nnoremap <silent> <leader>x :lcd %:p:h<CR>
 let g:workspace_root_path = ""

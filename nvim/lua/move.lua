@@ -4,7 +4,7 @@ local vmap = utils.vmap
 
 nmap("j", "gj")
 nmap("k", "gk")
-nmap("v", "$h")
+vmap("v", "$h")
 nmap("<C-j>", "<C-w><C-j>")
 nmap("<C-k>", "<C-w><C-k>")
 nmap("<C-h>", "<C-w><C-h>")

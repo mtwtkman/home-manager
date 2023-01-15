@@ -30,12 +30,12 @@ set.foldmethod = "marker"
 set.mouse = ""
 set.clipboard = "unnamed"
 if vim.fn.has("wsl") then
-  vim.cmd([[
-    augroup Yank
-      autocmd!
-      autocmd TextYankPost * :call system(system("which clip.exe"), @")
-    augroup END
-  ]])
+  local yank_to_clip = vim.api.nvim_create_augroup("YankToClip", { clear = true })
+  vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+    pattern = { "*" },
+    group = yank_to_clip,
+    command = ':call system(system("which clip.exe"), @")'
+  })
 end
 set.splitbelow = true
 set.splitright = true
@@ -51,3 +51,10 @@ if vim.fn.executable('nvr') then
     callback = function() set.bufhidden = "delete" end
   })
 end
+
+local auto_remove_trail_blanks_group = vim.api.nvim_create_augroup("AutoRemoveTrailBlanks", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  group = auto_remove_trail_blanks_group,
+  command = ":%s/\\s\\+$//ge",
+})
