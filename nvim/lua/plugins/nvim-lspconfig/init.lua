@@ -29,6 +29,7 @@ local lsp_flags = {
   debounce_text_changes = 150
 }
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
 local configure_lsp = function(langtype)
@@ -37,6 +38,7 @@ local configure_lsp = function(langtype)
     on_attach = on_attach,
     flags = lsp_flags,
     settings = utils.optional_value(server_info.settings, {}),
+    capabilities = capabilities,
   }
 end
 
