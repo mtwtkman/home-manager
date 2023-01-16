@@ -12,6 +12,11 @@ require("packer").startup(function(use)
   use "junegunn/fzf"
   use "nvim-tree/nvim-tree.lua"
   use "neovim/nvim-lspconfig"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/vim-vsnip"
+  use "hrsh7th/cmp-vsnip"
 end)
 
 local load_plugin = function(name)
