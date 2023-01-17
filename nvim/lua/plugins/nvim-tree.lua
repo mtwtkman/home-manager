@@ -3,6 +3,8 @@ local utils = require("utils")
 local nmap = utils.nmap
 
 nmap("<leader>n", ":NvimTreeFindFileToggle<CR>", { silent = true })
+nmap("<C-w>n", ":NvimTreeFindFile<CR>", { silent = true })
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
