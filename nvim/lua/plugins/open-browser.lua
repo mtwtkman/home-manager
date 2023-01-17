@@ -4,4 +4,3 @@ local tmap = utils.tmap
 
 vim.g.netrw_nogx = 1
 nmap("<leader>g", "<Plug>(openbrowser-smart-search)")
-tmap("<leader>g", "<Plug>(openbrowser-smart-search)")
