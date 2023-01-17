@@ -42,5 +42,7 @@ local configure_lsp = function(langtype)
   }
 end
 
-configure_lsp("haskell")
-configure_lsp("nix")
+utils.each(configure_lsp, {
+  "haskell",
+  "nix",
+})

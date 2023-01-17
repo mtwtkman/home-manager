@@ -48,4 +48,25 @@ function M.tmap(lhs, rhs, value, options)
   M.create_map("t", lhs, rhs, value, options)
 end
 
+function M.get_dir(current_filepath)
+  return current_filepath:match("^@(.+)/.+.lua$")
+end
+
+function M.list_siblings(dir)
+  local names = {}
+  for line in io.popen("fd -d 2 .lua " .. dir):lines() do
+    names[#names + 1] = line
+  end
+  return names
+end
+
+function M.extract_modules(filepaths)
+end
+
+function M.autoload(info, callback)
+  local current_dir = M.get_dir(info.source)
+  local siblings = M.list_siblings(dir)
+  M.each(callback, modules)
+end
+
 return M

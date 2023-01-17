@@ -24,9 +24,12 @@ local load_plugin = function(name)
 end
 
 utils.each(load_plugin, {
-  "nvim-treesitter",
   "open-browser",
   "fzf",
-  "nvim-lspconfig",
   "nvim-tree",
+  "nvim-cmp",
+  "nvim-treesitter",
+  "nvim-lspconfig",
 })
+
+utils.autoload(debug.getinfo(1, "S"), laod_plugin)
