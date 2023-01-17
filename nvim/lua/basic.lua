@@ -58,3 +58,4 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = auto_remove_trail_blanks_group,
   command = ":%s/\\s\\+$//ge",
 })
+
