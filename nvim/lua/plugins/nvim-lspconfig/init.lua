@@ -41,8 +41,4 @@ local configure_lsp = function(langtype)
     capabilities = capabilities,
   }
 end
-
-utils.each(configure_lsp, {
-  "haskell",
-  "nix",
-})
+utils.iterate_child_modules(debug.getinfo(1, "S"), configure_lsp)

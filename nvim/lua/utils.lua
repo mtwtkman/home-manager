@@ -48,25 +48,51 @@ function M.tmap(lhs, rhs, value, options)
   M.create_map("t", lhs, rhs, value, options)
 end
 
-function M.get_dir(current_filepath)
-  return current_filepath:match("^@(.+)/.+.lua$")
+function M.compoase(a, b)
+  return function(args)
+    return a(b(args))
+  end
+
 end
 
+function M.get_dir(current_filepath)
+  return current_filepath:match("^@(.+)/[^/]+.lua$")
+end
+
+
 function M.list_siblings(dir)
+  local self_name = dir:match(".+/([^/]+)/?$"):gsub("-", "%%-")
+
+  local exclude = function(path)
+    local p1 = (path:match("/" .. self_name .. "/[^/]+.lua") ~= nil) and (path:match("/" .. self_name .. "/init.lua") == nil)
+    local p2 = (path:match("/" .. self_name .. "/[^/]+/[^/]+.lua") ~= nil) and (path:match("/" .. self_name .. "/[^/]+/init.lua") ~= nil)
+    return not (p1 or p2)
+  end
+
   local names = {}
   for line in io.popen("fd -d 2 .lua " .. dir):lines() do
+    if exclude(line) then
+      goto continue
+    end
     names[#names + 1] = line
+    ::continue::
   end
   return names
 end
 
-function M.extract_modules(filepaths)
+function M.get_module_name(path)
+  local fromdir =  path:match("/([^/]+)/init.lua")
+  if fromdir ~= nil then
+    return fromdir
+  end
+
+  return path:match(".+/([^/]+).lua")
 end
 
-function M.autoload(info, callback)
+function M.iterate_child_modules(info, callback)
   local current_dir = M.get_dir(info.source)
-  local siblings = M.list_siblings(dir)
-  M.each(callback, modules)
+  local siblings = M.list_siblings(current_dir)
+  M.each(M.compoase(callback, M.get_module_name), siblings)
 end
 
 return M

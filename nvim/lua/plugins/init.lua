@@ -17,19 +17,11 @@ require("packer").startup(function(use)
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/vim-vsnip"
   use "hrsh7th/cmp-vsnip"
+  use "hrsh7th/cmp-cmdline"
 end)
 
-local load_plugin = function(name)
+local load_module = function(name)
   require("plugins." .. name)
 end
 
-utils.each(load_plugin, {
-  "open-browser",
-  "fzf",
-  "nvim-tree",
-  "nvim-cmp",
-  "nvim-treesitter",
-  "nvim-lspconfig",
-})
-
-utils.autoload(debug.getinfo(1, "S"), laod_plugin)
+utils.iterate_child_modules(debug.getinfo(1, "S"), load_module)
