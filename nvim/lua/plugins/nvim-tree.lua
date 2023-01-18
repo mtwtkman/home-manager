@@ -31,17 +31,19 @@ require("nvim-tree").setup({
   renderer = {
     icons = {
       glyphs = {
-        default = " ",
-        symlink = "l",
+        default = "",
+        symlink = "",
+        bookmark = "b",
+        modified = "m",
         folder = {
           arrow_closed = "+",
           arrow_open = "-",
-          default = "d",
-          open = "+",
-          empty = "x",
-          empty_open = "x",
-          symlink = "l",
-          symlink_open = "l",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
         },
         git = {
           unstaged = "s",
