@@ -17,7 +17,7 @@ set.wrap = false
 set.scrolloff = 5
 set.signcolumn = "yes"
 local fixsize = function(params)
-  vim.fn.execute("resize", params.args)
+  vim.fn.execute("resize " .. params.args)
   set.wfh = true
   set.wfw = true
 end
