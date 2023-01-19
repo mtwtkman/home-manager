@@ -18,6 +18,7 @@ require("packer").startup(function(use)
   use "hrsh7th/vim-vsnip"
   use "hrsh7th/cmp-vsnip"
   use "hrsh7th/cmp-cmdline"
+  use "tpope/vim-rhubarb"
 end)
 
 local load_module = function(name)
