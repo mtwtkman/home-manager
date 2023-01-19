@@ -6,7 +6,6 @@ require("packer").startup(function(use)
   use "vim-airline/vim-airline"
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "nvim-treesitter/nvim-treesitter-context"
-  use "tyru/open-browser.vim"
   use "tpope/vim-fugitive"
   use "junegunn/fzf.vim"
   use "junegunn/fzf"
@@ -18,6 +17,7 @@ require("packer").startup(function(use)
   use "hrsh7th/vim-vsnip"
   use "hrsh7th/cmp-vsnip"
   use "hrsh7th/cmp-cmdline"
+  use "tpope/vim-rhubarb"
 end)
 
 local load_module = function(name)
