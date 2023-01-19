@@ -6,6 +6,7 @@ cmd.syntax("enable")
 cmd.colorscheme("jellybeans")
 cmd.filetype({ "plugin", "indent", "on" })
 
+set.termguicolors = true
 set.number = true
 set.ruler = true
 set.title = true

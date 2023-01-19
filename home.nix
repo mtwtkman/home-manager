@@ -21,6 +21,7 @@ in
     gnupg
     pura
     _1password
+    bat
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
