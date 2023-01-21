@@ -11,7 +11,6 @@ in
   home.sessionVariables = { NIX_CONF_DIR = "$HOME/.config/nixpkgs"; };
   home.packages = with pkgs; [
     ripgrep
-    fzf
     tmux
     fd
     trash-cli
@@ -28,6 +27,24 @@ in
     "nvim/lua".source = ./nvim/lua;
   };
   home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
+
+  programs.fzf =
+  let
+    defaultCommand = "rg --files --no-ignore --hidden --follow -g \"!{.git,node_modules}/*\" 2> /dev/null";
+  in
+  {
+    enableZshIntegration = false;
+    enableFishIntegration = false;
+    defaultCommand = defaultCommand;
+    fileWidgetCommand = defaultCommand;
+    defaultOptions = [
+      "--reverse"
+      "--extended"
+      "--multi"
+      "--inline-info"
+      "--prompt=\"fzf>\""
+    ];
+  };
 
   programs.direnv = {
     enable = true;
