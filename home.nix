@@ -37,6 +37,8 @@ in
     defaultCommand = "rg --files --no-ignore --hidden --follow -g \"!{.git,node_modules}/*\" 2> /dev/null";
   in
   {
+    enable = true;
+    enableBashIntegration = true;
     enableZshIntegration = false;
     enableFishIntegration = false;
     defaultCommand = defaultCommand;

@@ -6,7 +6,6 @@
   hm = "NIXPKGS_ALLOW_UNFREE=1 home-manager --impure";
   update = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove";
   flake = "nix flake";
-  hf = "history | fzf";
   dev = "nix develop";
   vim = "nvim --listen /tmp/nvimsocket";
   v = "vim";

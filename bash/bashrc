@@ -2,34 +2,6 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 PS1="\u@\w\$ "
 
 export EDITOR=`which vim`
-
 eval "$(direnv hook bash)"
-
-fd_fzf() {
-  cmd=$1
-  type_=$2
-  ptn=$3
-  base=$4
-  hidden=$5
-  eval "$cmd $(fd --type $type_ $ptn $base $hidden | fzf)"
-}
-
-fd_fzf_all() {
-  fd_fzf $1 $2 $3 $4 "-H"
-}
-
-fd_fzf_visible() {
-  fd_fzf $1 $2 $3 $4 ""
-}
-
-vif(){
-  fd_fzf_all "vim" "file" $1 $2
-}
-
-pushf() {
-  fd_fzf_all "pushd" "directory" $1 $2
-}
-
 export GPG_TTY=$(tty)
-
 source <(op completion bash)
