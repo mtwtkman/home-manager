@@ -21,6 +21,10 @@ in
     pura
     _1password
     bat
+    fzf
+    git
+    bash
+    direnv
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
