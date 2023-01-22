@@ -76,7 +76,6 @@ in
     withNodeJs = true;
     extraPython3Packages = (ps: with ps; [ pynvim ]);
     plugins = [
-      pkgs.vimPlugins.vim-plug
       pkgs.vimPlugins.packer-nvim
     ];
   };
