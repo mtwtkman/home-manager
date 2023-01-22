@@ -8,7 +8,10 @@ in
   home.username = meta.username;
   home.homeDirectory = meta.home;
   home.stateVersion = meta.homeManagerStateVersion;
-  home.sessionVariables = { NIX_CONF_DIR = "$HOME/.config/nixpkgs"; };
+  home.sessionVariables = {
+    NIX_CONF_DIR = meta.nixConfigDirectory;
+    VSNIP_PATH = meta.home + "/nvim/snippets";
+  };
   home.packages = with pkgs; [
     ripgrep
     tmux

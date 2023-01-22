@@ -56,7 +56,7 @@ function M.compoase(a, b)
 end
 
 function M.get_dir(current_filepath)
-  return current_filepath:match("^@(.+)/[^/]+.lua$")
+  return current_filepath:match("^@?(.+)/[^/]+.lua$")
 end
 
 
