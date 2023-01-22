@@ -2,11 +2,11 @@ local utils = require("utils")
 local vmap = utils.vmap
 
 local detect_opener = function()
-  if vim.fn.has("wsl") then
+  if vim.fn.has("wsl") == 1 then
     return "explorer.exe"
-  elseif vim.fn.has("mac") then
+  elseif vim.fn.has("mac") == 1 then
     return "open"
-  elseif vim.fn.has("unix") then
+  elseif vim.fn.has("unix") == 1 then
     return "xdg-open"
   end
 end
