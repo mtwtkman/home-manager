@@ -12,7 +12,7 @@ local detect_opener = function()
 end
 
 vim.api.nvim_create_user_command("Browse", function(params)
-  local url = params.args
+  local url = params.args:gsub("#", "\\#")
   local opener = detect_opener()
   vim.fn.execute("!" .. opener .. " " .. url)
 end, {
