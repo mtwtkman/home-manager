@@ -1,5 +1,6 @@
 local utils = require("utils")
 local vmap = utils.vmap
+local nmap = utils.nmap
 
 local detect_opener = function()
   if vim.fn.has("wsl") == 1 then
@@ -18,4 +19,5 @@ vim.api.nvim_create_user_command("Browse", function(params)
 end, {
   nargs = 1,
 })
-vmap("<leader>g", ":GBrowse<CR>")
+vmap("<leader>g", ":GBrowse<CR>", { silent = true })
+nmap("<leader>g", ":exe ':GBrowse '.expand('<cWORD>')<CR>")
