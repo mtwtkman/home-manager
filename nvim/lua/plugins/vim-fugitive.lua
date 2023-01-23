@@ -3,7 +3,7 @@ local vmap = utils.vmap
 
 local detect_opener = function()
   if vim.fn.has("wsl") == 1 then
-    return "explorer.exe"
+    return "rundll32.exe url,OpenURL"
   elseif vim.fn.has("mac") == 1 then
     return "open"
   elseif vim.fn.has("unix") == 1 then
