@@ -51,7 +51,7 @@ in
         "--extended"
         "--multi"
         "--inline-info"
-        "--prompt=\"fzf>\""
+        "--prompt='fzf>'"
       ];
       fileWidgetCommand = defaultCommand;
     };
