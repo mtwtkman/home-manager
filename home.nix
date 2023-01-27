@@ -10,6 +10,7 @@ in
   home.stateVersion = meta.homeManagerStateVersion;
   home.sessionVariables = {
     NIX_CONF_DIR = meta.nixConfigDirectory;
+    HOGE = 1;
   };
   home.packages = with pkgs; [
     ripgrep
