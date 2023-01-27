@@ -1,7 +1,6 @@
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 PS1="\u@\w\$ "
 
-export FZF_DEFAULT_OPTS="--reverse --extended --multi --inline-info --prompt=\"fzf>\""
 export EDITOR=`which vim`
 eval "$(direnv hook bash)"
 export GPG_TTY=$(tty)
