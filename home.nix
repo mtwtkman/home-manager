@@ -47,13 +47,6 @@ in
       enableFishIntegration = false;
       defaultCommand = defaultCommand;
       fileWidgetCommand = defaultCommand;
-      defaultOptions = [
-        "--reverse"
-        "--extended"
-        "--multi"
-        "--inline-info"
-        "--prompt=\"fzf>\""
-      ];
     };
 
   programs.direnv = {
