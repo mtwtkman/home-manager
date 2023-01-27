@@ -37,8 +37,6 @@ in
   programs.fzf =
     let
       defaultCommand = "rg --files --no-ignore --hidden --follow -g \"!{.git,node_modules}/*\" 2> /dev/null";
-      defaultOptions = [
-      ];
     in
     {
       enable = true;
