@@ -1,4 +1,5 @@
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+PS1="\u@\w\$ "
 
 eval "$(direnv hook bash)"
 export GPG_TTY=$(tty)
