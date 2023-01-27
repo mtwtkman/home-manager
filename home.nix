@@ -10,7 +10,7 @@ in
   home.stateVersion = meta.homeManagerStateVersion;
   home.sessionVariables = {
     NIX_CONF_DIR = meta.nixConfigDirectory;
-    HOGE = 1;
+    EDITOR = "nvim";
   };
   home.packages = with pkgs; [
     ripgrep
