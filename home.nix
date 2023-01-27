@@ -38,11 +38,6 @@ in
     let
       defaultCommand = "rg --files --no-ignore --hidden --follow -g \"!{.git,node_modules}/*\" 2> /dev/null";
       defaultOptions = [
-        "--reverse"
-        "--extended"
-        "--multi"
-        "--inline-info"
-        "--prompt=\"fzf>\""
       ];
     in
     {
@@ -52,7 +47,13 @@ in
       enableFishIntegration = false;
       defaultCommand = defaultCommand;
       fileWidgetCommand = defaultCommand;
-      defaultOptions = defaultOptions;
+      defaultOptions = [
+        "--reverse"
+        "--extended"
+        "--multi"
+        "--inline-info"
+        "--prompt=\"fzf>\""
+      ];
     };
 
   programs.direnv = {
