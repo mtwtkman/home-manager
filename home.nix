@@ -11,7 +11,10 @@ in
   home.sessionVariables = {
     NIX_CONF_DIR = meta.nixConfigDirectory;
     EDITOR = "nvim";
+    PS1 = "\u@\w\$ ";
   };
+  # home.shellAliases = [
+  # ];
   home.packages = with pkgs; [
     ripgrep
     tmux
@@ -45,7 +48,7 @@ in
       enableZshIntegration = false;
       enableFishIntegration = false;
       defaultCommand = defaultCommand;
-      defaultOptions = [  # NOTE: never not activate
+      defaultOptions = [
         "--reverse"
         "--extended"
         "--multi"
