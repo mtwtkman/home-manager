@@ -11,10 +11,8 @@ in
   home.sessionVariables = {
     NIX_CONF_DIR = meta.nixConfigDirectory;
     EDITOR = "nvim";
-    PS1 = "\u@\w\$ ";
+    PS1 = "\\u@\\w\$ ";
   };
-  # home.shellAliases = [
-  # ];
   home.packages = with pkgs; [
     ripgrep
     tmux
