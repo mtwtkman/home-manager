@@ -11,6 +11,7 @@ in
   home.sessionVariables = {
     NIX_CONF_DIR = meta.nixConfigDirectory;
     EDITOR = "nvim";
+    VSNIP_PATH = meta.nixConfigDirectory + "/nvim/snippets";
   };
   home.packages = with pkgs; [
     ripgrep
@@ -67,9 +68,6 @@ in
     enable = true;
     bashrcExtra = builtins.readFile ./bash/bashrc;
     shellAliases = import ./bash/aliases.nix;
-    sessionVariables = {
-      VSNIP_PATH = meta.nixConfigDirectory + "/nvim/snippets";
-    };
   };
   programs.git = {
     enable = true;
