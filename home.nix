@@ -44,6 +44,13 @@ in
       enableZshIntegration = false;
       enableFishIntegration = false;
       defaultCommand = defaultCommand;
+      defaultOptions = [
+        "--reverse"
+        "--extended"
+        "--multi"
+        "--inline-info"
+        "--prompt=\"fzf>\""
+      ];
       fileWidgetCommand = defaultCommand;
     };
 
