@@ -10,7 +10,6 @@ in
   home.stateVersion = meta.homeManagerStateVersion;
   home.sessionVariables = {
     NIX_CONF_DIR = meta.nixConfigDirectory;
-    FZF_DEFAULT_OPTS="--reverse --extended --multi --inline-info --prompt=\"fzf>\""; # Because programs.fzf.defaultOptions never work.
   };
   home.packages = with pkgs; [
     ripgrep
@@ -45,6 +44,13 @@ in
       enableZshIntegration = false;
       enableFishIntegration = false;
       defaultCommand = defaultCommand;
+      defaultOptions = [  # NOTE: never not activate
+        "--reverse"
+        "--extended"
+        "--multi"
+        "--inline-info"
+        "--prompt=\"fzf>\""
+      ];
       fileWidgetCommand = defaultCommand;
     };
 
