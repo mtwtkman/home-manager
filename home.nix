@@ -35,24 +35,25 @@ in
   home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
 
   programs.fzf =
-  let
-    defaultCommand = "rg --files --no-ignore --hidden --follow -g \"!{.git,node_modules}/*\" 2> /dev/null";
-  in
-  {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = false;
-    enableFishIntegration = false;
-    defaultCommand = defaultCommand;
-    fileWidgetCommand = defaultCommand;
-    defaultOptions = [
-      "--reverse"
-      "--extended"
-      "--multi"
-      "--inline-info"
-      "--prompt=\"fzf>\""
-    ];
-  };
+    let
+      defaultCommand = "rg --files --no-ignore --hidden --follow -g \"!{.git,node_modules}/*\" 2> /dev/null";
+      defaultOptions = [
+        "--reverse"
+        "--extended"
+        "--multi"
+        "--inline-info"
+        "--prompt=\"fzf>\""
+      ];
+    in
+    {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = false;
+      enableFishIntegration = false;
+      defaultCommand = defaultCommand;
+      fileWidgetCommand = defaultCommand;
+      defaultOptions = defaultOptions;
+    };
 
   programs.direnv = {
     enable = true;
