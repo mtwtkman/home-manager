@@ -60,7 +60,10 @@ in
     enable = true;
     nix-direnv.enable = true;
   };
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+    enable = true;
+    path = meta.nixConfigDirectory;
+  };
   programs.bash = {
     enable = true;
     bashrcExtra = builtins.readFile ./bash/bashrc;
