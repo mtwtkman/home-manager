@@ -4,8 +4,8 @@ local nmap = utils.nmap
 vim.g.fzf_layout = { window = { width = 0.9, height = 0.6 } }
 nmap("<leader>o", ":Files<CR>", { silent = true })
 nmap("<leader>b", ":Buffers<CR>", { silent = true })
-nmap("<leader>f", ":Rg<CR>", { silent = true })
-nmap("<leader>F", ":RgFzf<CR>", { silent = true })
+nmap("<leader>F", ":Rg<CR>", { silent = true })
+nmap("<leader>f", ":RgFzf<CR>", { silent = true })
 nmap("<leader>/", ":BLines<CR>", { silent = true })
 nmap("<leader>'", ":Marks<CR>", { silent = true })
 nmap("<leader>c", ":Commits<CR>", { silent = true })
