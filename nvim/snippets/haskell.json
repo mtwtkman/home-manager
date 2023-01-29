@@ -1,0 +1,6 @@
+{
+  "new pragma": {
+    "prefix": "pragma",
+    "body": "{-# LANGUAGE ${1} #-}"
+  }
+}
