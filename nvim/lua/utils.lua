@@ -70,7 +70,7 @@ function M.list_siblings(dir)
   end
 
   local names = {}
-  for line in io.popen("fd -d 2 .lua " .. dir):lines() do
+  for line in io.popen("fd -d 2 .lua$ " .. dir):lines() do
     if exclude(line) then
       goto continue
     end
