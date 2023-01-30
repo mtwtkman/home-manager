@@ -10,6 +10,14 @@ vim.g.loaded_netrwPlugin = 1
 
 set.termguicolors = true
 
+local open_nvim_tree = function(data)
+  if vim.fn.isdirectory(data.file) == 1 then
+    require("nvim-tree.api").tree.open()
+  end
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
 require("nvim-tree").setup({
   remove_keymaps = { "<C-v>", "<C-t>", "<2-RightMouse>", "<C-x>", "bmv", "d", "-", "<BS>", "o" },
   view = {
