@@ -11,9 +11,17 @@ vim.g.loaded_netrwPlugin = 1
 set.termguicolors = true
 
 local open_nvim_tree = function(data)
-  if vim.fn.isdirectory(data.file) == 1 then
-    require("nvim-tree.api").tree.open()
+
+  -- buffer is a directory
+  local directory = vim.fn.isdirectory(data.file) == 1
+
+  if not directory then
+    return
   end
+  vim.cmd.enew()
+  vim.cmd.bw(data.buf)
+  vim.cmd.cd(data.file)
+  require("nvim-tree.api").tree.open()
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
