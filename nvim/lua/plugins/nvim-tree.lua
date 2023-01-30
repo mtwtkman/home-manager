@@ -44,4 +44,7 @@ require("nvim-tree").setup({
   trash = {
     cmd = "trash-put",
   },
+  diagnostics = {
+    enable = true,
+  },
 })
