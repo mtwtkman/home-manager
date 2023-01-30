@@ -36,33 +36,4 @@ require("nvim-tree").setup({
   trash = {
     cmd = "trash-put",
   },
-  renderer = {
-    icons = {
-      glyphs = {
-        default = "",
-        symlink = "",
-        bookmark = "b",
-        modified = "m",
-        folder = {
-          arrow_closed = "+",
-          arrow_open = "-",
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
-          symlink_open = "",
-        },
-        git = {
-          unstaged = "s",
-          staged = "S",
-          unmerged = "m",
-          renamed = "r",
-          untracked = "t",
-          deleted = "d",
-          ignored = "x",
-        },
-      },
-    },
-  },
 })
