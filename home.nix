@@ -29,6 +29,7 @@ in
     git
     bash
     direnv
+    gh
   ];
   xdg.configFile = {
     nvim.source = ./nvim;

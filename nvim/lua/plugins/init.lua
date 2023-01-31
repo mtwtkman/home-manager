@@ -34,6 +34,12 @@ require("packer").startup(function(use)
     }
   }
   use "mfussenegger/nvim-dap"
+  use {
+    "ldelossa/gh.nvim",
+    requires = {
+      "ldelossa/litee.nvim",
+    }
+  }
 end)
 
 local load_module = function(name)
