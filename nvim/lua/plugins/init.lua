@@ -33,6 +33,7 @@ require("packer").startup(function(use)
       "nvim-tree/nvim-web-devicons",
     }
   }
+  use "mfussenegger/nvim-dap"
 end)
 
 local load_module = function(name)
