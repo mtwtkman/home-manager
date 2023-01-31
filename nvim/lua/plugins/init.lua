@@ -2,7 +2,7 @@ local utils = require("utils")
 
 require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
-  use "nanotech/jellybeans.vim"
+  use "rebelot/kanagawa.nvim"
   use {
     "nvim-lualine/lualine.nvim",
     requires = {
