@@ -11,7 +11,11 @@ fzf.setup({
 
 nmap("<leader>o", ":FzfLua files<CR>", { silent = true })
 nmap("<leader>b", ":FzfLua buffers<CR>", { silent = true })
-nmap("<leader>f", ":FzfLua grep_project<CR>", { silent = true })
+nmap("<leader>ff", ":FzfLua grep<CR>", { silent = true })
+nmap("<leader>fl", ":FzfLua grep_last<CR>", { silent = true })
+nmap("<leader>fp", ":FzfLua grep_project<CR>", { silent = true })
+nmap("<leader>fW", ":FzfLua grep_cWORD<CR>", { silent = true })
+nmap("<leader>fw", ":FzfLua grep_cword<CR>", { silent = true })
 nmap("<leader>/", ":FzfLua lines<CR>", { silent = true })
 nmap("<leader>c", ":FzfLua git_commits<CR>", { silent = true })
 nmap("<C-p>", ":FzfLua commands<CR>", { silent = true })
