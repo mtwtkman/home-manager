@@ -2,9 +2,9 @@ local M = {}
 
 M.setup = function(dap)
   dap.adapters.haskell = {
-    type = "executable";
-    command = "haskell-debug-adapter";
-    args = {"--hackage-version=0.0.33.0"};
+    type = "executable",
+    command = "haskell-debug-adapter",
+    args = {"--hackage-version=0.0.33.0"},
   }
 
   dap.configurations.haskell = {
@@ -20,7 +20,7 @@ M.setup = function(dap)
       ghciEnv = vim.empty_dict(),
       ghciPrompt = "λ: ",
       ghciInitialPrompt = "λ: ",
-      ghciCmd= "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show",
+      ghciCmd= "cabal repl -w ghci-dap --repl-no-load --builddir=${workspaceFolder}/.debug/dist-cabal-repl",
     },
   }
 end
