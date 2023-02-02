@@ -95,4 +95,8 @@ function M.iterate_child_modules(info, callback)
   M.each(M.compoase(callback, M.get_module_name), siblings)
 end
 
+function M.tail(ary)
+  return select(2, unpack(ary))
+end
+
 return M

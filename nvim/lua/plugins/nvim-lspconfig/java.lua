@@ -1,4 +1,6 @@
+local utils = require("utils")
+
 return {
-  servername = "jdtls",
-  cmd = "jdt-language-server",
+  servername = "java_language_server",
+  cmd = { "java-language-server" }
 }
