@@ -40,6 +40,8 @@ require("packer").startup(function(use)
       "ldelossa/litee.nvim",
     }
   }
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
 end)
 
 local load_module = function(name)

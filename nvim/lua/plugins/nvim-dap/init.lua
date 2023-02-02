@@ -15,8 +15,8 @@ nmap("<leader>dp", ui.preview, { silent = true })
 nmap("<leader>df", function() ui.centered_float(ui.frames) end, { silent = true })
 nmap("<leader>ds", function() ui.centered_float(ui.scopes) end, { silent = true })
 
-local load_setting = function(langtype)
-  require("plugins.nvim-dap." .. langtype).setup(dap)
-end
-
-utils.iterate_child_modules(debug.getinfo(1, "S"), load_setting)
+-- local load_setting = function(langtype)
+--   require("plugins.nvim-dap." .. langtype).setup(dap)
+-- end
+--
+-- utils.iterate_child_modules(debug.getinfo(1, "S"), load_setting)
