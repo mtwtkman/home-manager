@@ -1,3 +1,4 @@
 return {
-  servername = "java_language_server",
+  servername = "jdtls",
+  cmd = "jdt-language-server",
 }
