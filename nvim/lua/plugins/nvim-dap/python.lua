@@ -1,12 +1,10 @@
-local M = {}
-
-M.setup = function(dap)
-  dap.adapters.python = {
+return {
+  adapter = {
     type = "executable",
     command = "python",
     args = { "-m", "debugpy.adapter" },
-  }
-  dap.configurations.python = {
+  },
+  client = {
     {
       type = "python",
       request = "launch",
@@ -23,7 +21,5 @@ M.setup = function(dap)
         end
       end,
     },
-  }
-end
-
-return M
+  },
+}
