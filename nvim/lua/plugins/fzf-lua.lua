@@ -27,6 +27,8 @@ nmap("gr", ":FzfLua lsp_references<CR>", { silent = true })
 
 vim.api.nvim_create_user_command("Commands", fzf.commands, {})
 vim.api.nvim_create_user_command("HelpTags", fzf.help_tags, {})
+vim.api.nvim_create_user_command("Marks", fzf.marks, {})
+vim.api.nvim_create_user_command("Jumps", fzf.jumps, {})
 vim.api.nvim_create_user_command("Maps", fzf.keymaps, {})
 vim.api.nvim_create_user_command("Branches", fzf.git_branches, {})
 vim.api.nvim_create_user_command("Commits", fzf.git_commits, {})
