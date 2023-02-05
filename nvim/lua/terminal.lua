@@ -13,11 +13,14 @@ nmap("<leader>st", ":sp<CR>:terminal<CR>", { silent = true })
 nmap("<leader>vt", ":vsp<CR>:terminal<CR>", { silent = true })
 nmap("<leader>tt", ":tabe<CR>:terminal<CR>", { silent = true })
 local terminal_buffer_group = vim.api.nvim_create_augroup("TerminalBuffer", { clear = true })
+
 vim.api.nvim_create_autocmd({ "TermEnter" }, {
   pattern = { "*" },
   command = "setlocal nonumber",
+  group = terminal_buffer_group,
 })
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
   pattern = { "*" },
   command = "startinsert",
+  group = terminal_buffer_group,
 })
