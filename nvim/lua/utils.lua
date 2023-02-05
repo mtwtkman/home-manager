@@ -22,7 +22,7 @@ function M.map_array(f, ary)
 end
 
 function M.concat_array(a, b)
-  return {unpack(a), unpack(b)}
+  return {table.unpack(a), table.unpack(b)}
 end
 
 function M.optional_value(x, default)
