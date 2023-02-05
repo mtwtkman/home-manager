@@ -96,7 +96,7 @@ function M.iterate_child_modules(info, callback)
 end
 
 function M.tail(ary)
-  return select(2, unpack(ary))
+  return select(2, table.unpack(ary))
 end
 
 return M
