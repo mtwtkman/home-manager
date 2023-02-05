@@ -64,8 +64,8 @@ function M.list_siblings(dir)
   local self_name = dir:match(".+/([^/]+)/?$"):gsub("-", "%%-")
 
   local exclude = function(path)
-    local p1 = (path:match("/" .. self_name .. "/[^/]+.lua") ~= nil) and (path:match("/" .. self_name .. "/init.lua") == nil)
-    local p2 = (path:match("/" .. self_name .. "/[^/]+/[^/]+.lua") ~= nil) and (path:match("/" .. self_name .. "/[^/]+/init.lua") ~= nil)
+    local p1 = (path:match("/" .. self_name .. "/[^/]+.lua$") ~= nil) and (path:match("/" .. self_name .. "/init.lua$") == nil)
+    local p2 = (path:match("/" .. self_name .. "/[^/]+/[^/]+.lua$") ~= nil) and (path:match("/" .. self_name .. "/[^/]+/init.lua$") ~= nil)
     return not (p1 or p2)
   end
 
@@ -81,12 +81,12 @@ function M.list_siblings(dir)
 end
 
 function M.get_module_name(path)
-  local fromdir =  path:match("/([^/]+)/init.lua")
+  local fromdir =  path:match("/([^/]+)/init.lua$")
   if fromdir ~= nil then
     return fromdir
   end
 
-  return path:match(".+/([^/]+).lua")
+  return path:match(".+/([^/]+).lua$")
 end
 
 function M.iterate_child_modules(info, callback)
