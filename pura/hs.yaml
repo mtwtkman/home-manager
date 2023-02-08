@@ -4,6 +4,9 @@ packages:
   - haskell-language-server
   - haskellPackages.ormolu
   - haskellPackages.cabal2nix
+  - haskellPackages.haskell-dap
+  - haskellPackages.haskell-debug-adapter
+  - haskellPackages.ghci-dap
 shellAliases:
   b: "cabal build"
   c: "cabal clean"
