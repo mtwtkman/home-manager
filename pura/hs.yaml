@@ -7,6 +7,7 @@ packages:
   - haskellPackages.haskell-dap
   - haskellPackages.haskell-debug-adapter
   - haskellPackages.ghci-dap
+  - haskellPackages.cabal-fmt
 shellAliases:
   b: "cabal build"
   c: "cabal clean"
