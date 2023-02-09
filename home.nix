@@ -56,6 +56,9 @@ in
         "--prompt='fzf>'"
       ];
       fileWidgetCommand = defaultCommand;
+      tmux = {
+        enableShellIntegration = true;
+      };
     };
 
   programs.direnv = {
