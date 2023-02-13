@@ -1,5 +1,5 @@
 return {
-  servername = "sumneko_lua",
+  servername = "lua_ls",
   settings = {
     Lua = {
       diagnostics = {

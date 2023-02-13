@@ -30,7 +30,7 @@ in
     bash
     direnv
     gh
-    sumneko-lua-language-server
+    lua-language-server
   ];
   xdg.configFile = {
     nvim.source = ./nvim;
