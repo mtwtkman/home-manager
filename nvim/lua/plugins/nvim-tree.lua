@@ -21,24 +21,34 @@ end
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 require("nvim-tree").setup({
-  remove_keymaps = { "<C-v>", "<C-t>", "<2-RightMouse>", "<C-x>", "bmv", "d", "-", "<BS>", "o" },
-  view = {
-    mappings = {
-      list = {
-        { key = "v", action = "vsplit" },
-        { key = "t", action = "tabnew" },
-        { key = "s", action = "split" },
-        { key = "M", action = "bulk_move" },
-        { key = "u", action = "dir_up" },
-        { key = "h", action = "close_node" },
-        { key = "l", action = "edit" },
-      },
+    remove_keymaps = {
+        "<C-v>",
+        "<C-t>",
+        "<2-RightMouse>",
+        "<C-x>",
+        "bmv",
+        "d",
+        "-",
+        "<BS>",
+        "o"
     },
-  },
-  trash = {
-    cmd = "trash-put",
-  },
-  diagnostics = {
-    enable = true,
-  },
+    view = {
+        mappings = {
+            list = {
+                { key = "v", action = "vsplit" },
+                { key = "t", action = "tabnew" },
+                { key = "s", action = "split" },
+                { key = "M", action = "bulk_move" },
+                { key = "u", action = "dir_up" },
+                { key = "h", action = "close_node" },
+                { key = "l", action = "edit" },
+            },
+        },
+    },
+    trash = {
+        cmd = "trash-put",
+    },
+    diagnostics = {
+        enable = true,
+    },
 })
