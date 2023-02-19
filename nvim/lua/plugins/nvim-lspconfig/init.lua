@@ -42,3 +42,9 @@ local configure_lsp = function(langtype)
   lspconfig[server_info.servername].setup(config)
 end
 utils.iterate_child_modules(debug.getinfo(1, "S"), configure_lsp)
+
+local signs = { Error = "", Warning = "", Info = "", Hint = "󰌵" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
