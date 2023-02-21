@@ -17,4 +17,5 @@
   pura = "pura -r ~/.config/nixpkgs/pura";
   devshell = "nix flake new -t \"github:numtide/devshell\"";
   vsh = "vim term://bash";
+  hmclean = "hm expire-generations 1s; nix profile wipe-history";
 }
