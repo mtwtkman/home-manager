@@ -15,6 +15,7 @@ local open_nvim_tree = function(data)
   if not is_directory then
     return
   end
+  vim.cmd.cd(data.file)
   require("nvim-tree.api").tree.open()
 end
 
