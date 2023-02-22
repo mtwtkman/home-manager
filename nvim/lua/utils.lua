@@ -99,4 +99,10 @@ function M.tail(ary)
   return select(2, table.unpack(ary))
 end
 
+
+function M.copy_to_clipboard(content)
+  vim.fn.setreg("+", content)
+  vim.fn.setreg('"', content)
+end
+
 return M

@@ -59,3 +59,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = ":%s/\\s\\+$//ge",
 })
 
+vim.api.nvim_create_user_command("CopyCurrentFileRelativePath", function(data)
+  local value = "%:."
+  if data.bang == true then
+    value = "%:.:h"
+  end
+  utils.copy_to_clipboard(vim.fn.expand(value))
+end, { bang = true })
