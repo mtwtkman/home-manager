@@ -1,5 +1,5 @@
 require("basic")
-require("move")
-require("terminal")
 require("plugins")
 require("style")
+require("move")
+require("terminal")
