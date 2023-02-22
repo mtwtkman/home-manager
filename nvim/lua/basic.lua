@@ -66,3 +66,5 @@ vim.api.nvim_create_user_command("CopyCurrentFileRelativePath", function(data)
   end
   utils.copy_to_clipboard(vim.fn.expand(value))
 end, { bang = true })
+nmap("<leader>cf", ":CopyCurrentFileRelativePath<CR>", { silent = true })
+nmap("<leader>cd", ":CopyCurrentFileRelativePath!<CR>", { silent = true })
