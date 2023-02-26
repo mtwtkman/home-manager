@@ -41,6 +41,7 @@ require("packer").startup(function(use)
       "ldelossa/litee.nvim",
     }
   }
+  use "ggandor/lightspeed.nvim"
 end)
 
 local load_module = function(name)
