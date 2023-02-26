@@ -4,6 +4,8 @@
   l = "ls -CF";
   rm = "trash-put";
   hm = "NIXPKGS_ALLOW_UNFREE=1 home-manager --impure";
+  hmc = "hm expire-generations 1s; nix profile wipe-history";
+  hms = "hm switch";
   update = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove";
   flake = "nix flake";
   dev = "nix develop";
@@ -17,5 +19,4 @@
   pura = "pura -r ~/.config/nixpkgs/pura";
   devshell = "nix flake new -t \"github:numtide/devshell\"";
   vsh = "vim term://bash";
-  hmclean = "hm expire-generations 1s; nix profile wipe-history";
 }
