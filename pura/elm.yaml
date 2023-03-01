@@ -1,0 +1,6 @@
+packages:
+  - elmPackages.elm
+  - elmPackages.elm-format
+  - elmPackages.elm-language-server
+shellAliases: {}
+shellHook: ""
