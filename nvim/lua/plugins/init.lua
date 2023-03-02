@@ -41,7 +41,12 @@ require("packer").startup(function(use)
       "ldelossa/litee.nvim",
     }
   }
-  use "ggandor/lightspeed.nvim"
+  use {
+    "ggandor/leap.nvim",
+    requires = {
+      "tpope/vim-repeat",
+    },
+  }
 end)
 
 local load_module = function(name)
