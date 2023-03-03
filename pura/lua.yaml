@@ -1,5 +1,7 @@
 packages:
+  - lua
   - lua-language-server
   - stylua
+  - luarocks
 shellAliases: {}
 shellHook: ""
