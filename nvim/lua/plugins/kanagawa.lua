@@ -1,8 +1,7 @@
-local default_colors = require("kanagawa.colors").setup()
-local overrides = {
-  Visual = { bg = default_colors.boatYellow1 },
-}
-
 require("kanagawa").setup({
-  overrides = overrides,
+  overrides = function(colors)
+    return {
+      Visual = { bg = colors.palette.boatYellow1 }
+    }
+  end,
 })
