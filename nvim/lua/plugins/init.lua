@@ -47,6 +47,7 @@ require("packer").startup(function(use)
       "tpope/vim-repeat",
     },
   }
+  use "simrat39/symbols-outline.nvim"
 end)
 
 local load_module = function(name)
