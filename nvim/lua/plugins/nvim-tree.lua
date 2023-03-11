@@ -1,6 +1,7 @@
 local set = vim.opt
 local utils = require("utils")
 local nmap = utils.nmap
+local nvim_tree_api = require("nvim-tree.api")
 
 nmap("<leader>n", ":NvimTreeFindFileToggle<CR>", { silent = true })
 nmap("<C-w>n", ":NvimTreeFindFile<CR>", { silent = true })
@@ -52,4 +53,13 @@ require("nvim-tree").setup({
     diagnostics = {
         enable = true,
     },
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"NvimTree"},
+  callback = function()
+    nmap("<leader>n", nvim_tree_api.marks.navigate.next, { silent = true, buffer = true })
+    nmap("<leader>p", nvim_tree_api.marks.navigate.prev, { silent = true, buffer = true })
+    nmap("<leader>s", nvim_tree_api.marks.navigate.select, { silent = true, buffer = true })
+  end
 })
