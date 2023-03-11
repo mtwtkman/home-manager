@@ -1,7 +1,7 @@
 local utils = require("utils")
 local packer_util = require("packer.util")
 
-require("packer").startup({
+local spec = {
   function(use)
     use "wbthomason/packer.nvim"
     use "rebelot/kanagawa.nvim"
@@ -53,10 +53,15 @@ require("packer").startup({
     use "simrat39/symbols-outline.nvim"
     use "https://gitlab.com/yorickpeterse/nvim-window"
   end,
-  config = {
+}
+
+if vim.fn.has_key(vim.fn.environ(), "PACKER_NVIM_CONFIG_DIR") == 1 then
+  spec.config = {
     compile_path = packer_util.join_paths(vim.env["PACKER_NVIM_CONFIG_DIR"], "plugin", "packer_compiled.lua"),
-  },
-})
+  }
+end
+
+require("packer").startup(spec)
 
 local load_module = function(name)
   require("plugins." .. name)
