@@ -12,6 +12,7 @@ in
     NIX_CONF_DIR = meta.nixConfigDirectory;
     EDITOR = "nvim";
     VSNIP_PATH = meta.nixConfigDirectory + "/nvim/snippets";
+    PACKER_NVIM_CONFIG_DIR = meta.nixConfigDirectory + "/nvim/.config";
   };
   home.packages = with pkgs; [
     ripgrep
