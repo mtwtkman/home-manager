@@ -49,6 +49,7 @@ require("packer").startup(function(use)
     },
   }
   use "simrat39/symbols-outline.nvim"
+  use "https://gitlab.com/yorickpeterse/nvim-window"
 end)
 
 local load_module = function(name)
