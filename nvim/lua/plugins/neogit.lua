@@ -1,5 +1,7 @@
 local neogit = require("neogit")
 neogit.setup({
+  disable_hint = true,
+  disable_commit_confirmation = true,
   integrations = {
     diffview = true,
   },
@@ -8,6 +10,7 @@ neogit.setup({
       ["P"] = "",
       ["p"] = "PushPopup",
       ["C"] = "NeogitCommitPopup--no-verify",
+      ["<Enter>"] = "Toggle",
     },
   },
 })
