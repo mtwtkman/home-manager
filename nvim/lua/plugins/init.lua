@@ -14,7 +14,10 @@ local spec = {
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     use "nvim-treesitter/nvim-treesitter-context"
     use "nvim-treesitter/nvim-treesitter-textobjects"
-    use "tpope/vim-fugitive"
+    use {
+      "TimUntersberger/neogit",
+      requires = "nvim-lua/plenary.nvim",
+    }
     use {
       "nvim-tree/nvim-tree.lua",
       requires = {
