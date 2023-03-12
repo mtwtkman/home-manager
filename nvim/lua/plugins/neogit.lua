@@ -9,7 +9,6 @@ neogit.setup({
     status = {
       ["P"] = "",
       ["p"] = "PushPopup",
-      ["C"] = "NeogitCommitPopup--no-verify",
       ["o"] = "GoToFile",
       ["<Enter>"] = "Toggle",
     },
