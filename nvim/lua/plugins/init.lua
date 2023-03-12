@@ -16,7 +16,10 @@ local spec = {
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use {
       "TimUntersberger/neogit",
-      requires = "nvim-lua/plenary.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "sindrets/diffview.nvim",
+      },
     }
     use {
       "nvim-tree/nvim-tree.lua",
