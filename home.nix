@@ -13,6 +13,7 @@ in
     EDITOR = "nvim";
     VSNIP_PATH = meta.nixConfigDirectory + "/nvim/snippets";
     PACKER_NVIM_CONFIG_DIR = meta.nixConfigDirectory + "/nvim/.config";
+    XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };
   home.packages = with pkgs; [
     ripgrep
