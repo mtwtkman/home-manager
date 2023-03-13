@@ -1,5 +1,6 @@
 let pkgs = import <nixpkgs> { };
-in rec {
+in
+rec {
   username = builtins.getEnv "USER";
   home = builtins.getEnv "HOME";
   homeManagerStateVersion = "22.05";

@@ -14,7 +14,8 @@
       meta = import ./meta.nix;
       system = meta.system;
       pkgs = import nixpkgs { config = { allowUnfree = true; }; };
-    in {
+    in
+    {
       homeConfigurations.${meta.username} =
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
