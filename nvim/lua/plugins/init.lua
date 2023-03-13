@@ -15,13 +15,6 @@ local spec = {
     use "nvim-treesitter/nvim-treesitter-context"
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use {
-      "TimUntersberger/neogit",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "sindrets/diffview.nvim",
-      },
-    }
-    use {
       "nvim-tree/nvim-tree.lua",
       requires = {
         "nvim-tree/nvim-web-devicons",
@@ -35,6 +28,7 @@ local spec = {
     use "hrsh7th/cmp-vsnip"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-buffer"
+    use "tpope/vim-fugitive"
     use "tpope/vim-rhubarb"
     use "lukas-reineke/indent-blankline.nvim"
     use {
