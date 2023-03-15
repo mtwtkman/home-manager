@@ -1,5 +1,6 @@
 packages:
   - clojure
   - clojure-lsp
+  - leiningen
 shellAliases: {}
 shellHook: ""
