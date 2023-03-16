@@ -9,7 +9,7 @@ in
   home.homeDirectory = meta.home;
   home.stateVersion = meta.homeManagerStateVersion;
   home.sessionVariables = {
-    HOME_MANAGER_ROOT = meta.homeManagerDirectory;
+    NIX_HOME_MANAGER_ROOT = meta.homeManagerDirectory;
     EDITOR = "nvim";
     VSNIP_PATH = meta.homeManagerDirectory + "/nvim/snippets";
     PACKER_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";

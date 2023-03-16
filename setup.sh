@@ -32,6 +32,6 @@ nix_conf="nix.conf"
 ln ${my_home_manager_path}/${nix_conf} ${nix_dir}/${nix_conf}
 
 echo 'activate home-manager'
-nix-shell -p git --run "HOME_MANAGER_ROOT=${my_home_manager_path} home-manager --impure switch"
+nix-shell -p git --run "NIX_HOME_MANAGER_ROOT=${my_home_manager_path} home-manager --impure switch"
 
 echo 'done'
