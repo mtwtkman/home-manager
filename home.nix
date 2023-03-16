@@ -9,10 +9,10 @@ in
   home.homeDirectory = meta.home;
   home.stateVersion = meta.homeManagerStateVersion;
   home.sessionVariables = {
-    NIX_CONF_DIR = meta.nixConfigDirectory;
+    HOME_MANAGER_ROOT = meta.homeManagerDirectory;
     EDITOR = "nvim";
-    VSNIP_PATH = meta.nixConfigDirectory + "/nvim/snippets";
-    PACKER_NVIM_CONFIG_DIR = meta.nixConfigDirectory + "/nvim/.config";
+    VSNIP_PATH = meta.homeManagerDirectory + "/nvim/snippets";
+    PACKER_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };
   home.packages = with pkgs; [
@@ -69,7 +69,7 @@ in
   };
   programs.home-manager = {
     enable = true;
-    path = meta.nixConfigDirectory;
+    path = meta.homeManagerDirectory;
   };
   programs.bash = {
     enable = true;

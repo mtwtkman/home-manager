@@ -5,5 +5,5 @@ rec {
   home = builtins.getEnv "HOME";
   homeManagerStateVersion = "22.05";
   system = pkgs.system;
-  nixConfigDirectory = "${home}/.config/nixpkgs";
+  homeManagerDirectory = "${home}/.config/home-manager";
 }

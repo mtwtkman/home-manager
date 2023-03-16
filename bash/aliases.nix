@@ -1,4 +1,6 @@
-{
+let
+  meta = import ../meta.nix;
+in {
   ll = "ls -alF";
   la = "ls -A";
   l = "ls -CF";
@@ -16,7 +18,7 @@
   vrh = "vr -cc split --remote-wait";
   nixsearch = "nix-env -f '<nixpkgs>' -qaPA";
   ns = "nix-shell";
-  pura = "pura -r ~/.config/nixpkgs/pura";
+  pura = "pura -r ${meta.homeManagerDirectory}/pura";
   devshell = "nix flake new -t \"github:numtide/devshell\"";
   vsh = "vim term://bash";
 }
