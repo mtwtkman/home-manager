@@ -8,6 +8,7 @@ in {
   hm = "NIXPKGS_ALLOW_UNFREE=1 home-manager --impure";
   hmc = "hm expire-generations 1s; nix profile wipe-history";
   hms = "hm switch";
+  hmup = "hms; hmc";
   update = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove";
   flake = "nix flake";
   dev = "nix develop";
