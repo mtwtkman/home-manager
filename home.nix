@@ -16,8 +16,6 @@ in
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };
   home.packages = with pkgs; [
-    tabbed
-    xterm
     ripgrep
     tmux
     fd
