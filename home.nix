@@ -14,7 +14,6 @@ in
     VSNIP_PATH = meta.homeManagerDirectory + "/nvim/snippets";
     PACKER_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-    NNN_FIFO = "/tmp/nnn.fifo";
   };
   home.packages = with pkgs; [
     tabbed
@@ -95,33 +94,5 @@ in
     plugins = [
       pkgs.vimPlugins.packer-nvim
     ];
-  };
-  programs.nnn = {
-    enable = true;
-    package = pkgs.nnn.override ({
-      withNerdIcons = true;
-    });
-    plugins =
-      let
-        owner = "jarun";
-        repo = "nnn";
-        latestRevision = builtins.fetchGit ("https://github.com/" + owner + "/" + repo);
-      in
-      {
-        src = (pkgs.fetchFromGitHub {
-          owner = owner;
-          repo = repo;
-          rev = latestRevision.rev;
-          hash = latestRevision.narHash;
-        }) + "/plugins";
-        mappings = {
-          c = "fzcd";
-          d = "diffs";
-          f = "finder";
-          g = "-!git diff";
-          n = "nuke";
-          p = "preview-tabbed";
-        };
-      };
   };
 }
