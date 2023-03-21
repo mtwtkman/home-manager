@@ -1,6 +1,12 @@
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 PS1="\u@\w\$ "
 
+if [[ $(uname -r) == *"WSL2"* ]]; then
+  # X setting for wsl2
+  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+  export LIBGL_ALWAYS_INDIRECT=0
+fi
+
 eval "$(direnv hook bash)"
 export GPG_TTY=$(tty)
 source <(op completion bash)
