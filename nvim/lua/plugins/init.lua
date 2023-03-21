@@ -52,6 +52,7 @@ local spec = {
     }
     use "simrat39/symbols-outline.nvim"
     use "https://gitlab.com/yorickpeterse/nvim-window"
+    use "lewis6991/gitsigns.nvim"
   end,
 }
 
