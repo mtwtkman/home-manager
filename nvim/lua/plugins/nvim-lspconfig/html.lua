@@ -1,3 +1,4 @@
 return {
-  servername = "html"
+  servername = "html",
+  cmd = { "html-languageserver", "--stdio" },
 }

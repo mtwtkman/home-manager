@@ -1,3 +1,3 @@
 return {
-  servername = "clojure_lsp"
+  servername = "clojure_lsp",
 }
