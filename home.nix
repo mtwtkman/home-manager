@@ -3,11 +3,15 @@ let
   meta = import ./meta.nix;
   pura = import ./packages/pura.nix { nixpkgs = pkgs; };
   inherit (config.lib.file) mkOutOfStoreSymlink;
+  symlinks = if meta.isWsl2 then (import ./kernel/wsl2.nix { binPath = meta.localBinPath; }) else { };
 in
 {
   home.username = meta.username;
   home.homeDirectory = meta.home;
   home.stateVersion = meta.homeManagerStateVersion;
+  home.sessionPath = [
+    meta.localBinPath
+  ];
   home.sessionVariables = {
     NIX_HOME_MANAGER_ROOT = meta.homeManagerDirectory;
     EDITOR = "nvim";
@@ -38,7 +42,11 @@ in
     nvim.source = ./nvim;
     "nvim/lua".source = ./nvim/lua;
   };
-  home.file = { ".tmux.conf".source = ./tmux/tmux.conf; };
+  home.file = {
+    ".tmux.conf" = {
+      source = ./tmux/tmux.conf;
+    };
+  } // symlinks;
 
   programs.fzf =
     let
