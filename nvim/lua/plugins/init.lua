@@ -1,4 +1,3 @@
-local utils = require("utils")
 local packer_util = require("packer.util")
 
 local spec = {
@@ -124,6 +123,12 @@ local spec = {
       config = function()
         require("plugins.gx")
       end,
+    }
+    use {
+      "SmiteshP/nvim-navic",
+      requires = {
+        "neovim/nvim-lspconfig",
+      },
     }
   end,
 }

@@ -1,3 +1,4 @@
+local navic = require("nvim-navic")
 local utils = require("utils")
 local nmap = utils.nmap
 
@@ -21,6 +22,9 @@ local on_attach = function(client, bufnr)
   nmap("<space>rn", vim.lsp.buf.rename, { silent = true, buffer = bufnr })
   nmap("<space>ca", vim.lsp.buf.code_action, { silent = true, buffer = bufnr })
   nmap("<space>f", function() vim.lsp.buf.format { async = true } end, { silent = true, buffer = bufnr })
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
 end
 
 local lsp_flags = {
