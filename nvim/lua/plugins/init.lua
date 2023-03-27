@@ -3,12 +3,7 @@ local packer_util = require("packer.util")
 local spec = {
   function(use)
     use "wbthomason/packer.nvim"
-    use {
-      "rebelot/kanagawa.nvim",
-      config = function()
-        require("plugins.kanagawa")
-      end,
-    }
+    use "rebelot/kanagawa.nvim"
     use {
       "nvim-lualine/lualine.nvim",
       requires = {
@@ -150,3 +145,5 @@ if vim.fn.has_key(vim.fn.environ(), "PACKER_NVIM_CONFIG_DIR") == 1 then
 end
 
 require("packer").startup(spec)
+
+require("plugins.kanagawa") -- NOTEO: packer setup does not work.
