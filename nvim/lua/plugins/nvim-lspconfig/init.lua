@@ -1,4 +1,4 @@
-local navic = require("nvim-navic")
+local navbuddy = require("nvim-navbuddy")
 local utils = require("utils")
 local nmap = utils.nmap
 
@@ -8,6 +8,9 @@ nmap("]d", vim.diagnostic.goto_next, { silent = true })
 
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  if client.server_capabilities.documentSymbolProvider then
+    navbuddy.attach(client, bufnr)
+  end
   nmap("gD", vim.lsp.buf.declaration, { silent = true, buffer = bufnr })
   nmap("gd", vim.lsp.buf.definition, { silent = true, buffer = bufnr })
   nmap("K", vim.lsp.buf.hover, { silent = true, buffer = bufnr })
@@ -22,9 +25,7 @@ local on_attach = function(client, bufnr)
   nmap("<space>rn", vim.lsp.buf.rename, { silent = true, buffer = bufnr })
   nmap("<space>ca", vim.lsp.buf.code_action, { silent = true, buffer = bufnr })
   nmap("<space>f", function() vim.lsp.buf.format { async = true } end, { silent = true, buffer = bufnr })
-  if client.server_capabilities.documentSymbolProvider then
-    navic.attach(client, bufnr)
-  end
+  nmap("<space>k", navbuddy.open, { silent = true })
 end
 
 local lsp_flags = {

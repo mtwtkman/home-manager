@@ -125,10 +125,18 @@ local spec = {
       end,
     }
     use {
-      "SmiteshP/nvim-navic",
+      "SmiteshP/nvim-navbuddy",
       requires = {
         "neovim/nvim-lspconfig",
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim"
       },
+    }
+    use {
+      "numToStr/Comment.nvim",
+      config = function()
+        require("plugins.Comment")
+      end
     }
   end,
 }
