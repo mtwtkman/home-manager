@@ -4,14 +4,28 @@ local packer_util = require("packer.util")
 local spec = {
   function(use)
     use "wbthomason/packer.nvim"
-    use "rebelot/kanagawa.nvim"
+    use {
+      "rebelot/kanagawa.nvim",
+      config = function()
+        require("plugins.kanagawa")
+      end,
+    }
     use {
       "nvim-lualine/lualine.nvim",
       requires = {
         "nvim-tree/nvim-web-devicons",
       },
+      config = function()
+        require("plugins.lualine")
+      end,
     }
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      config = function()
+        require("plugins.nvim-treesitter")
+      end,
+    }
     use "nvim-treesitter/nvim-treesitter-context"
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use {
@@ -19,59 +33,107 @@ local spec = {
       requires = {
         "nvim-tree/nvim-web-devicons",
       },
+      config = function()
+        require("plugins.nvim-tree")
+      end,
     }
-    use "neovim/nvim-lspconfig"
+    use {
+      "neovim/nvim-lspconfig",
+      config = function()
+        require("plugins.nvim-lspconfig")
+      end,
+    }
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-path"
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/vim-vsnip"
+    use {
+      "hrsh7th/nvim-cmp",
+      config = function()
+        require("plugins.nvim-cmp")
+      end,
+    }
+    use {
+      "hrsh7th/vim-vsnip",
+      config = function()
+        require("plugins.vim-vsnip")
+      end,
+    }
     use "hrsh7th/cmp-vsnip"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-buffer"
-    use "tpope/vim-fugitive"
+    use {
+      "tpope/vim-fugitive",
+      config = function()
+        require("plugins.vim-fugitive")
+      end,
+    }
     use "tpope/vim-rhubarb"
     use "lukas-reineke/indent-blankline.nvim"
     use {
       "ibhagwan/fzf-lua",
       requies = {
         "nvim-tree/nvim-web-devicons",
-      }
+      },
+      config = function()
+        require("plugins.fzf-lua")
+      end,
     }
-    use "mfussenegger/nvim-dap"
+    use {
+      "mfussenegger/nvim-dap",
+      config = function()
+        require("plugins.nvim-dap")
+      end,
+    }
     use {
       "ldelossa/gh.nvim",
       requires = {
         "ldelossa/litee.nvim",
-      }
+      },
     }
     use {
       "ggandor/leap.nvim",
       requires = {
         "tpope/vim-repeat",
       },
+      config = function()
+        require("plugins.leap")
+      end,
     }
-    use "simrat39/symbols-outline.nvim"
-    use "https://gitlab.com/yorickpeterse/nvim-window"
-    use "lewis6991/gitsigns.nvim"
+    use {
+      "simrat39/symbols-outline.nvim",
+      config = function()
+        require("plugins.symbols-outline")
+      end,
+    }
+    use {
+      "https://gitlab.com/yorickpeterse/nvim-window",
+      config = function()
+        require("plugins.nvim-window")
+      end,
+    }
+    use {
+      "lewis6991/gitsigns.nvim",
+      config = function()
+        require("plugins.gitsigns")
+      end,
+    }
     use {
       "chrishrb/gx.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
       },
+      config = function()
+        require("plugins.gx")
+      end,
     }
   end,
 }
 
 if vim.fn.has_key(vim.fn.environ(), "PACKER_NVIM_CONFIG_DIR") == 1 then
+  local config_dir = vim.env["PACKER_NVIM_CONFIG_DIR"]
+  vim.opt.runtimepath:append(config_dir)
   spec.config = {
-    compile_path = packer_util.join_paths(vim.env["PACKER_NVIM_CONFIG_DIR"], "plugin", "packer_compiled.lua"),
+    compile_path = packer_util.join_paths(config_dir, "plugin", "packer_compiled.lua"),
   }
 end
 
 require("packer").startup(spec)
-
-local load_module = function(name)
-  require("plugins." .. name)
-end
-
-utils.iterate_child_modules(debug.getinfo(1, "S"), load_module)
