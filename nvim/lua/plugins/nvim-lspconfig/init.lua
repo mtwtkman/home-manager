@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
   nmap("<space>rn", vim.lsp.buf.rename, { silent = true, buffer = bufnr })
   nmap("<space>ca", vim.lsp.buf.code_action, { silent = true, buffer = bufnr })
   nmap("<space>f", function() vim.lsp.buf.format { async = true } end, { silent = true, buffer = bufnr })
-  nmap("<space>k", navbuddy.open, { silent = true })
+  nmap("<leader>.", navbuddy.open, { silent = true })
 end
 
 local lsp_flags = {
