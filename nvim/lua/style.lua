@@ -24,4 +24,4 @@ local fixsize = function(params)
 end
 vim.api.nvim_create_user_command("FW", fixsize, { nargs = 1 })
 nmap("<leader>w", ":FW<space>", { silent = true })
-cmd.highlight({"Normal", "guibg=NONE", "ctermbg =NONE"})
+cmd.highlight({"Normal", "guibg=NONE", "ctermbg=NONE"})

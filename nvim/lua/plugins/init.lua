@@ -146,4 +146,4 @@ end
 
 require("packer").startup(spec)
 
-require("plugins.kanagawa") -- NOTEO: packer setup does not work.
+require("plugins.kanagawa") -- NOTE: packer setup does not work.
