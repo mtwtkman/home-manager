@@ -11,4 +11,3 @@ fi
 
 eval "$(direnv hook bash)"
 export GPG_TTY=$(tty)
-source <(op completion bash)

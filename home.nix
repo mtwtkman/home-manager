@@ -29,7 +29,6 @@ in
     gcc
     gnupg
     pura
-    _1password
     bat
     fzf
     git
