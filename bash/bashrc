@@ -7,7 +7,5 @@ if [[ $(uname -r) == *"WSL2"* ]]; then
   export LIBGL_ALWAYS_INDIRECT=0
 fi
 
-[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-
 eval "$(direnv hook bash)"
 export GPG_TTY=$(tty)
