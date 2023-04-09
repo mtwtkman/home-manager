@@ -133,6 +133,13 @@ local spec = {
         require("plugins.Comment")
       end
     }
+
+    use {
+      "sindrets/diffview.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+      },
+    }
   end,
 }
 
