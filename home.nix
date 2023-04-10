@@ -3,7 +3,10 @@ let
   meta = import ./meta.nix;
   pura = import ./packages/pura.nix { nixpkgs = pkgs; };
   inherit (config.lib.file) mkOutOfStoreSymlink;
-  symlinks = if meta.isWsl2 then (import ./kernel/wsl2.nix { binPath = meta.localBinPath; }) else { };
+  platformSetiting = if meta.isWsl2 then (import ./kernel/wsl2.nix { pkgs = pkgs; binPath = meta.localBinPath; }) else {
+    symlinks = {};
+    packages = [];
+  };
 in
 {
   home.username = meta.username;
@@ -38,7 +41,7 @@ in
     direnv
     gh
     lua-language-server
-  ];
+  ] // platformSetiting.packages;
   xdg.configFile = {
     nvim.source = ./nvim;
     "nvim/lua".source = ./nvim/lua;
@@ -47,7 +50,7 @@ in
     ".tmux.conf" = {
       source = ./tmux/tmux.conf;
     };
-  } // symlinks;
+  } // platformSetiting.symlinks;
 
   programs.fzf =
     let
