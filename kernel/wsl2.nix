@@ -7,8 +7,13 @@ in
   };
 
   bashConfig = ''
-  mkdir $HOME/.local/bin
-  ln -s $(which wslview) ${binPath}/xdg-open
+  if [[ ! -d ${binPath} ]]
+  then
+    mkdir -p ${binPath}
+  fi
+  if ! type 'xdg-open' > /dev/null; then
+    ln -s $(which wslview) ${binPath}/xdg-open
+  fi
   '';
 
   packages = [
