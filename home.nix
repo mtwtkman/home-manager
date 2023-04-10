@@ -20,6 +20,7 @@ in
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };
   home.packages = with pkgs; [
+    nix-prefetch-git
     ripgrep
     tmux
     fd
