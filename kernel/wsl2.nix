@@ -1,13 +1,15 @@
 { pkgs, binPath }:
+let
+  meta = import ../meta.nix;
+in
 {
   symlinks = {
-    xdg-open = {
-      enable = true;
-      executable = true;
-      source = "/mnt/c/Windows/explorer.exe"; # FIXME: Use result of `which explorer.exe`.
-      target = "${binPath}/xdg-open";
-    };
   };
+
+  bashConfig = ''
+  mkdir $HOME/.local/bin
+  ln -s $(which wslview) ${binPath}/xdg-open
+  '';
 
   packages = [
     pkgs.wslu

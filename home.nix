@@ -41,7 +41,7 @@ in
     direnv
     gh
     lua-language-server
-  ] // platformSetiting.packages;
+  ] ++ platformSetiting.packages;
   xdg.configFile = {
     nvim.source = ./nvim;
     "nvim/lua".source = ./nvim/lua;
@@ -86,6 +86,7 @@ in
   programs.bash = {
     enable = true;
     bashrcExtra = builtins.readFile ./bash/bashrc;
+    initExtra = platformSetiting.bashConfig;
     shellAliases = import ./bash/aliases.nix;
   };
   programs.git = {
