@@ -133,12 +133,17 @@ local spec = {
         require("plugins.Comment")
       end
     }
-
     use {
       "sindrets/diffview.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
       },
+    }
+    use {
+      "Fildo7525/pretty_hover",
+      config = function ()
+        require("plugins.pretty_hover")
+      end,
     }
   end,
 }
