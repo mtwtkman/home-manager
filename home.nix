@@ -21,6 +21,7 @@ in
   };
   home.packages = with pkgs; [
     nix-prefetch-git
+    cachix
     ripgrep
     tmux
     fd
