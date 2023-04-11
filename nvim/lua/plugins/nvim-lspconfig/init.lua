@@ -1,5 +1,4 @@
 local navbuddy = require("nvim-navbuddy")
-local pretty_hover = require("pretty_hover")
 local utils = require("utils")
 local nmap = utils.nmap
 
