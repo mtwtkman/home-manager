@@ -1,4 +1,5 @@
 local navbuddy = require("nvim-navbuddy")
+local pretty_hover = require("pretty_hover")
 local utils = require("utils")
 local nmap = utils.nmap
 
@@ -13,7 +14,8 @@ local on_attach = function(client, bufnr)
   end
   nmap("gD", vim.lsp.buf.declaration, { silent = true, buffer = bufnr })
   nmap("gd", vim.lsp.buf.definition, { silent = true, buffer = bufnr })
-  nmap("K", vim.lsp.buf.hover, { silent = true, buffer = bufnr })
+  -- nmap("K", vim.lsp.buf.hover, { silent = true, buffer = bufnr })
+  nmap("K", pretty_hover.hover, { silent = true, buffer = bufnr })
   nmap("gi", vim.lsp.buf.implementation, { silent = true, buffer = bufnr })
   nmap("g<C-k>", vim.lsp.buf.signature_help, { silent = true, buffer = bufnr })
   nmap("<space>wa", vim.lsp.buf.add_workspace_folder, { silent = true, buffer = bufnr })
