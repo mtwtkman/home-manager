@@ -139,12 +139,6 @@ local spec = {
         "nvim-lua/plenary.nvim",
       },
     }
-    use {
-      "Fildo7525/pretty_hover",
-      config = function ()
-        require("plugins.pretty_hover")
-      end,
-    }
   end,
 }
 
