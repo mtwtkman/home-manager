@@ -2,7 +2,7 @@ return {
   adapter = {
     type = "executable",
     command = "haskell-debug-adapter",
-    args = {"--hackage-version=0.0.38.0"},
+    args = {},
   },
   client = {
     {
