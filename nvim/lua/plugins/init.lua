@@ -55,6 +55,12 @@ local spec = {
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-buffer"
     use {
+      "rcarriga/cmp-dap",
+      requires = {
+        "mfussenegger/nvim-dap",
+      },
+    }
+    use {
       "tpope/vim-fugitive",
       config = function()
         require("plugins.vim-fugitive")

@@ -13,7 +13,7 @@ return {
       startup = "${file}",
       stopOnEntry = true,
       logFile = vim.fn.stdpath("data") .. "/haskell-dap.log",
-      logLevel = "WARNING",
+      logLevel = "DEBUG",
       ghciEnv = vim.empty_dict(),
       ghciPrompt = "λ: ",
       ghciInitialPrompt = "λ: ",
