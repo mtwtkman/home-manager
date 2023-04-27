@@ -4,8 +4,8 @@ let
   pura = import ./packages/pura.nix { nixpkgs = pkgs; };
   inherit (config.lib.file) mkOutOfStoreSymlink;
   platformSetiting = if meta.isWsl2 then (import ./kernel/wsl2.nix { pkgs = pkgs; binPath = meta.localBinPath; }) else {
-    symlinks = {};
-    packages = [];
+    symlinks = { };
+    packages = [ ];
   };
 in
 {
@@ -108,12 +108,12 @@ in
       pkgs.vimPlugins.packer-nvim
     ];
   };
-  # programs.nnn = {
-  #   plugins.src = (pkgs.fetchFromGitHub {
-  #     owner = "jarun";
-  #     repo="nnn";
-  #     rev="v4.8";
-  #     sha256="";
-  #     }) + "/plugins";
-  # };
+  programs.nnn = {
+    plugins.src = (fetchFromGitHub {
+      owner = "jarun";
+      repo = "nnn";
+      rev = "master";
+      hash = "sha256-J4fpUG4iQQyIhakn1Nqx2ADT20pyySYbk66/v1m+Ifg=";
+    }) + "/plugins";
+  };
 }
