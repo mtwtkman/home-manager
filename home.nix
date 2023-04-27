@@ -41,6 +41,7 @@ in
     direnv
     gh
     lua-language-server
+    nnn
   ] ++ platformSetiting.packages;
   xdg.configFile = {
     nvim.source = ./nvim;
