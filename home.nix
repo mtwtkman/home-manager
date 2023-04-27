@@ -42,6 +42,7 @@ in
     gh
     lua-language-server
     nnn
+    nurl
   ] ++ platformSetiting.packages;
   xdg.configFile = {
     nvim.source = ./nvim;
@@ -107,4 +108,12 @@ in
       pkgs.vimPlugins.packer-nvim
     ];
   };
+  # programs.nnn = {
+  #   plugins.src = (pkgs.fetchFromGitHub {
+  #     owner = "jarun";
+  #     repo="nnn";
+  #     rev="v4.8";
+  #     sha256="";
+  #     }) + "/plugins";
+  # };
 }
