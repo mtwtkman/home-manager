@@ -41,7 +41,6 @@ in
     direnv
     gh
     lua-language-server
-    nnn
     nurl
   ] ++ platformSetiting.packages;
   xdg.configFile = {
@@ -107,19 +106,5 @@ in
     plugins = [
       pkgs.vimPlugins.packer-nvim
     ];
-  };
-  programs.nnn = {
-    plugins = {
-      src = (pkgs.fetchFromGitHub {
-        owner = "jarun";
-        repo = "nnn";
-        rev = "master";
-        hash = "sha256-J4fpUG4iQQyIhakn1Nqx2ADT20pyySYbk66/v1m+Ifg=";
-      }) + "/plugins";
-      mappings = {
-        c = "fzcd";
-        f = "finder";
-      };
-    };
   };
 }
