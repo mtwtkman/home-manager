@@ -109,11 +109,16 @@ in
     ];
   };
   programs.nnn = {
-    plugins.src = (fetchFromGitHub {
-      owner = "jarun";
-      repo = "nnn";
-      rev = "master";
-      hash = "sha256-J4fpUG4iQQyIhakn1Nqx2ADT20pyySYbk66/v1m+Ifg=";
-    }) + "/plugins";
+    plugins = {
+      src = (pkgs.fetchFromGitHub {
+        owner = "jarun";
+        repo = "nnn";
+        rev = "master";
+        hash = "sha256-J4fpUG4iQQyIhakn1Nqx2ADT20pyySYbk66/v1m+Ifg=";
+      }) + "/plugins";
+      mappings = {
+        c = "fzcd";
+      };
+    };
   };
 }
