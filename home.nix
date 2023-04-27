@@ -118,6 +118,7 @@ in
       }) + "/plugins";
       mappings = {
         c = "fzcd";
+        f = "finder";
       };
     };
   };
