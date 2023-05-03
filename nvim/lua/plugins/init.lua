@@ -8,6 +8,7 @@ local spec = {
       "nvim-lualine/lualine.nvim",
       requires = {
         "nvim-tree/nvim-web-devicons",
+        "arkav/lualine-lsp-progress",
       },
       config = function()
         require("plugins.lualine")
