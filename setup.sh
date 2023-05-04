@@ -25,7 +25,7 @@ nix-shell '<home-manager>' -A install
 
 echo 'install repo'
 rm -rf ${my_home_manager_path}
-nix-shell -p git --run "git clone git@github.com:mtwtkman/home-manager ${my_home_manager_path}"
+nix-shell -p git --run "git clone https://github.com/mtwtkman/home-manager ${my_home_manager_path}"
 
 echo 'link nix.conf'
 nix_conf="nix.conf"
