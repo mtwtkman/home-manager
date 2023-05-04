@@ -19,3 +19,17 @@ fif() {
 fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
+
+update() {
+  osname=$(hostnamectl --json=pretty | jq .OperatingSystemPrettyName)
+  if [[ "$osname" == *Ubuntu* ]]; then
+    cmd="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
+  elif [[ "$osname" ==  *Arch* ]]; then
+    cmd="sudo pacman -Su"
+  else
+    echo "unknown $osname"
+    exit 0
+  fi
+
+  eval $cmd
+}

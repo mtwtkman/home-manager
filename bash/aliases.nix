@@ -9,7 +9,6 @@ in {
   hmc = "hm expire-generations 1s; nix profile wipe-history";
   hms = "hm switch";
   hmup = "pushd ${meta.homeManagerDirectory}; flake update; hms; hmc; popd";
-  update = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove";
   flake = "nix flake";
   dev = "nix develop";
   vim = "nvim --listen /tmp/nvimsocket";

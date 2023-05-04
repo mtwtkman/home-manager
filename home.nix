@@ -23,6 +23,7 @@ in
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };
   home.packages = with pkgs; [
+    xdg-utils
     nix-prefetch-git
     cachix
     ripgrep
@@ -42,6 +43,7 @@ in
     gh
     lua-language-server
     nurl
+    jq
   ] ++ platformSetiting.packages;
   xdg.configFile = {
     nvim.source = ./nvim;
