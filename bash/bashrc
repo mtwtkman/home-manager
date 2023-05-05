@@ -25,7 +25,7 @@ update() {
   if [[ "$osname" == *Ubuntu* ]]; then
     cmd="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
   elif [[ "$osname" ==  *Arch* ]]; then
-    cmd="sudo pacman -Su"
+    cmd="sudo pacman -Syu"
   else
     echo "unknown $osname"
     exit 0
