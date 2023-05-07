@@ -84,7 +84,7 @@ in
   };
   programs.home-manager = {
     enable = true;
-    path = meta.homeManagerDirectory;
+    path = pkgs.lib.mkForce meta.homeManagerDirectory;
   };
   programs.bash = {
     enable = true;
