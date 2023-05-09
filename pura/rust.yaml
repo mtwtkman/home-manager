@@ -1,0 +1,5 @@
+packages:
+  - rustup
+  - rust-analyzer
+shellAliases: {}
+shellHook: ""

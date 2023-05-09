@@ -1,3 +1,3 @@
 return {
-  servername = "rust_analyzer"
+  servername = "rust_analyzer",
 }
