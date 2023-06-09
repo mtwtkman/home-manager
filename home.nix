@@ -44,6 +44,7 @@ in
     lua-language-server
     nurl
     jq
+    bottom
   ] ++ platformSetiting.packages;
   xdg.configFile = {
     nvim.source = ./nvim;
