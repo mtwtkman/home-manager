@@ -73,7 +73,8 @@ in
         "--inline-info"
         "--prompt='fzf>'"
         "--ansi"
-        "--bind=ctrl-f:page-down,ctrl-b:page-up"
+        "--preview='bat --style=full --color=always {}'"
+        "--bind=ctrl-f:page-down,ctrl-b:page-up,'ctrl-v:become(vim {})',ctrl-^:first,ctrl-/:last"
       ];
       fileWidgetCommand = defaultCommand;
       tmux = {
