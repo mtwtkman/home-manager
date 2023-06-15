@@ -72,6 +72,8 @@ in
         "--multi"
         "--inline-info"
         "--prompt='fzf>'"
+        "--ansi"
+        "--bind=ctrl-f:page-down,ctrl-b:page-up"
       ];
       fileWidgetCommand = defaultCommand;
       tmux = {
