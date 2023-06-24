@@ -136,9 +136,6 @@ local spec = {
       requires = {
         "neovim/nvim-lspconfig",
       },
-      config = function()
-        require("plugins.nvim-navic")
-      end,
     }
     use {
       "numToStr/Comment.nvim",
