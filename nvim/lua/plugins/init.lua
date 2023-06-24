@@ -90,14 +90,20 @@ local spec = {
         "ldelossa/litee.nvim",
       },
     }
+    -- use {
+    --   "ggandor/leap.nvim",
+    --   requires = {
+    --     "tpope/vim-repeat",
+    --   },
+    --   config = function()
+    --     require("plugins.leap")
+    --   end,
+    -- }
     use {
-      "ggandor/leap.nvim",
-      requires = {
-        "tpope/vim-repeat",
-      },
+      "folke/flash.nvim",
       config = function()
-        require("plugins.leap")
-      end,
+        require("plugins.flash")
+      end
     }
     use {
       "simrat39/symbols-outline.nvim",
