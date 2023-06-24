@@ -90,15 +90,6 @@ local spec = {
         "ldelossa/litee.nvim",
       },
     }
-    -- use {
-    --   "ggandor/leap.nvim",
-    --   requires = {
-    --     "tpope/vim-repeat",
-    --   },
-    --   config = function()
-    --     require("plugins.leap")
-    --   end,
-    -- }
     use {
       "folke/flash.nvim",
       config = function()
