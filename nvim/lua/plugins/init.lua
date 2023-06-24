@@ -152,6 +152,12 @@ local spec = {
         "nvim-lua/plenary.nvim",
       },
     }
+    use {
+      "chentoast/marks.nvim",
+      config = function()
+        require("plugins.marks")
+      end,
+    }
   end,
 }
 
