@@ -132,6 +132,12 @@ local spec = {
       },
     }
     use {
+      "SmiteshP/nvim-navic",
+      requires = {
+        "neovim/nvim-lspconfig",
+      },
+    }
+    use {
       "numToStr/Comment.nvim",
       config = function()
         require("plugins.Comment")

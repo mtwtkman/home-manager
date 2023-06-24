@@ -1,4 +1,5 @@
 local navbuddy = require("nvim-navbuddy")
+local navic = require("nvim-navic")
 local utils = require("utils")
 local nmap = utils.nmap
 
@@ -11,6 +12,7 @@ local on_attach = function(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     navbuddy.attach(client, bufnr)
   end
+  navic.attach(client, bufnr)
   nmap("gD", vim.lsp.buf.declaration, { silent = true, buffer = bufnr })
   nmap("gd", vim.lsp.buf.definition, { silent = true, buffer = bufnr })
   nmap("K", vim.lsp.buf.hover, { silent = true, buffer = bufnr })
