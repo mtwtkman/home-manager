@@ -1,0 +1,5 @@
+packages:
+  - jre
+  - java-language-server
+shellAliases: {}
+shellHook: ''
