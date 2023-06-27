@@ -16,8 +16,8 @@ return {
       logLevel = "DEBUG",
       ghciEnv = vim.empty_dict(),
       ghciPrompt = "λ: ",
-      ghciInitialPrompt = "λ: ",
-      ghciCmd= "cabal repl -w ghci-dap --repl-no-load --builddir=${workspaceFolder}/.debug/dist-cabal-repl",
+      ghciInitialPrompt = "ghci> ",
+      ghciCmd= "cabal exec -- ghci-dap --interactive -i ${workspaceFolder}",
     },
   },
 }
