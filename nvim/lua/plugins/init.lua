@@ -85,6 +85,15 @@ local spec = {
       end,
     }
     use {
+      "rcarriga/nvim-dap-ui",
+      requires = {
+        "mfussenegger/nvim-dap",
+      },
+      config = function()
+        require("plugins.nvim-dap-ui")
+      end,
+    }
+    use {
       "ldelossa/gh.nvim",
       requires = {
         "ldelossa/litee.nvim",
