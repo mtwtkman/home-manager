@@ -124,15 +124,6 @@ local spec = {
       end,
     }
     use {
-      "chrishrb/gx.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim",
-      },
-      config = function()
-        require("plugins.gx")
-      end,
-    }
-    use {
       "SmiteshP/nvim-navbuddy",
       requires = {
         "neovim/nvim-lspconfig",
