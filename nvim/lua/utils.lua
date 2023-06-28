@@ -1,13 +1,13 @@
 local M = {}
 
 function M.each(f, ary)
-  for i=1,#ary,1 do
+  for i = 1, #ary, 1 do
     f(ary[i])
   end
 end
 
 function M.fold(f, acc, ary)
-  for i=1,#ary,1 do
+  for i = 1, #ary, 1 do
     acc = f(acc, ary[i])
   end
   return acc
@@ -15,14 +15,14 @@ end
 
 function M.map_array(f, ary)
   local xs = {}
-  for i=1,#ary,1 do
+  for i = 1, #ary, 1 do
     xs[i] = f(ary[i])
   end
   return xs
 end
 
 function M.concat_array(a, b)
-  return {table.unpack(a), table.unpack(b)}
+  return { table.unpack(a), table.unpack(b) }
 end
 
 function M.optional_value(x, default)
@@ -52,20 +52,20 @@ function M.compoase(a, b)
   return function(args)
     return a(b(args))
   end
-
 end
 
 function M.get_dir(current_filepath)
   return current_filepath:match("^@?(.+)/[^/]+.lua$")
 end
 
-
 function M.list_siblings(dir)
   local self_name = dir:match(".+/([^/]+)/?$"):gsub("-", "%%-")
 
   local exclude = function(path)
-    local p1 = (path:match("/" .. self_name .. "/[^/]+.lua$") ~= nil) and (path:match("/" .. self_name .. "/init.lua$") == nil)
-    local p2 = (path:match("/" .. self_name .. "/[^/]+/[^/]+.lua$") ~= nil) and (path:match("/" .. self_name .. "/[^/]+/init.lua$") ~= nil)
+    local p1 = (path:match("/" .. self_name .. "/[^/]+.lua$") ~= nil) and
+    (path:match("/" .. self_name .. "/init.lua$") == nil)
+    local p2 = (path:match("/" .. self_name .. "/[^/]+/[^/]+.lua$") ~= nil) and
+    (path:match("/" .. self_name .. "/[^/]+/init.lua$") ~= nil)
     return not (p1 or p2)
   end
 
@@ -81,7 +81,7 @@ function M.list_siblings(dir)
 end
 
 function M.get_module_name(path)
-  local fromdir =  path:match("/([^/]+)/init.lua$")
+  local fromdir = path:match("/([^/]+)/init.lua$")
   if fromdir ~= nil then
     return fromdir
   end
@@ -99,10 +99,13 @@ function M.tail(ary)
   return select(2, table.unpack(ary))
 end
 
-
 function M.copy_to_clipboard(content)
   vim.fn.setreg("+", content)
   vim.fn.setreg('"', content)
+end
+
+function M.get_dirname(str)
+  return str:match("(.*[/\\])")
 end
 
 return M
