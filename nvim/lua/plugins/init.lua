@@ -155,7 +155,7 @@ local spec = {
         require("plugins.marks")
       end,
     }
-    use "mfussenegger/nvim-jdtls"
+    -- use "mfussenegger/nvim-jdtls"
   end,
 }
 
