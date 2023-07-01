@@ -1,0 +1,4 @@
+packages:
+  - jdt-language-server
+shellAliases: {}
+shellHook: ''
