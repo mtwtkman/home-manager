@@ -61,13 +61,6 @@ local spec = {
         "mfussenegger/nvim-dap",
       },
     }
-    use {
-      "tpope/vim-fugitive",
-      config = function()
-        require("plugins.vim-fugitive")
-      end,
-    }
-    use "tpope/vim-rhubarb"
     use "lukas-reineke/indent-blankline.nvim"
     use {
       "ibhagwan/fzf-lua",
