@@ -42,6 +42,9 @@ local spec = {
     use "hrsh7th/cmp-path"
     use {
       "hrsh7th/nvim-cmp",
+      requires = {
+        "L3MON4D3/LuaSnip",
+      },
       config = function()
         require("plugins.nvim-cmp")
       end,
@@ -49,7 +52,6 @@ local spec = {
     use { 'saadparwaiz1/cmp_luasnip' }
     use {
       "L3MON4D3/LuaSnip",
-      after = "nvim-cmp",
       config = function()
         require("plugins.LuaSnip")
       end,

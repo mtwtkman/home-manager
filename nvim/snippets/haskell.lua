@@ -7,7 +7,7 @@ local regular_snippets = {
   s("pragma", {
     t("{-# LANGUAGE "),
     i(1),
-    t(" #-"),
+    t(" #-}"),
   }),
 }
 
