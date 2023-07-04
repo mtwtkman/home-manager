@@ -46,12 +46,6 @@ local spec = {
         require("plugins.nvim-cmp")
       end,
     }
-    -- use {
-    --   "hrsh7th/vim-vsnip",
-    --   config = function()
-    --     require("plugins.vim-vsnip")
-    --   end,
-    -- }
     use {
       "L3MON4D3/LuaSnip",
       tag = "v1.*",
@@ -59,7 +53,6 @@ local spec = {
         require("plugins.LuaSnip")
       end,
     }
-    -- use "hrsh7th/cmp-vsnip"
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-buffer"
     use {
