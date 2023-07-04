@@ -155,6 +155,15 @@ local spec = {
         require("plugins.marks")
       end,
     }
+    use {
+      "NeogitOrg/neogit",
+      requires = {
+        "nvim-lua/plenary.nvim",
+      },
+      config = function()
+        require("plugins.neogit")
+      end
+    }
   end,
 }
 
