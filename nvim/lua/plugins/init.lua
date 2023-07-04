@@ -46,9 +46,10 @@ local spec = {
         require("plugins.nvim-cmp")
       end,
     }
+    use { 'saadparwaiz1/cmp_luasnip' }
     use {
       "L3MON4D3/LuaSnip",
-      tag = "v1.*",
+      after = "nvim-cmp",
       config = function()
         require("plugins.LuaSnip")
       end,
