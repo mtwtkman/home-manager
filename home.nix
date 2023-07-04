@@ -19,6 +19,7 @@ in
     NIX_HOME_MANAGER_ROOT = meta.homeManagerDirectory;
     EDITOR = "nvim";
     VSNIP_PATH = meta.homeManagerDirectory + "/nvim/snippets";
+    SNIPPET_PATH = meta.homeManagerDirectory + "/nvim/snippets";
     PACKER_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };

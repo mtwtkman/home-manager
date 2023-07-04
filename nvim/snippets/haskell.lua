@@ -3,12 +3,12 @@ local s = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
 
-local regular_snippets = {s("pragma", {
+local regular_snippets = {
+  s("pragma", {
     t("{-# LANGUAGE "),
     i(1),
     t(" #-"),
   }),
-  s("hi", { t("-- hi") })
 }
 
 local auto_snippets = {}
