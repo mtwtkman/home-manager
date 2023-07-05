@@ -3,7 +3,8 @@ local set = vim.opt
 local nmap = require("utils").nmap
 
 cmd.syntax("enable")
-cmd.colorscheme("kanagawa")
+-- cmd.colorscheme("kanagawa")
+cmd.colorscheme("tokyonight")
 cmd.filetype({ "plugin", "indent", "on" })
 
 set.termguicolors = true
