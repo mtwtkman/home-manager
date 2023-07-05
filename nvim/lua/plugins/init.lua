@@ -160,12 +160,6 @@ local spec = {
         require("plugins.neogit")
       end
     }
-    use {
-      "folke/tokyonight.nvim",
-      config = function()
-        require("plugins.tokyonight")
-      end
-    }
   end,
 }
 
