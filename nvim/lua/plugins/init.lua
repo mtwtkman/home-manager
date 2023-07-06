@@ -144,6 +144,9 @@ local spec = {
       requires = {
         "nvim-lua/plenary.nvim",
       },
+      config = function()
+        require("plugins.diffview")
+      end
     }
     use {
       "chentoast/marks.nvim",
