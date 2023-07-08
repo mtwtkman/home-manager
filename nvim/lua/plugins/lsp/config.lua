@@ -4,7 +4,7 @@ local utils = require("utils")
 local nmap = utils.nmap
 
 
-return function(client, bufnr)
+local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   if client.server_capabilities.documentSymbolProvider then
     navbuddy.attach(client, bufnr)

@@ -6,25 +6,6 @@ function M.each(f, ary)
   end
 end
 
-function M.fold(f, acc, ary)
-  for i = 1, #ary, 1 do
-    acc = f(acc, ary[i])
-  end
-  return acc
-end
-
-function M.map_array(f, ary)
-  local xs = {}
-  for i = 1, #ary, 1 do
-    xs[i] = f(ary[i])
-  end
-  return xs
-end
-
-function M.concat_array(a, b)
-  return { table.unpack(a), table.unpack(b) }
-end
-
 function M.optional_value(x, default)
   if (x == nil) then
     return default
