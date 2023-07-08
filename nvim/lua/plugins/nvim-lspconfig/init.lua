@@ -12,4 +12,8 @@ local configure_lsp = function(langtype)
   end
   require("lspconfig")[server_info.servername].setup(config)
 end
-utils.iterate_child_modules(debug.getinfo(1, "S"), configure_lsp)
+
+local path = {
+  source = utils.get_dir(debug.getinfo(1, "S").source) .. "/lang",
+}
+utils.iterate_child_modules(path, configure_lsp)

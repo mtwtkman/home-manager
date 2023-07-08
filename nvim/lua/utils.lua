@@ -84,17 +84,9 @@ function M.iterate_child_modules(info, callback)
   M.each(M.compoase(callback, M.get_module_name), siblings)
 end
 
-function M.tail(ary)
-  return select(2, table.unpack(ary))
-end
-
 function M.copy_to_clipboard(content)
   vim.fn.setreg("+", content)
   vim.fn.setreg('"', content)
-end
-
-function M.get_dirname(str)
-  return str:match("(.*[/\\])")
 end
 
 return M
