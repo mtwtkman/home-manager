@@ -3,7 +3,6 @@ local navic = require("nvim-navic")
 local utils = require("utils")
 local nmap = utils.nmap
 
-
 local setup_diagnostic_signs = function()
   local signs = { Error = "", Warning = "", Info = "", Hint = "󰌵" }
   for type, icon in pairs(signs) do
