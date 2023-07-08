@@ -3,4 +3,4 @@ local server_info = {
   cmd = { "html-languageserver", "--stdio" },
   settings = {},
 }
-require("plugins.lsp").make_lspconfig(server_info)
+require("lsp").make_lspconfig(server_info)

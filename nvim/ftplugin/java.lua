@@ -7,5 +7,5 @@ local server_info = {
   settings = {},
 }
 
-local config = require("plugins.lsp").make_config(server_info)
+local config = require("lsp").make_config(server_info)
 require("jdtls").start_or_attach(config)

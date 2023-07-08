@@ -15,4 +15,4 @@ local server_info = {
     },
   },
 }
-require("plugins.lsp").make_lspconfig(server_info)
+require("lsp").make_lspconfig(server_info)
