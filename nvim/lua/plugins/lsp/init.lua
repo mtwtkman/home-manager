@@ -51,7 +51,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 M = {}
 
-M.make_config = function(server_info)
+function M.make_config(server_info)
   return {
     on_attach = on_attach,
     flags = lsp_flags,
@@ -60,7 +60,7 @@ M.make_config = function(server_info)
   }
 end
 
-M.make_lspconfig = function(server_info)
+function M.make_lspconfig(server_info)
   local config = M.make_config(server_info)
   if server_info.cmd ~= nil then
     config.cmd = server_info.cmd
