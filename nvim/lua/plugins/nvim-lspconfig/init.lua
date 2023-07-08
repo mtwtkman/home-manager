@@ -36,7 +36,10 @@ local lsp_flags = {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 local configure_lsp = function(langtype)
-  local server_info = require("plugins.nvim-lspconfig." .. langtype)
+  local server_info = require("plugins.nvim-lspconfig.lang." .. langtype)
+  if server_info.disable == true then
+    return
+  end
   local config = {
     on_attach = on_attach,
     flags = lsp_flags,
@@ -48,7 +51,12 @@ local configure_lsp = function(langtype)
   end
   lspconfig[server_info.servername].setup(config)
 end
-utils.iterate_child_modules(debug.getinfo(1, "S"), configure_lsp)
+
+local lang_dir = {
+  source = utils.get_dir(debug.getinfo(1, "S").source) .. "/lang",
+}
+
+utils.iterate_child_modules(lang_dir, configure_lsp)
 
 local signs = { Error = "", Warning = "", Info = "", Hint = "󰌵" }
 for type, icon in pairs(signs) do
