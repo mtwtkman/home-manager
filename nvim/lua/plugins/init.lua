@@ -32,7 +32,12 @@ local spec = {
         require("plugins.nvim-tree")
       end,
     }
-    use "neovim/nvim-lspconfig"
+    use {
+     "neovim/nvim-lspconfig",
+      config = function()
+        require("plugins.nvim-lspconfig")
+      end
+    }
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-path"
     use {

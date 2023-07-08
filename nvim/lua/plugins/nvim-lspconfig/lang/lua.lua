@@ -1,4 +1,4 @@
-local server_info = {
+return {
   servername = "lua_ls",
   settings = {
     Lua = {
@@ -15,4 +15,3 @@ local server_info = {
     },
   },
 }
-require("lsp").make_lspconfig(server_info)
