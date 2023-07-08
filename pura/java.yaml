@@ -1,4 +1,5 @@
 packages:
+  - jre
   - jdt-language-server
 shellAliases: {}
 shellHook: ''
