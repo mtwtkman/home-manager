@@ -163,6 +163,7 @@ local spec = {
         require("plugins.neogit")
       end
     }
+    use "mfussenegger/nvim-jdtls"
   end,
 }
 
