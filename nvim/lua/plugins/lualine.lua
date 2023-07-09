@@ -6,7 +6,6 @@ require("lualine").setup({
         path = 1,
       },
       "navic",
-      "lsp_progress",
     },
   },
   inactive_sections = {
