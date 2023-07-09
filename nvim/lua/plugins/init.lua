@@ -156,6 +156,16 @@ local spec = {
       end
     }
     use "mfussenegger/nvim-jdtls"
+    use {
+      "utilyre/barbecue.nvim",
+      requires = {
+        "SmiteshP/nvim-navic",
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        require("plugins.barbecue")
+      end,
+    }
   end,
 }
 

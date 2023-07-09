@@ -5,7 +5,6 @@ require("lualine").setup({
         "filename",
         path = 1,
       },
-      "navic",
       "lsp_progress",
     },
   },
