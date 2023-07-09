@@ -1,4 +1,3 @@
-local navbuddy = require("nvim-navbuddy")
 local navic = require("nvim-navic")
 local utils = require("utils")
 local nmap = utils.nmap
@@ -29,13 +28,11 @@ local setup_keymaps = function(bufnr)
   nmap("<space>rn", vim.lsp.buf.rename, { silent = true, buffer = bufnr })
   nmap("<space>ca", vim.lsp.buf.code_action, { silent = true, buffer = bufnr })
   nmap("<space>f", function() vim.lsp.buf.format { async = true } end, { silent = true, buffer = bufnr })
-  nmap("<leader>.", navbuddy.open, { silent = true })
 end
 
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   if client.server_capabilities.documentSymbolProvider then
-    navbuddy.attach(client, bufnr)
     navic.attach(client, bufnr)
   end
 
@@ -49,9 +46,7 @@ local lsp_flags = {
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-M = {}
-
-function M.make_default_config()
+local make_default_config = function()
   return {
     on_attach = on_attach,
     flags = lsp_flags,
@@ -59,4 +54,6 @@ function M.make_default_config()
   }
 end
 
-return M
+return {
+  make_default_config = make_default_config
+}
