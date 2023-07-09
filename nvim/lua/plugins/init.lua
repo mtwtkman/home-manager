@@ -8,6 +8,7 @@ local spec = {
       "nvim-lualine/lualine.nvim",
       requires = {
         "nvim-tree/nvim-web-devicons",
+        "arkav/lualine-lsp-progress",
       },
       config = function()
         require("plugins.lualine")
@@ -119,14 +120,6 @@ local spec = {
       end,
     }
     use {
-      "SmiteshP/nvim-navbuddy",
-      requires = {
-        "neovim/nvim-lspconfig",
-        "SmiteshP/nvim-navic",
-        "MunifTanjim/nui.nvim"
-      },
-    }
-    use {
       "SmiteshP/nvim-navic",
       requires = {
         "neovim/nvim-lspconfig",
@@ -163,12 +156,6 @@ local spec = {
       end
     }
     use "mfussenegger/nvim-jdtls"
-    use {
-      "j-hui/fidget.nvim",
-      config = function()
-        require("plugins.fidget")
-      end
-    }
   end,
 }
 
