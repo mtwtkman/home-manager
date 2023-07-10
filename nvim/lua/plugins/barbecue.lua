@@ -1,1 +1,9 @@
-require("barbecue").setup()
+require("barbecue").setup({
+  exclude_filetypes = {
+    "netrw",
+    "toggleterm",
+    "NvimTree",
+    "NeogitCommitMessage",
+    "",
+  }
+})
