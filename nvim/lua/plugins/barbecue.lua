@@ -4,6 +4,7 @@ require("barbecue").setup({
     "toggleterm",
     "NvimTree",
     "NeogitCommitMessage",
+    "gitcommit",
     "",
   }
 })
