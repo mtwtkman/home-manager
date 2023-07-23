@@ -23,6 +23,7 @@ in
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };
   home.packages = with pkgs; [
+    niv
     xdg-utils
     nix-prefetch-git
     cachix
