@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 let
   meta = import ./meta.nix;
-  pura = import ./packages/pura.nix { nixpkgs = pkgs; };
   inherit (config.lib.file) mkOutOfStoreSymlink;
   platformSetiting = if meta.isWsl2 then (import ./kernel/wsl2.nix { pkgs = pkgs; binPath = meta.localBinPath; }) else {
     symlinks = { };
     packages = [ ];
   };
+  manualInstalledPackages = import ./packages { nixpkgs = pkgs; };
 in
 {
   home.username = meta.username;
@@ -35,7 +35,6 @@ in
     neovim-remote
     gcc
     gnupg
-    pura
     bat
     fzf
     git
@@ -46,7 +45,7 @@ in
     nurl
     jq
     bottom
-  ] ++ platformSetiting.packages;
+  ] ++ platformSetiting.packages ++ manualInstalledPackages;
   xdg.configFile = {
     nvim.source = ./nvim;
     "nvim/lua".source = ./nvim/lua;
