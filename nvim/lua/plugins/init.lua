@@ -98,12 +98,6 @@ local plugins = {
     end,
   },
   {
-    "ldelossa/gh.nvim",
-    dependencies = {
-      "ldelossa/litee.nvim",
-    },
-  },
-  {
     "folke/flash.nvim",
     config = function()
       require("plugins.flash")
@@ -176,7 +170,11 @@ local plugins = {
   },
 }
 
-local opts = {}
+local opts = {
+  defaults = {
+    lazy = true,
+  },
+}
 
 if vim.fn.has_key(vim.fn.environ(), "LAZY_NVIM_CONFIG_DIR") == 1 then
   local config_dir = vim.env["LAZY_NVIM_CONFIG_DIR"]
