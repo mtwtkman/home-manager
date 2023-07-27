@@ -1,183 +1,189 @@
-local packer_util = require("packer.util")
-
-local spec = {
-  function(use)
-    use "wbthomason/packer.nvim"
-    use "rebelot/kanagawa.nvim"
-    use {
-      "nvim-lualine/lualine.nvim",
-      requires = {
-        "nvim-tree/nvim-web-devicons",
-        "arkav/lualine-lsp-progress",
-      },
-      config = function()
-        require("plugins.lualine")
-      end,
-    }
-    use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-      config = function()
-        require("plugins.nvim-treesitter")
-      end,
-    }
-    use "nvim-treesitter/nvim-treesitter-context"
-    use "nvim-treesitter/nvim-treesitter-textobjects"
-    use {
-      "nvim-tree/nvim-tree.lua",
-      requires = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-        require("plugins.nvim-tree")
-      end,
-    }
-    use {
-     "neovim/nvim-lspconfig",
-      config = function()
-        require("plugins.nvim-lspconfig")
-      end
-    }
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-path"
-    use {
-      "hrsh7th/nvim-cmp",
-      requires = {
-        "L3MON4D3/LuaSnip",
-      },
-      config = function()
-        require("plugins.nvim-cmp")
-      end,
-    }
-    use { 'saadparwaiz1/cmp_luasnip' }
-    use {
+local plugins = {
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("plugins.kanagawa")
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "arkav/lualine-lsp-progress",
+    },
+    config = function()
+      require("plugins.lualine")
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config = function()
+      require("plugins.nvim-treesitter")
+    end,
+  },
+  "nvim-treesitter/nvim-treesitter-context",
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("plugins.nvim-tree")
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("plugins.nvim-lspconfig")
+    end,
+  },
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-path",
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
       "L3MON4D3/LuaSnip",
-      config = function()
-        require("plugins.LuaSnip")
-      end,
-    }
-    use "hrsh7th/cmp-cmdline"
-    use "hrsh7th/cmp-buffer"
-    use {
-      "rcarriga/cmp-dap",
-      requires = {
-        "mfussenegger/nvim-dap",
-      },
-    }
-    use "lukas-reineke/indent-blankline.nvim"
-    use {
-      "ibhagwan/fzf-lua",
-      requies = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-        require("plugins.fzf-lua")
-      end,
-    }
-    use {
+    },
+    config = function()
+      require("plugins.nvim-cmp")
+    end,
+  },
+  "saadparwaiz1/cmp_luasnip",
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("plugins.LuaSnip")
+    end,
+  },
+  "hrsh7th/cmp-cmdline",
+  "hrsh7th/cmp-buffer",
+  {
+    "rcarriga/cmp-dap",
+    dependencies = {
       "mfussenegger/nvim-dap",
-      config = function()
-        require("plugins.nvim-dap")
-      end,
-    }
-    use {
-      "rcarriga/nvim-dap-ui",
-      requires = {
-        "mfussenegger/nvim-dap",
-      },
-      config = function()
-        require("plugins.nvim-dap-ui")
-      end,
-    }
-    use {
-      "ldelossa/gh.nvim",
-      requires = {
-        "ldelossa/litee.nvim",
-      },
-    }
-    use {
-      "folke/flash.nvim",
-      config = function()
-        require("plugins.flash")
-      end
-    }
-    use {
-      "simrat39/symbols-outline.nvim",
-      config = function()
-        require("plugins.symbols-outline")
-      end,
-    }
-    use {
-      "https://gitlab.com/yorickpeterse/nvim-window",
-      config = function()
-        require("plugins.nvim-window")
-      end,
-    }
-    use {
-      "lewis6991/gitsigns.nvim",
-      config = function()
-        require("plugins.gitsigns")
-      end,
-    }
-    use {
+    },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("plugins.indent-blankline")
+    end,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    requies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("plugins.fzf-lua")
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("plugins.nvim-dap")
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function()
+      require("plugins.nvim-dap-ui")
+    end,
+  },
+  {
+    "ldelossa/gh.nvim",
+    dependencies = {
+      "ldelossa/litee.nvim",
+    },
+  },
+  {
+    "folke/flash.nvim",
+    config = function()
+      require("plugins.flash")
+    end
+  },
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require("plugins.symbols-outline")
+    end,
+  },
+  {
+    "https://gitlab.com/yorickpeterse/nvim-window",
+    config = function()
+      require("plugins.nvim-window")
+    end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("plugins.gitsigns")
+    end,
+  },
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("plugins.Comment")
+    end
+  },
+  {
+    "sindrets/diffview.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("plugins.diffview")
+    end
+  },
+  {
+    "chentoast/marks.nvim",
+    config = function()
+      require("plugins.marks")
+    end,
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("plugins.neogit")
+    end
+  },
+  "mfussenegger/nvim-jdtls",
+  {
+    "utilyre/barbecue.nvim",
+    dependencies = {
       "SmiteshP/nvim-navic",
-      requires = {
-        "neovim/nvim-lspconfig",
-      },
-    }
-    use {
-      "numToStr/Comment.nvim",
-      config = function()
-        require("plugins.Comment")
-      end
-    }
-    use {
-      "sindrets/diffview.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim",
-      },
-      config = function()
-        require("plugins.diffview")
-      end
-    }
-    use {
-      "chentoast/marks.nvim",
-      config = function()
-        require("plugins.marks")
-      end,
-    }
-    use {
-      "NeogitOrg/neogit",
-      requires = {
-        "nvim-lua/plenary.nvim",
-      },
-      config = function()
-        require("plugins.neogit")
-      end
-    }
-    use "mfussenegger/nvim-jdtls"
-    use {
-      "utilyre/barbecue.nvim",
-      requires = {
-        "SmiteshP/nvim-navic",
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-        require("plugins.barbecue")
-      end,
-    }
-  end,
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("plugins.barbecue")
+    end,
+  },
 }
 
-if vim.fn.has_key(vim.fn.environ(), "PACKER_NVIM_CONFIG_DIR") == 1 then
-  local config_dir = vim.env["PACKER_NVIM_CONFIG_DIR"]
+local opts = {}
+
+if vim.fn.has_key(vim.fn.environ(), "LAZY_NVIM_CONFIG_DIR") == 1 then
+  local config_dir = vim.env["LAZY_NVIM_CONFIG_DIR"]
   vim.opt.runtimepath:append(config_dir)
-  spec.config = {
-    compile_path = packer_util.join_paths(config_dir, "plugin", "packer_compiled.lua"),
+  opts = {
+    lockfile = config_dir .. "/plugin/lazy-lock.json",
   }
 end
 
-require("packer").startup(spec)
-
-require("plugins.kanagawa") -- NOTE: packer setup does not work.
-require("plugins.indent-blankline")
+require("lazy").setup(plugins, opts)

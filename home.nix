@@ -19,7 +19,7 @@ in
     NIX_HOME_MANAGER_ROOT = meta.homeManagerDirectory;
     EDITOR = "nvim";
     SNIPPET_PATH = meta.homeManagerDirectory + "/nvim/snippets";
-    PACKER_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
+    LAZY_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
   };
   home.packages = with pkgs; [
@@ -110,7 +110,7 @@ in
     withNodeJs = true;
     extraPython3Packages = (ps: with ps; [ pynvim ]);
     plugins = [
-      pkgs.vimPlugins.packer-nvim
+      pkgs.vimPlugins.lazy-nvim
     ];
   };
 }
