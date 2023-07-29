@@ -1,3 +1,5 @@
+local lazy = require("lazy")
+
 local plugins = {
   {
     "rebelot/kanagawa.nvim",
@@ -184,4 +186,6 @@ if vim.fn.has_key(vim.fn.environ(), "LAZY_NVIM_CONFIG_DIR") == 1 then
   }
 end
 
-require("lazy").setup(plugins, opts)
+lazy.setup(plugins, opts)
+
+vim.api.nvim_create_user_command("LazySync", lazy.sync, {})
