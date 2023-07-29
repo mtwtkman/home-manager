@@ -21,4 +21,5 @@ in {
   pura = "pura -r ${meta.homeManagerDirectory}/pura";
   devshell = "nix flake new -t \"github:numtide/devshell\"";
   vsh = "vim term://bash";
+  nixgc="nix-collect-garbage -d;nix-store --gc";
 }
