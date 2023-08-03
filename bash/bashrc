@@ -28,7 +28,6 @@ update() {
     cmd="sudo pacman -Syu"
   else
     echo "unknown $osname"
-    exit 0
   fi
 
   eval $cmd
