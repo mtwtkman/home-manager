@@ -37,4 +37,5 @@ vim.api.nvim_create_user_command("LspWorkspaceDiagnostics", fzf.lsp_workspace_di
 vim.api.nvim_create_user_command("LspDoumentDiagnostics", fzf.lsp_document_diagnostics, {})
 vim.api.nvim_create_user_command("LspReferences", fzf.lsp_references, {})
 vim.api.nvim_create_user_command("Highlights", fzf.highlights, {})
+vim.api.nvim_create_user_command("Tabs", fzf.tabs, {})
 vim.cmd("FzfLua register_ui_select")
