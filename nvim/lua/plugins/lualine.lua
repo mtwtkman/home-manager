@@ -16,4 +16,7 @@ require("lualine").setup({
       },
     },
   },
+  optoins = {
+    theme = "catppuccin",
+  },
 })

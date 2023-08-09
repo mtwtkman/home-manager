@@ -2,12 +2,13 @@ local lazy = require("lazy")
 
 local plugins = {
   {
-    "rebelot/kanagawa.nvim",
+    "catppuccin/nvim",
     lazy = false,
     priority = 1000,
+    name = "catppuccin",
     config = function()
-      require("plugins.kanagawa")
-    end,
+      require("plugins.catppuccin")
+    end
   },
   {
     "nvim-lualine/lualine.nvim",

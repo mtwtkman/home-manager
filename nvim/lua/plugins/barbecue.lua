@@ -6,5 +6,6 @@ require("barbecue").setup({
     "NeogitCommitMessage",
     "gitcommit",
     "",
-  }
+  },
+  theme = "cappuccin",
 })
