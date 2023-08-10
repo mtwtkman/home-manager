@@ -13,6 +13,10 @@ local configure_lsp = function(langtype)
   require("lspconfig")[server_info.servername].setup(config)
 end
 
+require("lspconfig.ui.windows").default_options = {
+  border = "single",
+}
+
 local path = {
   source = utils.get_dir(debug.getinfo(1, "S").source) .. "/lang",
 }

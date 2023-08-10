@@ -54,6 +54,12 @@ local make_default_config = function()
   }
 end
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = "single",
+  }
+)
+
 return {
   make_default_config = make_default_config
 }
