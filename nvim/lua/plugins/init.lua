@@ -22,7 +22,7 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    build = ":TSUpdate",
     config = function()
       require("plugins.nvim-treesitter")
     end,
