@@ -14,7 +14,7 @@ local configure_lsp = function(langtype)
 end
 
 require("lspconfig.ui.windows").default_options = {
-  border = "single",
+  border = "rounded",
 }
 
 local path = {
