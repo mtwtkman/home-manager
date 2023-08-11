@@ -24,7 +24,7 @@ nmap("<leader>h/", ":FzfLua search_history<CR>", { silent = true })
 nmap("<space>q", ":FzfLua lsp_document_diagnostics<CR>", { silent = true })
 nmap("<space>Q", ":FzfLua lsp_workspace_diagnostics<CR>", { silent = true })
 nmap("gr", ":FzfLua lsp_references<CR>", { silent = true })
-nmap("<space>t", ":FzfLua tabs<CR>", { silent = true })
+nmap("<leader>T", ":FzfLua tabs<CR>", { silent = true })
 
 vim.api.nvim_create_user_command("Commands", fzf.commands, {})
 vim.api.nvim_create_user_command("HelpTags", fzf.help_tags, {})
