@@ -54,11 +54,20 @@ local make_default_config = function()
   }
 end
 
+local border_type = "rounded"
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
-    border = "rounded",
+    border = border_type,
   }
 )
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = border_type,
+  }
+)
+vim.diagnostic.config({
+  float = { border = border_type },
+})
 
 return {
   make_default_config = make_default_config
