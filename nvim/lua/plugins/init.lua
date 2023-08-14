@@ -102,9 +102,10 @@ local plugins = {
   },
   {
     "folke/flash.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugins.flash")
-    end
+    end,
   },
   {
     "simrat39/symbols-outline.nvim",
