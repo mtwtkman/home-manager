@@ -2,17 +2,15 @@ local utils = require("utils")
 local tmap = utils.tmap
 local nmap = utils.nmap
 
-tmap("<ESC>", "<C-\\><C-n>", { silent = true })
-tmap("<C-w>h", "<C-\\><C-n><C-w>h", { silent = true })
-tmap("<C-w>j", "<C-\\><C-n><C-w>j", { silent = true })
-tmap("<C-w>k", "<C-\\><C-n><C-w>k", { silent = true })
-tmap("<C-w>l", "<C-\\><C-n><C-w>l", { silent = true })
-tmap("<C-w>gt", "<C-\\><C-n>gt", { silent = true })
-tmap("<C-w>gT", "<C-\\><C-n>gT", { silent = true })
-nmap("<leader>x", ":sp<CR><C-w>J20<C-w>_:FW 20<CR>:terminal<CR>", { silent = true })
-nmap("<leader>ts", ":sp<CR>:terminal<CR>", { silent = true })
-nmap("<leader>tv", ":vsp<CR>:terminal<CR>", { silent = true })
-nmap("<leader>tt", ":tabe<CR>:terminal<CR>", { silent = true })
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0, silent = true }
+  tmap("<ESC>", [[<C-\><C-n>]], opts)
+  tmap("<C-w>", [[<C-\><C-n><C-w>]], opts)
+  nmap("<leader>tt", ":tabe<CR>:terminal<CR>", { silent = true })
+end
+
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+
 local terminal_buffer_group = vim.api.nvim_create_augroup("TerminalBuffer", { clear = true })
 
 vim.api.nvim_create_autocmd({ "TermEnter" }, {

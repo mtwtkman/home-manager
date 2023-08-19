@@ -214,6 +214,13 @@ local plugins = {
     end,
     event = "VeryLazy",
   },
+  {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("plugins.toggleterm")
+    end,
+    evetn = "VeryLazy",
+  },
 }
 
 local opts = {
