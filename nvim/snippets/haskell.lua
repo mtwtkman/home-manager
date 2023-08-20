@@ -9,6 +9,10 @@ local regular_snippets = {
     i(1),
     t(" #-}"),
   }),
+  s("iq", {
+    t("import qualified "),
+    i(1),
+  }),
 }
 
 local auto_snippets = {}
