@@ -145,10 +145,11 @@ local plugins = {
     event = "VeryLazy",
   },
   {
-    "https://gitlab.com/yorickpeterse/nvim-window",
+    "s1n7ax/nvim-window-picker",
     config = function()
-      require("plugins.nvim-window")
+      require("plugins.nvim-window-picker")
     end,
+    version = "2.*",
     event = "VeryLazy",
   },
   {

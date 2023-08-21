@@ -4,7 +4,7 @@ catppuccin.setup({
   term_colors = true,
   integrations = {
     symbols_outline = true,
-    neogit = true,
+    window_picker = true,
   },
 })
 vim.cmd.colorscheme("catppuccin")

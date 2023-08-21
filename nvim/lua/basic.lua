@@ -69,9 +69,3 @@ end, { bang = true })
 nmap("<leader>cf", ":CopyCurrentFileRelativePath<CR>", { silent = true })
 nmap("<leader>cd", ":CopyCurrentFileRelativePath!<CR>", { silent = true })
 nmap("<space>]", ":cd %:h<CR>", { silent = true })
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "help" },
-  callback = function()
-    nmap("q", ":q<CR>", { silent = true })
-  end
-})
