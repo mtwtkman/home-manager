@@ -10,6 +10,9 @@ local configure_lsp = function(langtype)
   if server_info.cmd ~= nil then
     config.cmd = server_info.cmd
   end
+  if server_info.filetypes ~= nil then
+    config.filetypes = server_info.filetypes
+  end
   require("lspconfig")[server_info.servername].setup(config)
 end
 
