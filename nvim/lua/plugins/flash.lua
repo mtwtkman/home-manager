@@ -7,7 +7,7 @@ flash.setup({
   },
 })
 
-vim.keymap.set({ "n", "x", "o" }, "s", flash.jump)
+vim.keymap.set({ "n", "x", "o" }, "<C-s>", flash.jump)
 vim.keymap.set({ "n", "x", "o" }, "S", flash.treesitter)
 vim.keymap.set({ "o" }, "r", flash.remote)
 vim.keymap.set({ "x", "o" }, "R", flash.treesitter_search)
