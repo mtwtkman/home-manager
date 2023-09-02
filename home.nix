@@ -45,6 +45,7 @@ in
     nurl
     jq
     bottom
+    nixpkgs-fmt
   ] ++ platformSetiting.packages ++ manualInstalledPackages;
   xdg.configFile = {
     nvim.source = ./nvim;
