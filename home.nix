@@ -29,10 +29,9 @@ in
     nix-prefetch-git
     cachix
     ripgrep
-    tmux
     fd
     trash-cli
-    rnix-lsp
+    nixd
     neovim-remote
     gcc
     gnupg
@@ -51,11 +50,24 @@ in
     nvim.source = ./nvim;
     "nvim/lua".source = ./nvim/lua;
   };
-  home.file = {
-    ".tmux.conf" = {
-      source = ./tmux/tmux.conf;
-    };
-  } // platformSetiting.symlinks;
+  home.file = platformSetiting.symlinks;
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile ./tmux/tmux.conf;
+    plugins = [
+      {
+        plugin = pkgs.tmuxPlugins.catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_window_default_fill "number"
+          set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_current_fill "number"
+          set -g @catppuccin_window_current_text "#W"
+          set -g @catppuccin_status_modules "directory date_time session"
+        '';
+      }
+    ];
+  };
 
   programs.fzf =
     let

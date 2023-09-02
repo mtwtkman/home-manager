@@ -1,3 +1,3 @@
 return {
-  servername = "rnix",
+  servername = "nixd",
 }
