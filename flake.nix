@@ -15,12 +15,11 @@
       system = meta.system;
       pkgs = import nixpkgs { config = { allowUnfree = true; }; };
     in
-    {
+    rec {
       homeConfigurations.${meta.username} =
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
         };
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     };
 }
