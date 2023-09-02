@@ -1,4 +1,6 @@
 return {
   servername = "html",
-  cmd = { "html-languageserver", "--stdio" },
+  config = {
+    cmd = { "html-languageserver", "--stdio" },
+  },
 }

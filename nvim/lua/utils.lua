@@ -89,4 +89,20 @@ function M.copy_to_clipboard(content)
   vim.fn.setreg('"', content)
 end
 
+function M.copy_table(t)
+  local t2 = {}
+  for k, v in pairs(t) do
+    t2[k] = v
+  end
+  return t2
+end
+
+function M.merge_table(a, b)
+  local copied_a = M.copy_table(a)
+  for k, v in pairs(b) do
+    copied_a[k] = v
+  end
+  return copied_a
+end
+
 return M
