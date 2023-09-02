@@ -105,7 +105,7 @@ local plugins = {
   },
   {
     "ibhagwan/fzf-lua",
-    requies = {
+    dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
@@ -220,7 +220,7 @@ local plugins = {
     config = function()
       require("plugins.toggleterm")
     end,
-    evetn = "VeryLazy",
+    event = "VeryLazy",
   },
 }
 
