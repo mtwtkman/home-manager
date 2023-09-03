@@ -7,6 +7,12 @@ let
     packages = [ ];
   };
   manualInstalledPackages = import ./packages { nixpkgs = pkgs; };
+  catppuccinBatThemes = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "bat";
+    rev = "main";
+    hash = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+  };
 in
 {
   home.username = meta.username;
@@ -50,6 +56,7 @@ in
   xdg.configFile = {
     nvim.source = ./nvim;
     "nvim/lua".source = ./nvim/lua;
+    "bottom/bottom.toml".source = ./bottom/bottom.toml;
   };
   home.file = platformSetiting.symlinks;
 
@@ -89,6 +96,9 @@ in
         "--ansi"
         "--preview='bat --style=full --color=always {}'"
         "--bind=ctrl-f:page-down,ctrl-b:page-up,'ctrl-v:become(vim {})',ctrl-^:first,ctrl-/:last"
+        "--color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8"
+        "--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc"
+        "--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
       ];
       fileWidgetCommand = defaultCommand;
       tmux = {
@@ -127,5 +137,17 @@ in
     plugins = [
       pkgs.vimPlugins.lazy-nvim
     ];
+  };
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "Catppuccin-mocha";
+    };
+    themes = {
+      Catppuccin-mocha = builtins.readFile (catppuccinBatThemes + "/Catppuccin-mocha.tmTheme");
+      Catppuccin-frappe = builtins.readFile (catppuccinBatThemes + "/Catppuccin-frappe.tmTheme");
+      Catppuccin-latte = builtins.readFile (catppuccinBatThemes + "/Catppuccin-latte.tmTheme");
+      Catppuccin-macchiato = builtins.readFile (catppuccinBatThemes + "/Catppuccin-macchiato.tmTheme");
+    };
   };
 }
