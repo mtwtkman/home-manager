@@ -40,3 +40,5 @@ vim.api.nvim_create_user_command("LspReferences", fzf.lsp_references, {})
 vim.api.nvim_create_user_command("Highlights", fzf.highlights, {})
 vim.api.nvim_create_user_command("Tabs", fzf.tabs, {})
 vim.cmd("FzfLua register_ui_select")
+
+vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "FloatBorder" })
