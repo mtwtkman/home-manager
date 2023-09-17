@@ -138,10 +138,14 @@ local plugins = {
     event = "VeryLazy",
   },
   {
-    "simrat39/symbols-outline.nvim",
+    "stevearc/aerial.nvim",
     config = function()
-      require("plugins.symbols-outline")
+      require("plugins.aerial")
     end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
     event = "VeryLazy",
   },
   {

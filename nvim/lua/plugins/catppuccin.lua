@@ -3,7 +3,7 @@ catppuccin.setup({
   transparent_background = true,
   term_colors = true,
   integrations = {
-    symbols_outline = true,
+    aerial = true,
     window_picker = true,
   },
 })
