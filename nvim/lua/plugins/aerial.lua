@@ -8,4 +8,4 @@ aerial.setup({
   end,
 })
 
-nmap("<leader>l", "<cmd>AerialToggle!<cr>")
+nmap("<leader>l", ":lua require('aerial').toggle({focus = true})<cr>")
