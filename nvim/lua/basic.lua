@@ -69,3 +69,16 @@ end, { bang = true })
 nmap("<leader>cf", ":CopyCurrentFileRelativePath<CR>", { silent = true })
 nmap("<leader>cd", ":CopyCurrentFileRelativePath!<CR>", { silent = true })
 nmap("<space>]", ":cd %:h<CR>", { silent = true })
+
+local function gx_command()
+  local command = (function()
+    if vim.fn.has("wsl") then
+      return "wslview"
+    else
+      return "xdg-open"
+    end
+  end)()
+  return ":execute '!" .. command .. "' shellescape(expand('<cfile>'), 1)<cr>"
+end
+
+nmap("gx", gx_command(), { silent = true })
