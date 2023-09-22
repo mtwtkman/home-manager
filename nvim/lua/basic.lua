@@ -78,7 +78,7 @@ local function gx_command()
       return "xdg-open"
     end
   end)()
-  return ":execute '!" .. command .. "' shellescape(expand('<cfile>'), 1)<cr>"
+  return ":silent execute '!" .. command .. "' shellescape(expand('<cfile>'), 1)<cr>"
 end
 
 nmap("gx", gx_command(), { silent = true })
