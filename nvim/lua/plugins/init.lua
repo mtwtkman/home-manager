@@ -101,6 +101,7 @@ local plugins = {
     config = function()
       require("plugins.indent-blankline")
     end,
+    main = "ibl",
     event = "VeryLazy",
   },
   {
