@@ -7,6 +7,7 @@ function _G.set_terminal_keymaps()
   tmap("<ESC>", [[<C-\><C-n>]], opts)
   tmap("<C-w>", [[<C-\><C-n><C-w>]], opts)
   nmap("<leader>tt", ":tabe<CR>:terminal<CR>", { silent = true })
+  nmap("<leader>tv", ":vsp<CR>:terminal<CR>", { silent = true })
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
