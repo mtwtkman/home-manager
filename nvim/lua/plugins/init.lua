@@ -227,6 +227,19 @@ local plugins = {
     end,
     event = "VeryLazy",
   },
+  {
+    "mrcjkb/haskell-tools.nvim",
+    config = function()
+      require("plugins.haskell-tools")
+    end,
+    version = "^3",
+    ft = {
+      "haskell",
+      "lhaskell",
+      "cabal",
+      "cabalproject",
+    },
+  },
 }
 
 local opts = {
