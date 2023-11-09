@@ -256,4 +256,4 @@ end
 
 lazy.setup(plugins, opts)
 
-vim.api.nvim_create_user_command("LazySync", lazy.sync, {})
+vim.api.nvim_create_user_command("LazySync", lazy.sync, { silent = true })
