@@ -5,6 +5,9 @@ require("navigator").setup({
       "jdtls"
     },
   },
+  keymaps = {
+    { key = "gt", func = function() vim.fn.execute("tabn") end, desc = "avoid conflict gt" }
+  },
   icons = {
     icons = true,
     code_action_icon = "",
