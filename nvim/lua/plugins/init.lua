@@ -33,10 +33,6 @@ local plugins = {
     event = "VeryLazy",
   },
   {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
-  },
-  {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -44,13 +40,6 @@ local plugins = {
     config = function()
       require("plugins.nvim-tree")
     end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("plugins.nvim-lspconfig")
-    end,
-    event = "VeryLazy",
   },
   {
     "hrsh7th/cmp-nvim-lsp",
@@ -239,6 +228,21 @@ local plugins = {
       "cabal",
       "cabalproject",
     },
+  },
+  {
+    "ray-x/navigator.lua",
+    evetn = "VeryLazy",
+    config = function ()
+      require("plugins.navigator")
+    end,
+    dependencies = {
+      {
+        "ray-x/guihua.lua",
+        build = "cd lua/fzy && make",
+      },
+      "neovim/nvim-lspconfig",
+
+    }
   },
 }
 

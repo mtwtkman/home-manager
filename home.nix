@@ -52,6 +52,7 @@ in
     jq
     bottom
     nixpkgs-fmt
+    gnumake
   ] ++ platformSetiting.packages ++ manualInstalledPackages;
   xdg.configFile = {
     nvim.source = ./nvim;
