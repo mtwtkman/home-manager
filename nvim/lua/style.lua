@@ -7,6 +7,7 @@ cmd.filetype({ "plugin", "indent", "on" })
 
 set.termguicolors = true
 set.number = true
+set.relativenumber = true
 set.ruler = true
 set.title = true
 set.showtabline = 2
