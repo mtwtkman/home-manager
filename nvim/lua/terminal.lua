@@ -17,7 +17,10 @@ local terminal_buffer_group = vim.api.nvim_create_augroup("TerminalBuffer", { cl
 
 vim.api.nvim_create_autocmd({ "TermEnter" }, {
   pattern = { "*" },
-  command = "setlocal nonumber",
+  callback = function(ev)
+    vim.cmd("setlocal nonumber")
+    vim.cmd("setlocal norelativenumber")
+  end,
   group = terminal_buffer_group,
 })
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
