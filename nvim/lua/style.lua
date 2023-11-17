@@ -25,3 +25,10 @@ end
 vim.api.nvim_create_user_command("FW", fixsize, { nargs = 1 })
 nmap("<leader>w", ":FW<space>", { silent = true })
 cmd.highlight({"Normal", "guibg=NONE", "ctermbg=NONE"})
+
+local relative_number_toggle = function()
+  vim.opt.relativenumber = not vim.o.relativenumber
+end
+
+vim.api.nvim_create_user_command("RelativeNumberToggle", relative_number_toggle, {})
+nmap("<leader>rn", ":RelativeNumberToggle<CR>", { silent = true })
