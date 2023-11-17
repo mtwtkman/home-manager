@@ -240,6 +240,12 @@ local plugins = {
       "cabalproject",
     },
   },
+  {
+    "linrongbin16/gitlinker.nvim",
+    config = function()
+      require("plugins.gitlinker")
+    end,
+  },
 }
 
 local opts = {
