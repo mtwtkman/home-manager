@@ -189,13 +189,6 @@ local plugins = {
     event = "VeryLazy",
   },
   {
-    "chentoast/marks.nvim",
-    config = function()
-      require("plugins.marks")
-    end,
-    event = "VeryLazy",
-  },
-  {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim",
