@@ -1,8 +1,8 @@
 local utils = require("utils")
 local neogit = require("neogit")
 
-utils.nmap("<leader>g", ":Neogit<CR>", { silent = true })
-utils.nmap("<leader>G", function() neogit.open({ kind = "floating" }) end, { silent = true })
+utils.nmap("<leader>gc", ":Neogit<CR>", { silent = true })
+utils.nmap("<leader>Gc", function() neogit.open({ kind = "floating" }) end, { silent = true })
 
 neogit.setup({
   integrations = {
