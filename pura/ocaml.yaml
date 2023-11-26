@@ -1,0 +1,6 @@
+packages:
+  - ocaml
+  - ocamlPackages.ocaml-lsp
+  - ocamlPackages.ocamlformat
+shellAliases: {}
+shellHook: ""
