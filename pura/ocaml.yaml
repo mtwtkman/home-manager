@@ -3,5 +3,6 @@ packages:
   - ocamlPackages.ocaml-lsp
   - ocamlPackages.ocamlformat
   - opam
+  - dune_3
 shellAliases: {}
 shellHook: ""
