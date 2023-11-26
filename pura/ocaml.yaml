@@ -2,6 +2,7 @@ packages:
   - ocaml
   - ocamlPackages.ocaml-lsp
   - ocamlPackages.ocamlformat
+  - ocamlPackages.utop
   - opam
   - dune_3
 shellAliases: {}
