@@ -2,5 +2,6 @@ packages:
   - ocaml
   - ocamlPackages.ocaml-lsp
   - ocamlPackages.ocamlformat
+  - opam
 shellAliases: {}
 shellHook: ""
