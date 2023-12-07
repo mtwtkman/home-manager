@@ -1,13 +1,12 @@
 { pkgs, binPath }:
 {
-  symlinks = {
-  };
+  symlinks = { };
 
   bashConfig = ''
-  if [[ ! -d ${binPath} ]]
-  then
-    mkdir -p ${binPath}
-  fi
+    if [[ ! -d ${binPath} ]]
+    then
+      mkdir -p ${binPath}
+    fi
   '';
 
   packages = [

@@ -1,5 +1,6 @@
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
-PS1="\u@\w\$ "
+source $HOME/.nix-profile/share/git/contrib/completion/git-prompt.sh
+PS1='\u@\w$(__git_ps1 " (%s)")\$'
 
 if [[ $(uname -r) == *"WSL2"* ]]; then
   # X setting for wsl2
