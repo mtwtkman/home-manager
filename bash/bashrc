@@ -1,7 +1,7 @@
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 source $HOME/.nix-profile/share/git/contrib/completion/git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=true
-PS1='\w$(__git_ps1 " (%s)") \$ '
+PS1='\e[1;34m\w\e[0m$(__git_ps1 " (%s)")\n\$ '
 
 if [[ $(uname -r) == *"WSL2"* ]]; then
   # X setting for wsl2
