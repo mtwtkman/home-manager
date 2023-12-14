@@ -212,6 +212,21 @@ local plugins = {
       require("plugins.gitlinker")
     end,
   },
+  {
+    "nvimtools/none-ls.nvim",
+    cofig = function()
+      require("plugins.none-ls")
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+    "davidmh/cspell.nvim",
+    dependencies = {
+      "nvimtools/none-ls.nvim",
+    },
+  },
 }
 
 local opts = {
