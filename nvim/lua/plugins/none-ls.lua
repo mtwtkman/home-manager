@@ -1,7 +1,10 @@
 local cspell = require("cspell")
 
+cspell.diagnostics.filetypes = { "text" }
+cspell.code_actions.filetypes = { "text" }
+
 require("null-ls").setup({
-  sources =  {
+  sources = {
     cspell.diagnostics,
     cspell.code_actions,
   },
