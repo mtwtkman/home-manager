@@ -214,7 +214,7 @@ local plugins = {
   },
   {
     "nvimtools/none-ls.nvim",
-    cofig = function()
+    config = function()
       require("plugins.none-ls")
     end,
     dependencies = {
