@@ -4,11 +4,6 @@ local t = luasnip.text_node
 local i = luasnip.insert_node
 
 local regular_snippets = {
-  s("pragma", {
-    t("{-# LANGUAGE "),
-    i(1),
-    t(" #-}"),
-  }),
   s("iq", {
     t("import qualified "),
     i(1),
