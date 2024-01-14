@@ -46,7 +46,6 @@ in
     git
     bash
     direnv
-    gh
     lua-language-server
     nurl
     jq
