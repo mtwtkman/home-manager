@@ -12,7 +12,7 @@ shellAliases:
   b: "cabal build"
   c: "cabal clean"
   run: "cabal run --"
-  t: "cabal test"
+  t: "cabal test --test-show-details=always --test-options=\"--color always\""
   repl: "cabal repl"
   fmt: "ormolu -i ./**/*.hs"
 shellHook: ""
