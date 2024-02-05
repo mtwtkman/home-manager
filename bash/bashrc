@@ -34,3 +34,11 @@ update() {
 
   eval $cmd
 }
+
+cd() {
+  if [ $# = 0 ]; then
+    command pushd $(fd -t d | fzf)
+  else
+    command cd $@
+  fi
+}

@@ -27,6 +27,7 @@ in
     SNIPPET_PATH = meta.homeManagerDirectory + "/nvim/snippets";
     LAZY_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+    BROWSER = "wslview";
   };
   home.packages = with pkgs; [
     tree-sitter
