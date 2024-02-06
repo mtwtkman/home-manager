@@ -5,6 +5,7 @@ let
   platformSetiting = if meta.isWsl2 then (import ./kernel/wsl2.nix { pkgs = pkgs; binPath = meta.localBinPath; }) else {
     symlinks = { };
     packages = [ ];
+    sessionVariables = { };
   };
   manualInstalledPackages = import ./packages { nixpkgs = pkgs; };
   catppuccinBatThemes = pkgs.fetchFromGitHub {
@@ -27,8 +28,7 @@ in
     SNIPPET_PATH = meta.homeManagerDirectory + "/nvim/snippets";
     LAZY_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-    BROWSER = "wslview";
-  };
+  } // platformSetiting.sessionVariables;
   home.packages = with pkgs; [
     tree-sitter
     niv

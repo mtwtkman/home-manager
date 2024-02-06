@@ -12,4 +12,8 @@
   packages = [
     pkgs.wslu
   ];
+
+  sessionVariables = {
+    BROWSER = "wslview";
+  };
 }
