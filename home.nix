@@ -2,11 +2,14 @@
 let
   meta = import ./meta.nix;
   inherit (config.lib.file) mkOutOfStoreSymlink;
-  platformSetiting = if meta.isWsl2 then (import ./kernel/wsl2.nix { pkgs = pkgs; binPath = meta.localBinPath; }) else {
+
+  platformSetting = if meta.isWsl2 then (import ./kernel/wsl2.nix { pkgs = pkgs; binPath = meta.localBinPath; }) else {
     symlinks = { };
     packages = [ ];
     sessionVariables = { };
+bashConfig = "";
   };
+
   manualInstalledPackages = import ./packages { nixpkgs = pkgs; };
   catppuccinBatThemes = pkgs.fetchFromGitHub {
     owner = "catppuccin";
@@ -28,17 +31,16 @@ in
     SNIPPET_PATH = meta.homeManagerDirectory + "/nvim/snippets";
     LAZY_NVIM_CONFIG_DIR = meta.homeManagerDirectory + "/nvim/.config";
     XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-  } // platformSetiting.sessionVariables;
+  } // platformSetting.sessionVariables;
   home.packages = with pkgs; [
     tree-sitter
     niv
     xdg-utils
     nix-prefetch-git
-    cachix
     ripgrep
     fd
     trash-cli
-    nixd
+    # nixd
     neovim-remote
     gcc
     gnupg
@@ -53,13 +55,13 @@ in
     bottom
     nixpkgs-fmt
     nodePackages.cspell
-  ] ++ platformSetiting.packages ++ manualInstalledPackages;
+  ] ++ platformSetting.packages ++ manualInstalledPackages;
   xdg.configFile = {
     nvim.source = ./nvim;
     "nvim/lua".source = ./nvim/lua;
     "bottom/bottom.toml".source = ./bottom/bottom.toml;
   };
-  home.file = platformSetiting.symlinks;
+  home.file = platformSetting.symlinks;
 
   programs.tmux = {
     enable = true;
@@ -120,7 +122,7 @@ in
   programs.bash = {
     enable = true;
     bashrcExtra = builtins.readFile ./bash/bashrc;
-    initExtra = platformSetiting.bashConfig;
+    initExtra = platformSetting.bashConfig;
     shellAliases = import ./bash/aliases.nix;
   };
   programs.git = {

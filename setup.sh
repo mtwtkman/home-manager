@@ -48,4 +48,7 @@ ln ${my_home_manager_path}/${nix_conf} ${nix_dir}/${nix_conf}
 pp 'activate home-manager'
 nix-shell -p git --run "NIX_HOME_MANAGER_ROOT=${my_home_manager_path} home-manager --impure switch"
 
+pp "created ${my_home_manager_path}/.kernel to detect current kernel"
+touch ${my_home_manager_path}/.kernel
+
 pp 'done'
