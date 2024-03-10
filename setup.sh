@@ -35,12 +35,12 @@ nix-shell '<home-manager>' -A install
 
 pp 'install repo'
 rm -rf ${my_home_manager_path}
-nix-shell -p git --run "git clone git@github.com/mtwtkman/home-manager ${my_home_manager_path}"
+nix-shell -p git --run "git clone git@github.com:mtwtkman/home-manager ${my_home_manager_path}"
 
 nix_conf="nix.conf"
-if [ ! -e ${nix_conf}  ]; then
+if [ ! -e ${nix_dir}/${nix_conf}  ]; then
   pp "remove obsolete symlink"
-  rm ${nix_conf}
+  rm ${nix_dir}/${nix_conf}
 fi
 pp 'link nix.conf'
 ln ${my_home_manager_path}/${nix_conf} ${nix_dir}/${nix_conf}
