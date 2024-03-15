@@ -22,6 +22,14 @@ fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
 
+fcd() {
+  if [ $# = 0 ]; then
+    command pushd $(fd -t d | fzf)
+  else
+    command cd $@
+  fi
+}
+
 update() {
   osname=$(sudo hostnamectl --json=pretty | jq .OperatingSystemPrettyName)
   if [[ "$osname" == *Ubuntu* ]]; then
@@ -33,12 +41,4 @@ update() {
   fi
 
   eval $cmd
-}
-
-cd() {
-  if [ $# = 0 ]; then
-    command pushd $(fd -t d | fzf)
-  else
-    command cd $@
-  fi
 }
