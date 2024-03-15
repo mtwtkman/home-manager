@@ -12,25 +12,24 @@ fi
 eval "$(direnv hook bash)"
 export GPG_TTY=$(tty)
 
-# Fzf
-fif() {
+fif()
+{
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
   rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
-fh() {
+fh()
+{
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
 }
 
-fcd() {
-  if [ $# = 0 ]; then
-    command pushd $(fd -t d | fzf)
-  else
-    command cd $@
-  fi
+fcd()
+{
+  command pushd $(fd . $@ -t d | fzf)
 }
 
-update() {
+update()
+{
   osname=$(sudo hostnamectl --json=pretty | jq .OperatingSystemPrettyName)
   if [[ "$osname" == *Ubuntu* ]]; then
     cmd="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
