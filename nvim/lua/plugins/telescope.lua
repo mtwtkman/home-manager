@@ -13,7 +13,7 @@ telescope.setup({
       override_generic_sorter = true,
       override_file_sorter = true,
       case_mode = "smart_case",
-    }
+    },
   },
 })
 
@@ -29,6 +29,7 @@ nmap('<C-p>', builtin.commands, { silent = true })
 nmap('<leader>/', builtin.current_buffer_fuzzy_find, { silent = true })
 nmap('<space>q', builtin.diagnostics, { silent = true })
 nmap('gr', builtin.lsp_references, { silent = true })
+nmap('<leader>ft', telescope.grapple.tags, { silent = true })
 
 vim.api.nvim_create_user_command("Maps", builtin.keymaps, {})
 vim.api.nvim_create_user_command("GitCommits", builtin.git_commits, {})
