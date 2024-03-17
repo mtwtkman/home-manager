@@ -55,6 +55,7 @@ in
     bottom
     nixpkgs-fmt
     nodePackages.cspell
+    gnumake
   ] ++ platformSetting.packages ++ manualInstalledPackages;
   xdg.configFile = {
     nvim.source = ./nvim;
