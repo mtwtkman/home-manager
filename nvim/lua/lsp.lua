@@ -26,7 +26,7 @@ local setup_keymaps = function(bufnr)
   end, { silent = true, buffer = bufnr })
   nmap("<space>D", vim.lsp.buf.type_definition, { silent = true, buffer = bufnr })
   nmap("<space>rn", vim.lsp.buf.rename, { silent = true, buffer = bufnr })
-  nmap("<space>ca", vim.lsp.buf.code_action, { silent = true, buffer = bufnr })
+  nmap("<space>ca", require("actions-preview").code_actions, { silent = true, buffer = bufnr })
   nmap("<space>f", function() vim.lsp.buf.format { async = true } end, { silent = true, buffer = bufnr })
 end
 

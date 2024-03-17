@@ -249,6 +249,12 @@ local plugins = {
       "nvim-telescope/telescope.nvim",
     },
   },
+  {
+    "aznhe21/actions-preview.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }
 
 local opts = {
