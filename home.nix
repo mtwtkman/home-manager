@@ -40,7 +40,7 @@ in
     ripgrep
     fd
     trash-cli
-    # nixd
+    nil
     neovim-remote
     gcc
     gnupg

@@ -1,5 +1,5 @@
 return {
-  servername = "nixd",
+  servername = "nil_ls",
   config = {
     settings = {
       formatting = {
