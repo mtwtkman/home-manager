@@ -1,13 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   meta = import ./meta.nix;
-  inherit (config.lib.file) mkOutOfStoreSymlink;
 
   platformSetting = if meta.isWsl2 then (import ./kernel/wsl2.nix { pkgs = pkgs; binPath = meta.localBinPath; }) else {
     symlinks = { };
     packages = [ ];
     sessionVariables = { };
-bashConfig = "";
+    bashConfig = "";
   };
 
   manualInstalledPackages = import ./packages { nixpkgs = pkgs; };
