@@ -1,10 +1,10 @@
 local utils = require("utils")
 local nmap = utils.nmap
 local telescope = require("telescope")
+local ts_themes = require("telescope.themes")
 
 telescope.setup({
   defaults = {
-    layout_strategy = "cursor",
     sorting_strategy = "ascending",
   },
   extensions = {
@@ -29,7 +29,7 @@ nmap('<C-p>', builtin.commands, { silent = true })
 nmap('<leader>/', builtin.current_buffer_fuzzy_find, { silent = true })
 nmap('<space>q', builtin.diagnostics, { silent = true })
 nmap('gr', builtin.lsp_references, { silent = true })
-nmap('<leader>ft', telescope.grapple.tags, { silent = true })
+nmap('<leader>ft', telescope.extensions.grapple.tags, { silent = true })
 
 vim.api.nvim_create_user_command("Maps", builtin.keymaps, {})
 vim.api.nvim_create_user_command("GitCommits", builtin.git_commits, {})
