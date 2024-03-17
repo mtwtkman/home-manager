@@ -227,6 +227,15 @@ local plugins = {
       "nvimtools/none-ls.nvim",
     },
   },
+  {
+    "cbochs/grapple.nvim",
+    config = function()
+      require("plugins.grapple")
+    end,
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons", lazy = true },
+    },
+  },
 }
 
 local opts = {
