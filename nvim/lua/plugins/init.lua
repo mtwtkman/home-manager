@@ -99,6 +99,7 @@ local plugins = {
     config = function()
       require("plugins.fzf-lua")
     end,
+    enabled = false,
   },
   {
     "mfussenegger/nvim-dap",
@@ -235,6 +236,22 @@ local plugins = {
     dependencies = {
       { "nvim-tree/nvim-web-devicons", lazy = true },
     },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("plugins.telescope")
+    end,
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    }
   },
 }
 
