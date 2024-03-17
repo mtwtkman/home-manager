@@ -7,5 +7,6 @@ utils.nmap("<leader>Gc", function() neogit.open({ kind = "floating" }) end, { si
 neogit.setup({
   integrations = {
     diffview = true,
+    telescope = false,
   },
 })
