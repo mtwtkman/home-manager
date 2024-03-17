@@ -92,16 +92,6 @@ local plugins = {
     main = "ibl",
   },
   {
-    "ibhagwan/fzf-lua",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("plugins.fzf-lua")
-    end,
-    enabled = false,
-  },
-  {
     "mfussenegger/nvim-dap",
     config = function()
       require("plugins.nvim-dap")
@@ -254,7 +244,7 @@ local plugins = {
     }
   },
   {
-    "gbrlsnchs/telescope-lsp-handlers.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },

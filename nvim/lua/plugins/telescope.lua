@@ -3,6 +3,10 @@ local nmap = utils.nmap
 local telescope = require("telescope")
 
 telescope.setup({
+  defaults = {
+    layout_strategy = "cursor",
+    sorting_strategy = "ascending",
+  },
   extensions = {
     fzf = {
       fuzzy = true,
@@ -16,6 +20,7 @@ telescope.setup({
 local builtin = require('telescope.builtin')
 nmap('<leader>o', builtin.find_files, { silent = true })
 nmap('<leader>ff', builtin.live_grep, { silent = true })
+nmap('<leader>fw', builtin.grep_string, { silent = true })
 nmap('<leader>b', builtin.buffers, { silent = true })
 nmap('<leader>hh', builtin.oldfiles, { silent = true })
 nmap('<leader>h:', builtin.command_history, { silent = true })
@@ -30,4 +35,4 @@ vim.api.nvim_create_user_command("GitCommits", builtin.git_commits, {})
 vim.api.nvim_create_user_command("GitBranches", builtin.git_branches, {})
 
 telescope.load_extension("fzf")
-telescope.load_extension("lsp_handlers")
+telescope.load_extension("ui-select")
