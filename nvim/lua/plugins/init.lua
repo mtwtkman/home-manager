@@ -253,6 +253,12 @@ local plugins = {
       "nvim-telescope/telescope.nvim",
     }
   },
+  {
+    "gbrlsnchs/telescope-lsp-handlers.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }
 
 local opts = {

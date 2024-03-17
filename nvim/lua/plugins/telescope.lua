@@ -10,10 +10,11 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = "smart_case",
     }
-  }
+  },
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("lsp_handlers")
 
 local builtin = require('telescope.builtin')
 nmap('<leader>o', builtin.find_files, { silent = true })
