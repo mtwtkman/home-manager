@@ -36,3 +36,4 @@ vim.api.nvim_create_user_command("GitBranches", builtin.git_branches, {})
 
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
+telescope.load_extension("grapple")
