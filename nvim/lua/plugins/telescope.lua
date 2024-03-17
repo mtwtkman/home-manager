@@ -13,9 +13,6 @@ telescope.setup({
   },
 })
 
-telescope.load_extension("fzf")
-telescope.load_extension("lsp_handlers")
-
 local builtin = require('telescope.builtin')
 nmap('<leader>o', builtin.find_files, { silent = true })
 nmap('<leader>ff', builtin.live_grep, { silent = true })
@@ -32,3 +29,5 @@ vim.api.nvim_create_user_command("Maps", builtin.keymaps, {})
 vim.api.nvim_create_user_command("GitCommits", builtin.git_commits, {})
 vim.api.nvim_create_user_command("GitBranches", builtin.git_branches, {})
 
+telescope.load_extension("fzf")
+telescope.load_extension("lsp_handlers")
