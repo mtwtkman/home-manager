@@ -40,3 +40,14 @@ vim.api.nvim_create_user_command("GitBranches", builtin.git_branches, {})
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
 telescope.load_extension("grapple")
+
+local fuzzyFindFiles = function()
+  builtin.grep_string({
+    path_display = { "smart" },
+    only_sort_Text = true,
+    word_match = "-w",
+    search = "",
+  })
+end
+
+nmap("<leader>ff", fuzzyFindFiles, { silent = true })
