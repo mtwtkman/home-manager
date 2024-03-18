@@ -21,7 +21,7 @@ telescope.setup({
 
 local builtin = require('telescope.builtin')
 nmap('<leader>o', builtin.find_files, { silent = true })
-nmap('<leader>ff', builtin.live_grep, { silent = true })
+nmap('<leader>fg', builtin.live_grep, { silent = true })
 nmap('<leader>fw', builtin.grep_string, { silent = true })
 nmap('<leader>b', builtin.buffers, { silent = true })
 nmap('<leader>hh', builtin.oldfiles, { silent = true })
