@@ -53,7 +53,6 @@ in
     jq
     bottom
     nixpkgs-fmt
-    nodePackages.cspell
     gnumake
   ] ++ platformSetting.packages ++ manualInstalledPackages;
   xdg.configFile = {
