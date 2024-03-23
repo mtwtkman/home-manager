@@ -7,8 +7,8 @@ in {
   rm = "trash-put";
   hm = "NIXPKGS_ALLOW_UNFREE=1 home-manager --impure";
   hmc = "hm expire-generations 1s; nix profile wipe-history";
-  hms = "hm switch";
-  hmup = "nix-channel --update; pushd ${meta.homeManagerDirectory}; flake update; hms --show-trace; hmc; popd";
+  hms = "hm switch --keep-going --show-trace";
+  hmup = "nix-channel --update; pushd ${meta.homeManagerDirectory}; flake update; TMPDIR=/tmp hms; hmc; popd";
   flake = "nix flake";
   dev = "nix develop";
   vim = "nvim --listen /tmp/nvimsocket";
