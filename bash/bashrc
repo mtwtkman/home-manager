@@ -4,8 +4,6 @@ export GIT_PS1_SHOWCOLORHINTS=true
 PS1='\e[1;34m\w\e[0m$(__git_ps1 " (%s)")\n\$ '
 
 if [[ $(uname -r) == *"WSL2"* ]]; then
-  # X setting for wsl2
-  export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
   export LIBGL_ALWAYS_INDIRECT=0
 fi
 
