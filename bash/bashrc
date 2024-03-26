@@ -28,7 +28,7 @@ fcd()
 
 update()
 {
-  osname=$(sudo hostnamectl --json=pretty | jq .OperatingSystemPrettyName)
+  osname=$(sudo hostnamectl --json=pretty | jaq .OperatingSystemPrettyName)
   if [[ "$osname" == *Ubuntu* ]]; then
     cmd="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
   elif [[ "$osname" ==  *Arch* ]]; then

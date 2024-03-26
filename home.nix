@@ -50,7 +50,7 @@ in
     direnv
     lua-language-server
     nurl
-    jq
+    jaq
     bottom
     nixpkgs-fmt
     gnumake
